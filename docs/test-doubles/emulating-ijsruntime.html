@@ -1,0 +1,241 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Emulating Blazor's IJSRuntime | bUnit </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Emulating Blazor's IJSRuntime | bUnit ">
+    <meta name="generator" content="docfx 2.56.6.0">
+    <meta name="description" content="bUnit is a unit testing library for Blazor Components. You can easily define components under test in C# or Razor syntax and verify outcome using semantic HTML diffing/comparison logic. You can interact with and inspect components, trigger event handlers, provide cascading values, inject services, mock IJsRuntime, and perform snapshot testing.">
+  
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+  
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../styles/docfx.css">
+    <link rel="stylesheet" href="../../styles/main.css">
+    <meta property="docfx:navrel" content="../../toc.html">
+    <meta property="docfx:tocrel" content="../toc.html">
+    
+    <meta property="docfx:rel" content="../../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../../index.html">
+                <img height="60%" id="logo" class="img" src="../..//images/blazor-logo.png" alt="bUnit">
+                <span>bUnit</span>
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <div id="sponsor-button">
+                <iframe src="https://github.com/sponsors/egil/button" title="Sponsor egil" height="35" width="116" style="border: 0;"></iframe>
+              </div>
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="emulating-ijsruntime">
+<h1 id="emulating-blazors-ijsruntime">Emulating Blazor's <code>IJSRuntime</code></h1>
+
+<p>It is common for Blazor components to use <code>IJSRuntime</code> to call JavaScript, and since bUnit does not run JavaScript, emulating <code>IJSRuntime</code> is needed for components that use it. In that regard, <code>IJSRuntime</code> is no different than other services that a component might depend on.</p>
+<p>bUnit comes with it's own JSInterop, a tailor-made implementation of <code>IJSRuntime</code> that is <em>active by default</em>, allowing you to specify how JavaScript interop calls should be handled and what values the calls should return, and also allowing you to verify that they the calls have happened. The implementation runs in &quot;strict mode&quot;, which means it will throw an exception if it receives an invocation it has not been configured to handle. See more about strict vs. loose mode in the following section.</p>
+<p>If you prefer to use the same mocking framework for all mocking in your tests to keep things consistent, general-purpose mocking frameworks like <a href="https://github.com/Moq">Moq</a>, <a href="https://github.com/telerik/JustMockLite">JustMock Lite</a>, or <a href="https://nsubstitute.github.io/">NSubstitute</a> all work nicely with bUnit and can be used to mock <code>IJSRuntime</code>. In general, registering an implementation of <code>IJSRuntime</code> with bUnit's <code>Services</code> collection replaces bUnit's implementation.</p>
+<p>The following sections show how to use the built-in implementation of <code>IJSRuntime</code>.</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>In the beta versions of bUnit you had to explicitly add the mock JSRuntime by calling <code>Services.AddMockJSRuntime()</code>. That is no longer needed, and indeed doesn't work any more.</p>
+</div>
+<h2 id="strict-vs-loose-mode">Strict vs. loose mode</h2>
+<p>bUnit's JSInterop can run in two modes, <strong>strict</strong> or <strong>loose</strong>:</p>
+<ul>
+<li><strong>Loose</strong> mode configures the implementation to just return the default value when it receives an invocation that has not been explicitly set up, e.g. if a component calls <code>InvokeAsync&lt;int&gt;(...)</code> the mock will simply return <code>default(int)</code> back to it immediately.</li>
+<li><strong>Strict</strong> mode configures the implementation to throw an exception if it is invoked with a method call it has <em>not</em> been set up to handle explicitly. This is useful if you want to ensure that a component only performs a specific set of <code>IJSRuntime</code> invocations.</li>
+</ul>
+<p>By default, the bUnit's JSInterop runs in <strong>Strict</strong> mode. To change the mode, do the following:</p>
+<pre><code class="lang-csharp">using var ctx = new TestContext();
+ctx.JSInterop.Mode = JSRuntimeMode.Loose;
+</code></pre>
+<h2 id="setting-up-invocations">Setting up invocations</h2>
+<p>Use the <code>Setup&lt;TResult&gt;(...)</code> and <code>SetupVoid(...)</code> methods to configure the implementation to handle calls from the <strong>matching</strong> <code>InvokeAsync&lt;TResult&gt;(...)</code> and <code>InvokeVoidAsync(...)</code> methods on <code>IJSRuntime</code>.</p>
+<p>Use the parameterless <code>Setup&lt;TResult&gt;()</code> method to emulate any call to <code>InvokeAsync&lt;TResult&gt;(...)</code> with a given return type <code>TResult</code> and use the parameterless <code>SetupVoid()</code> to emulate any call to <code>InvokeVoidAsync(...)</code>.</p>
+<p>When an invocation is set up through of the <code>Setup&lt;TResult&gt;(...)</code> and <code>SetupVoid(...)</code> methods, a <code>JSRuntimePlannedInvocation&lt;TResult&gt;</code> object is returned. This can be used to set a result or an exception, to emulate what can happen during a JavaScript interop call in Blazor.</p>
+<p>Similarly, when the parameterless <code>Setup&lt;TResult&gt;()</code> and <code>SetupVoid()</code> methods are used a <code>JSRuntimeCatchAllPlannedInvocation&lt;TResult&gt;</code> object is returned which can be used to set the result of invocation.</p>
+<p>Here are two examples:</p>
+<pre><code class="lang-csharp">using var ctx = new TestContext();
+
+// Set up an invocation and specify the result value immediately
+ctx.JSInterop.Setup&lt;string&gt;(&quot;getPageTitle&quot;).SetResult(&quot;bUnit is awesome&quot;);
+
+// Set up an invocation without specifying the result
+var plannedInvocation = ctx.JSInterop.SetupVoid(&quot;startAnimation&quot;);
+
+// ... other test code
+
+// Later in the test, mark the invocation as completed.
+// SetResult() is not used in this case since InvokeVoidAsync
+// only completes or throws, it doesn’t return a value.
+// Any calls to InvokeVoidAsync(...) up till this point will
+// have received an incomplete Task which the component 
+// is awaiting until the call to SetVoidResult() below.
+plannedInvocation.SetVoidResult();
+</code></pre>
+<h2 id="verifying-invocations">Verifying invocations</h2>
+<p>All calls to the <code>InvokeAsync&lt;TResult&gt;(...)</code> and <code>InvokeVoidAsync(...)</code> methods in bUnit's JSInterop are stored in its <code>Invocations</code> list, which can be inspected and asserted against. In addition to this, all planned invocations have their own <code>Invocations</code> lists which only contain their invocations.</p>
+<p>Invocations are represented by the <code>JSRuntimeInvocation</code> type, which has three properties of interest when verifying an invocation happened as expected:</p>
+<ul>
+<li><code>Identifier</code> - the name of the function name/identifier passed to the invoke method.</li>
+<li><code>Arguments</code> - a list of arguments passed to the invoke method.</li>
+<li><code>CancellationToken</code> - the cancellation token passed to the invoke method (if any).</li>
+</ul>
+<p>To verify these, just use the assertion methods you normally use.</p>
+<h3 id="support-for-ijsinprocessruntime-and-ijsunmarshalledruntime">Support for <code>IJSInProcessRuntime</code> and <code>IJSUnmarshalledRuntime</code></h3>
+<p>bUnit's <code>IJSRuntime</code> supports being cast to the <code>IJSInProcessRuntime</code> and <code>IJSUnmarshalledRuntime</code> types, just like Blazor's <code>IJSRuntime</code>.</p>
+<p>To set up a handler for an <code>Invoke</code> or <code>InvokeUnmarshalled</code> call, just use the regular <code>Setup</code> and <code>SetupVoid</code> methods on bUnit's JSInterop.</p>
+<h2 id="support-for-importing-javascript-modules">Support for importing JavaScript Modules</h2>
+<p>Since the .NET 5 release of Blazor, it has been possible to import JavaScript modules directly from components. This is supported by bUnit's JSInterop through the <code>SetupModule</code> methods, that sets up calls to <code>InvokeAsync&lt;IJSObjectReference&gt;</code>.</p>
+<p>The <code>SetupModule</code> methods return a module JSInterop, which can be configured to handle JavaScript calls using the <code>Setup</code> and <code>SetupVoid</code> methods. For example, to configure bUnit's JSInterop to handle an import of the JavaScript module <code>hello.js</code>, and a call to the function <code>world()</code> in that model, do the following:</p>
+<pre><code class="lang-csharp">using var ctx = new TestContext();
+
+var moduleInterop = ctx.JSInterop.SetupModule(&quot;hello.js&quot;);
+moduleInterop.SetupVoid(&quot;world&quot;);
+</code></pre>
+<h3 id="module-interop-mode">Module Interop Mode</h3>
+<p>By default, a module Interop inherits the <code>Mode</code> setting from the root JSInterop in bUnit. However, you can override it explicitly and have it in a different mode from another module's Interop or the root JSInterop. Just set the <code>Mode</code> property, e.g.:</p>
+<pre><code class="lang-csharp">var moduleInterop = ctx.JSInterop.SetupModule(&quot;hello.js&quot;);
+moduleInterop.Mode = JSRuntimeMode.Loose;
+</code></pre>
+<h3 id="support-for-ijsinprocessobjectreference-and-ijsunmarshalledobjectreference">Support for <code>IJSInProcessObjectReference</code> and <code>IJSUnmarshalledObjectReference</code></h3>
+<p>bUnit's <code>IJSObjectReference</code> supports being cast to the <code>IJSInProcessObjectReference</code> and <code>IJSUnmarshalledObjectReference</code> types, just like Blazor's <code>IJSObjectReference</code>.</p>
+<p>To set up a handler for an <code>Invoke</code> or <code>InvokeUnmarshalled</code> call, just use the regular <code>Setup</code> and <code>SetupVoid</code> methods on bUnit's JSInterop.</p>
+<h2 id="first-party-jsinterop-component-emulation">First-Party JSInterop Component Emulation</h2>
+<p>Blazor comes out of the box with a few components that require a working JSInterop. bUnit's JSInterop is setup to emulate the JavaScript interactions of those components. The following sections describe how the interaction is emulated for the supported components.</p>
+<h3 id="-jsinterop-emulation"><virtualize> JSInterop Emulation</virtualize></h3>
+<p>The <code>&lt;Virtualize&gt;</code> component requires JavaScript to notify it about the available screen space it is being rendered to, and also when the users scrolls the viewport, to trigger the loading of new data. bUnit emulates this interaction by telling the <code>&lt;Virtualize&gt;</code> component that the viewport is <code>1,000,000,000</code> pixels large. That should ensure that all items are loaded, which makes sense in a testing scenario.</p>
+<p>To test the <code>&lt;Placeholder&gt;</code> template of the <code>&lt;Virtualize&gt;</code> component, create an items provider that doesn't return all items when queried.</p>
+<h3 id="focusasync-jsinterop-emulation">FocusAsync JSInterop Emulation</h3>
+<p>Support for the <a href="https://docs.microsoft.com/en-us/aspnet/core/blazor/components/event-handling?view=aspnetcore-5.0#focus-an-element"><code>FocusAsync</code></a> method on <code>ElementReference</code> in Blazor's .NET 5 release works by simply registering the invocations, which can then be verified to have occurred.</p>
+<p>To verify that the <code>FocusAsync</code> has been called in the <code>&lt;ClickToFocus&gt;</code> component:</p>
+<pre><code class="lang-cshtml">&lt;input @ref=&quot;exampleInput&quot; /&gt;
+
+&lt;button @onclick=&quot;ChangeFocus&quot;&gt;Focus the Input Element&lt;/button&gt;
+
+@code {
+    private ElementReference exampleInput;
+    private async Task ChangeFocus()
+    {
+        await exampleInput.FocusAsync();
+    }
+}
+</code></pre>
+<p>Do the following:</p>
+<pre><code class="lang-csharp">using var ctx = new TestContext();
+var cut = RenderComponent&lt;ClickToFocus&gt;();
+var inputElement = cut.Find(&quot;input&quot;);
+
+cut.Find(&quot;button&quot;).Click(); // Triggers onclick handler that sets focus of input element
+
+ctx.JSInterop.VerifyFocusAsyncInvoke() // Verifies that a FocusAsync call has happened
+   .Arguments[0] // gets the first argument passed to the FocusAsync method
+   .ShouldBeElementReferenceTo(inputElement); // verify that it is an element reference to the input element.
+</code></pre>
+<h2 id="support-for-ijsinprocessruntime-and-ijsunmarshalledruntime-1">Support for <code>IJSInProcessRuntime</code> and <code>IJSUnmarshalledRuntime</code></h2>
+<p>bUnit's <code>IJSRuntime</code> supports being cast to the <code>IJSInProcessRuntime</code> and <code>IJSUnmarshalledRuntime</code> types, just like Blazor's <code>IJSRuntime</code>.</p>
+<p>To set up a handler for <code>Invoke</code> and <code>InvokeUnmarshalled</code> calls, just use the regular <code>Setup</code> and <code>SetupVoid</code> methods on bUnit's JSInterop.</p>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="sponsor-highlight">
+                <a href="https://www.telerik.com/campaigns/blazor/free-trial-1?utm_source=egilhansen&utm_medium=cpm&utm_campaign=blazor-trial-bunit-sponsored-message">
+                  <img width="200" src="/sponsors/telerik-ad-site.svg">
+                </a>      
+              </div>
+              <div class="supported">
+                <a href="https://www.packtpub.com/" title="Packt">
+                  <img width="150" src="/sponsors/packt-retina-logo.png">
+                </a>
+                <p>Editorial support provided by <a href="https://www.packtpub.com/" title="Packt">Packt</a>.</p>
+              </div>
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/egil/bUnit/blob/main/docs/site/docs/test-doubles/emulating-ijsruntime.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            <small>Documentation updated on 3/16/2021 9:33:36 AM +00:00 in commit 74fd44bf54</small>.
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/cshtml-razor.js"></script>
+    <script>
+      hljs.registerLanguage('cshtml-razor', window.hljsDefineCshtmlRazor);
+    </script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+  </body>
+</html>

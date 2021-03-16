@@ -1,0 +1,1385 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Class ComponentParameterFactory
+   | bUnit </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Class ComponentParameterFactory
+   | bUnit ">
+    <meta name="generator" content="docfx 2.56.6.0">
+    <meta name="description" content="bUnit is a unit testing library for Blazor Components. You can easily define components under test in C# or Razor syntax and verify outcome using semantic HTML diffing/comparison logic. You can interact with and inspect components, trigger event handlers, provide cascading values, inject services, mock IJsRuntime, and perform snapshot testing.">
+  
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+  
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    <meta property="docfx:rel" content="../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img height="60%" id="logo" class="img" src="..//images/blazor-logo.png" alt="bUnit">
+                <span>bUnit</span>
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <div id="sponsor-button">
+                <iframe src="https://github.com/sponsors/egil/button" title="Sponsor egil" height="35" width="116" style="border: 0;"></iframe>
+              </div>
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="Bunit.ComponentParameterFactory">
+  
+  
+  <h1 id="Bunit_ComponentParameterFactory" data-uid="Bunit.ComponentParameterFactory" class="text-break">Class ComponentParameterFactory
+  </h1>
+  <div class="markdown level0 summary"><p><a class="xref" href="Bunit.ComponentParameter.html">ComponentParameter</a> factory methods.</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><span class="xref">System.Object</span></div>
+    <div class="level1"><span class="xref">ComponentParameterFactory</span></div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <span class="xref">System.Object.Equals(System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.Equals(System.Object, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.GetHashCode()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.GetType()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.MemberwiseClone()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.ReferenceEquals(System.Object, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.ToString()</span>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="Bunit.html">Bunit</a></h6>
+  <h6><strong>Assembly</strong>: Bunit.Core.dll</h6>
+  <h5 id="Bunit_ComponentParameterFactory_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static class ComponentParameterFactory</code></pre>
+  </div>
+  <h3 id="methods">Methods
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/egil/bUnit/new/main/apiSpec/new?filename=Bunit_ComponentParameterFactory_CascadingValue_System_Object_.md&amp;value=---%0Auid%3A%20Bunit.ComponentParameterFactory.CascadingValue(System.Object)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/egil/bUnit/blob/main/src/bunit.core/ComponentParameterFactory.cs/#L128">View Source</a>
+  </span>
+  <a id="Bunit_ComponentParameterFactory_CascadingValue_" data-uid="Bunit.ComponentParameterFactory.CascadingValue*"></a>
+  <h4 id="Bunit_ComponentParameterFactory_CascadingValue_System_Object_" data-uid="Bunit.ComponentParameterFactory.CascadingValue(System.Object)">CascadingValue(Object)</h4>
+  <div class="markdown level1 summary"><p>Creates a cascading value which can be passed to a test contexts render methods.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ComponentParameter CascadingValue(object value)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Object</span></td>
+        <td><span class="parametername">value</span></td>
+        <td><p>Value of the parameter</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Bunit.ComponentParameter.html">ComponentParameter</a></td>
+        <td><p>The <a class="xref" href="Bunit.ComponentParameter.html">ComponentParameter</a>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/egil/bUnit/new/main/apiSpec/new?filename=Bunit_ComponentParameterFactory_CascadingValue_System_String_System_Object_.md&amp;value=---%0Auid%3A%20Bunit.ComponentParameterFactory.CascadingValue(System.String%2CSystem.Object)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/egil/bUnit/blob/main/src/bunit.core/ComponentParameterFactory.cs/#L118">View Source</a>
+  </span>
+  <a id="Bunit_ComponentParameterFactory_CascadingValue_" data-uid="Bunit.ComponentParameterFactory.CascadingValue*"></a>
+  <h4 id="Bunit_ComponentParameterFactory_CascadingValue_System_String_System_Object_" data-uid="Bunit.ComponentParameterFactory.CascadingValue(System.String,System.Object)">CascadingValue(String, Object)</h4>
+  <div class="markdown level1 summary"><p>Creates a cascading value which can be passed to a test contexts render methods.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ComponentParameter CascadingValue(string name, object value)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">name</span></td>
+        <td><p>Parameter name</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Object</span></td>
+        <td><span class="parametername">value</span></td>
+        <td><p>Value of the parameter</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Bunit.ComponentParameter.html">ComponentParameter</a></td>
+        <td><p>The <a class="xref" href="Bunit.ComponentParameter.html">ComponentParameter</a>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/egil/bUnit/new/main/apiSpec/new?filename=Bunit_ComponentParameterFactory_ChildContent_Microsoft_AspNetCore_Components_RenderFragment_.md&amp;value=---%0Auid%3A%20Bunit.ComponentParameterFactory.ChildContent(Microsoft.AspNetCore.Components.RenderFragment)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/egil/bUnit/blob/main/src/bunit.core/ComponentParameterFactory.cs/#L162">View Source</a>
+  </span>
+  <a id="Bunit_ComponentParameterFactory_ChildContent_" data-uid="Bunit.ComponentParameterFactory.ChildContent*"></a>
+  <h4 id="Bunit_ComponentParameterFactory_ChildContent_Microsoft_AspNetCore_Components_RenderFragment_" data-uid="Bunit.ComponentParameterFactory.ChildContent(Microsoft.AspNetCore.Components.RenderFragment)">ChildContent(RenderFragment)</h4>
+  <div class="markdown level1 summary"><p>Creates a ChildContent parameter that will pass the provided <code data-dev-comment-type="paramref" class="paramref">renderFragment</code>
+to the parameter in the component.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ComponentParameter ChildContent(RenderFragment renderFragment)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Microsoft.AspNetCore.Components.RenderFragment</span></td>
+        <td><span class="parametername">renderFragment</span></td>
+        <td><p>The <span class="xref">Microsoft.AspNetCore.Components.RenderFragment</span> to pass to the ChildContent parameter.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Bunit.ComponentParameter.html">ComponentParameter</a></td>
+        <td><p>The <a class="xref" href="Bunit.ComponentParameter.html">ComponentParameter</a>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/egil/bUnit/new/main/apiSpec/new?filename=Bunit_ComponentParameterFactory_ChildContent_System_String_.md&amp;value=---%0Auid%3A%20Bunit.ComponentParameterFactory.ChildContent(System.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/egil/bUnit/blob/main/src/bunit.core/ComponentParameterFactory.cs/#L139">View Source</a>
+  </span>
+  <a id="Bunit_ComponentParameterFactory_ChildContent_" data-uid="Bunit.ComponentParameterFactory.ChildContent*"></a>
+  <h4 id="Bunit_ComponentParameterFactory_ChildContent_System_String_" data-uid="Bunit.ComponentParameterFactory.ChildContent(System.String)">ChildContent(String)</h4>
+  <div class="markdown level1 summary"><p>Creates a ChildContent <span class="xref">Microsoft.AspNetCore.Components.RenderFragment</span> with the provided
+<code data-dev-comment-type="paramref" class="paramref">markup</code> as rendered output.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ComponentParameter ChildContent(string markup)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">markup</span></td>
+        <td><p>Markup to pass to the child content parameter</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Bunit.ComponentParameter.html">ComponentParameter</a></td>
+        <td><p>The <a class="xref" href="Bunit.ComponentParameter.html">ComponentParameter</a>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/egil/bUnit/new/main/apiSpec/new?filename=Bunit_ComponentParameterFactory_ChildContent__1_Bunit_ComponentParameter___.md&amp;value=---%0Auid%3A%20Bunit.ComponentParameterFactory.ChildContent%60%601(Bunit.ComponentParameter%5B%5D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/egil/bUnit/blob/main/src/bunit.core/ComponentParameterFactory.cs/#L151">View Source</a>
+  </span>
+  <a id="Bunit_ComponentParameterFactory_ChildContent_" data-uid="Bunit.ComponentParameterFactory.ChildContent*"></a>
+  <h4 id="Bunit_ComponentParameterFactory_ChildContent__1_Bunit_ComponentParameter___" data-uid="Bunit.ComponentParameterFactory.ChildContent``1(Bunit.ComponentParameter[])">ChildContent&lt;TComponent&gt;(ComponentParameter[])</h4>
+  <div class="markdown level1 summary"><p>Creates a ChildContent <span class="xref">Microsoft.AspNetCore.Components.RenderFragment</span> which will render a <code data-dev-comment-type="typeparamref" class="typeparamref">TComponent</code> component
+with the provided <code data-dev-comment-type="paramref" class="paramref">parameters</code> as input.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ComponentParameter ChildContent&lt;TComponent&gt;(params ComponentParameter[] parameters)
+
+    where TComponent : class, IComponent</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Bunit.ComponentParameter.html">ComponentParameter</a>[]</td>
+        <td><span class="parametername">parameters</span></td>
+        <td><p>Parameters to pass to the <code data-dev-comment-type="typeparamref" class="typeparamref">TComponent</code>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Bunit.ComponentParameter.html">ComponentParameter</a></td>
+        <td><p>The <a class="xref" href="Bunit.ComponentParameter.html">ComponentParameter</a>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">TComponent</span></td>
+        <td><p>The type of the component to render with the <span class="xref">Microsoft.AspNetCore.Components.RenderFragment</span></p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/egil/bUnit/new/main/apiSpec/new?filename=Bunit_ComponentParameterFactory_EventCallback_System_String_System_Action_.md&amp;value=---%0Auid%3A%20Bunit.ComponentParameterFactory.EventCallback(System.String%2CSystem.Action)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/egil/bUnit/blob/main/src/bunit.core/ComponentParameterFactory.cs/#L19">View Source</a>
+  </span>
+  <a id="Bunit_ComponentParameterFactory_EventCallback_" data-uid="Bunit.ComponentParameterFactory.EventCallback*"></a>
+  <h4 id="Bunit_ComponentParameterFactory_EventCallback_System_String_System_Action_" data-uid="Bunit.ComponentParameterFactory.EventCallback(System.String,System.Action)">EventCallback(String, Action)</h4>
+  <div class="markdown level1 summary"><p>Creates a <a class="xref" href="Bunit.ComponentParameter.html">ComponentParameter</a> with an <span class="xref">Microsoft.AspNetCore.Components.EventCallback</span> that will call the provided <code data-dev-comment-type="paramref" class="paramref">callback</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ComponentParameter EventCallback(string name, Action callback)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">name</span></td>
+        <td><p>Parameter name.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Action</span></td>
+        <td><span class="parametername">callback</span></td>
+        <td><p>The event callback.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Bunit.ComponentParameter.html">ComponentParameter</a></td>
+        <td><p>The <a class="xref" href="Bunit.ComponentParameter.html">ComponentParameter</a>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/egil/bUnit/new/main/apiSpec/new?filename=Bunit_ComponentParameterFactory_EventCallback_System_String_System_Action_System_Object__.md&amp;value=---%0Auid%3A%20Bunit.ComponentParameterFactory.EventCallback(System.String%2CSystem.Action%7BSystem.Object%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/egil/bUnit/blob/main/src/bunit.core/ComponentParameterFactory.cs/#L30">View Source</a>
+  </span>
+  <a id="Bunit_ComponentParameterFactory_EventCallback_" data-uid="Bunit.ComponentParameterFactory.EventCallback*"></a>
+  <h4 id="Bunit_ComponentParameterFactory_EventCallback_System_String_System_Action_System_Object__" data-uid="Bunit.ComponentParameterFactory.EventCallback(System.String,System.Action{System.Object})">EventCallback(String, Action&lt;Object&gt;)</h4>
+  <div class="markdown level1 summary"><p>Creates a <a class="xref" href="Bunit.ComponentParameter.html">ComponentParameter</a> with an <span class="xref">Microsoft.AspNetCore.Components.EventCallback</span> that will call the provided <code data-dev-comment-type="paramref" class="paramref">callback</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ComponentParameter EventCallback(string name, Action&lt;object&gt; callback)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">name</span></td>
+        <td><p>Parameter name.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Action</span>&lt;<span class="xref">System.Object</span>&gt;</td>
+        <td><span class="parametername">callback</span></td>
+        <td><p>The event callback.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Bunit.ComponentParameter.html">ComponentParameter</a></td>
+        <td><p>The <a class="xref" href="Bunit.ComponentParameter.html">ComponentParameter</a>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/egil/bUnit/new/main/apiSpec/new?filename=Bunit_ComponentParameterFactory_EventCallback_System_String_System_Func_System_Object_System_Threading_Tasks_Task__.md&amp;value=---%0Auid%3A%20Bunit.ComponentParameterFactory.EventCallback(System.String%2CSystem.Func%7BSystem.Object%2CSystem.Threading.Tasks.Task%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/egil/bUnit/blob/main/src/bunit.core/ComponentParameterFactory.cs/#L52">View Source</a>
+  </span>
+  <a id="Bunit_ComponentParameterFactory_EventCallback_" data-uid="Bunit.ComponentParameterFactory.EventCallback*"></a>
+  <h4 id="Bunit_ComponentParameterFactory_EventCallback_System_String_System_Func_System_Object_System_Threading_Tasks_Task__" data-uid="Bunit.ComponentParameterFactory.EventCallback(System.String,System.Func{System.Object,System.Threading.Tasks.Task})">EventCallback(String, Func&lt;Object, Task&gt;)</h4>
+  <div class="markdown level1 summary"><p>Creates a <a class="xref" href="Bunit.ComponentParameter.html">ComponentParameter</a> with an <span class="xref">Microsoft.AspNetCore.Components.EventCallback</span> that will call the provided <code data-dev-comment-type="paramref" class="paramref">callback</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ComponentParameter EventCallback(string name, Func&lt;object, Task&gt; callback)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">name</span></td>
+        <td><p>Parameter name.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Func</span>&lt;<span class="xref">System.Object</span>, <span class="xref">System.Threading.Tasks.Task</span>&gt;</td>
+        <td><span class="parametername">callback</span></td>
+        <td><p>The event callback.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Bunit.ComponentParameter.html">ComponentParameter</a></td>
+        <td><p>The <a class="xref" href="Bunit.ComponentParameter.html">ComponentParameter</a>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/egil/bUnit/new/main/apiSpec/new?filename=Bunit_ComponentParameterFactory_EventCallback_System_String_System_Func_System_Threading_Tasks_Task__.md&amp;value=---%0Auid%3A%20Bunit.ComponentParameterFactory.EventCallback(System.String%2CSystem.Func%7BSystem.Threading.Tasks.Task%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/egil/bUnit/blob/main/src/bunit.core/ComponentParameterFactory.cs/#L41">View Source</a>
+  </span>
+  <a id="Bunit_ComponentParameterFactory_EventCallback_" data-uid="Bunit.ComponentParameterFactory.EventCallback*"></a>
+  <h4 id="Bunit_ComponentParameterFactory_EventCallback_System_String_System_Func_System_Threading_Tasks_Task__" data-uid="Bunit.ComponentParameterFactory.EventCallback(System.String,System.Func{System.Threading.Tasks.Task})">EventCallback(String, Func&lt;Task&gt;)</h4>
+  <div class="markdown level1 summary"><p>Creates a <a class="xref" href="Bunit.ComponentParameter.html">ComponentParameter</a> with an <span class="xref">Microsoft.AspNetCore.Components.EventCallback</span> that will call the provided <code data-dev-comment-type="paramref" class="paramref">callback</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ComponentParameter EventCallback(string name, Func&lt;Task&gt; callback)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">name</span></td>
+        <td><p>Parameter name.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Func</span>&lt;<span class="xref">System.Threading.Tasks.Task</span>&gt;</td>
+        <td><span class="parametername">callback</span></td>
+        <td><p>The event callback.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Bunit.ComponentParameter.html">ComponentParameter</a></td>
+        <td><p>The <a class="xref" href="Bunit.ComponentParameter.html">ComponentParameter</a>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/egil/bUnit/new/main/apiSpec/new?filename=Bunit_ComponentParameterFactory_EventCallback__1_System_String_System_Action_.md&amp;value=---%0Auid%3A%20Bunit.ComponentParameterFactory.EventCallback%60%601(System.String%2CSystem.Action)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/egil/bUnit/blob/main/src/bunit.core/ComponentParameterFactory.cs/#L63">View Source</a>
+  </span>
+  <a id="Bunit_ComponentParameterFactory_EventCallback_" data-uid="Bunit.ComponentParameterFactory.EventCallback*"></a>
+  <h4 id="Bunit_ComponentParameterFactory_EventCallback__1_System_String_System_Action_" data-uid="Bunit.ComponentParameterFactory.EventCallback``1(System.String,System.Action)">EventCallback&lt;TValue&gt;(String, Action)</h4>
+  <div class="markdown level1 summary"><p>Creates a <a class="xref" href="Bunit.ComponentParameter.html">ComponentParameter</a> with an <span class="xref">Microsoft.AspNetCore.Components.EventCallback</span> that will call the provided <code data-dev-comment-type="paramref" class="paramref">callback</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ComponentParameter EventCallback&lt;TValue&gt;(string name, Action callback)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">name</span></td>
+        <td><p>Parameter name.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Action</span></td>
+        <td><span class="parametername">callback</span></td>
+        <td><p>The event callback.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Bunit.ComponentParameter.html">ComponentParameter</a></td>
+        <td><p>The <a class="xref" href="Bunit.ComponentParameter.html">ComponentParameter</a>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">TValue</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/egil/bUnit/new/main/apiSpec/new?filename=Bunit_ComponentParameterFactory_EventCallback__1_System_String_System_Action___0__.md&amp;value=---%0Auid%3A%20Bunit.ComponentParameterFactory.EventCallback%60%601(System.String%2CSystem.Action%7B%60%600%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/egil/bUnit/blob/main/src/bunit.core/ComponentParameterFactory.cs/#L74">View Source</a>
+  </span>
+  <a id="Bunit_ComponentParameterFactory_EventCallback_" data-uid="Bunit.ComponentParameterFactory.EventCallback*"></a>
+  <h4 id="Bunit_ComponentParameterFactory_EventCallback__1_System_String_System_Action___0__" data-uid="Bunit.ComponentParameterFactory.EventCallback``1(System.String,System.Action{``0})">EventCallback&lt;TValue&gt;(String, Action&lt;TValue&gt;)</h4>
+  <div class="markdown level1 summary"><p>Creates a <a class="xref" href="Bunit.ComponentParameter.html">ComponentParameter</a> with an <span class="xref">Microsoft.AspNetCore.Components.EventCallback</span> that will call the provided <code data-dev-comment-type="paramref" class="paramref">callback</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ComponentParameter EventCallback&lt;TValue&gt;(string name, Action&lt;TValue&gt; callback)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">name</span></td>
+        <td><p>Parameter name.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Action</span>&lt;TValue&gt;</td>
+        <td><span class="parametername">callback</span></td>
+        <td><p>The event callback.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Bunit.ComponentParameter.html">ComponentParameter</a></td>
+        <td><p>The <a class="xref" href="Bunit.ComponentParameter.html">ComponentParameter</a>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">TValue</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/egil/bUnit/new/main/apiSpec/new?filename=Bunit_ComponentParameterFactory_EventCallback__1_System_String_System_Func___0_System_Threading_Tasks_Task__.md&amp;value=---%0Auid%3A%20Bunit.ComponentParameterFactory.EventCallback%60%601(System.String%2CSystem.Func%7B%60%600%2CSystem.Threading.Tasks.Task%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/egil/bUnit/blob/main/src/bunit.core/ComponentParameterFactory.cs/#L96">View Source</a>
+  </span>
+  <a id="Bunit_ComponentParameterFactory_EventCallback_" data-uid="Bunit.ComponentParameterFactory.EventCallback*"></a>
+  <h4 id="Bunit_ComponentParameterFactory_EventCallback__1_System_String_System_Func___0_System_Threading_Tasks_Task__" data-uid="Bunit.ComponentParameterFactory.EventCallback``1(System.String,System.Func{``0,System.Threading.Tasks.Task})">EventCallback&lt;TValue&gt;(String, Func&lt;TValue, Task&gt;)</h4>
+  <div class="markdown level1 summary"><p>Creates a <a class="xref" href="Bunit.ComponentParameter.html">ComponentParameter</a> with an <span class="xref">Microsoft.AspNetCore.Components.EventCallback</span> that will call the provided <code data-dev-comment-type="paramref" class="paramref">callback</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ComponentParameter EventCallback&lt;TValue&gt;(string name, Func&lt;TValue, Task&gt; callback)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">name</span></td>
+        <td><p>Parameter name.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Func</span>&lt;TValue, <span class="xref">System.Threading.Tasks.Task</span>&gt;</td>
+        <td><span class="parametername">callback</span></td>
+        <td><p>The event callback.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Bunit.ComponentParameter.html">ComponentParameter</a></td>
+        <td><p>The <a class="xref" href="Bunit.ComponentParameter.html">ComponentParameter</a>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">TValue</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/egil/bUnit/new/main/apiSpec/new?filename=Bunit_ComponentParameterFactory_EventCallback__1_System_String_System_Func_System_Threading_Tasks_Task__.md&amp;value=---%0Auid%3A%20Bunit.ComponentParameterFactory.EventCallback%60%601(System.String%2CSystem.Func%7BSystem.Threading.Tasks.Task%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/egil/bUnit/blob/main/src/bunit.core/ComponentParameterFactory.cs/#L85">View Source</a>
+  </span>
+  <a id="Bunit_ComponentParameterFactory_EventCallback_" data-uid="Bunit.ComponentParameterFactory.EventCallback*"></a>
+  <h4 id="Bunit_ComponentParameterFactory_EventCallback__1_System_String_System_Func_System_Threading_Tasks_Task__" data-uid="Bunit.ComponentParameterFactory.EventCallback``1(System.String,System.Func{System.Threading.Tasks.Task})">EventCallback&lt;TValue&gt;(String, Func&lt;Task&gt;)</h4>
+  <div class="markdown level1 summary"><p>Creates a <a class="xref" href="Bunit.ComponentParameter.html">ComponentParameter</a> with an <span class="xref">Microsoft.AspNetCore.Components.EventCallback</span> that will call the provided <code data-dev-comment-type="paramref" class="paramref">callback</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ComponentParameter EventCallback&lt;TValue&gt;(string name, Func&lt;Task&gt; callback)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">name</span></td>
+        <td><p>Parameter name.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Func</span>&lt;<span class="xref">System.Threading.Tasks.Task</span>&gt;</td>
+        <td><span class="parametername">callback</span></td>
+        <td><p>The event callback.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Bunit.ComponentParameter.html">ComponentParameter</a></td>
+        <td><p>The <a class="xref" href="Bunit.ComponentParameter.html">ComponentParameter</a>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">TValue</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/egil/bUnit/new/main/apiSpec/new?filename=Bunit_ComponentParameterFactory_Parameter_System_String_System_Object_.md&amp;value=---%0Auid%3A%20Bunit.ComponentParameterFactory.Parameter(System.String%2CSystem.Object)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/egil/bUnit/blob/main/src/bunit.core/ComponentParameterFactory.cs/#L107">View Source</a>
+  </span>
+  <a id="Bunit_ComponentParameterFactory_Parameter_" data-uid="Bunit.ComponentParameterFactory.Parameter*"></a>
+  <h4 id="Bunit_ComponentParameterFactory_Parameter_System_String_System_Object_" data-uid="Bunit.ComponentParameterFactory.Parameter(System.String,System.Object)">Parameter(String, Object)</h4>
+  <div class="markdown level1 summary"><p>Creates a component parameter which can be passed to a test contexts render methods.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ComponentParameter Parameter(string name, object value)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">name</span></td>
+        <td><p>Parameter name</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Object</span></td>
+        <td><span class="parametername">value</span></td>
+        <td><p>Value or null of the parameter</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Bunit.ComponentParameter.html">ComponentParameter</a></td>
+        <td><p>The <a class="xref" href="Bunit.ComponentParameter.html">ComponentParameter</a>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/egil/bUnit/new/main/apiSpec/new?filename=Bunit_ComponentParameterFactory_RenderFragment_System_String_System_String_.md&amp;value=---%0Auid%3A%20Bunit.ComponentParameterFactory.RenderFragment(System.String%2CSystem.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/egil/bUnit/blob/main/src/bunit.core/ComponentParameterFactory.cs/#L174">View Source</a>
+  </span>
+  <a id="Bunit_ComponentParameterFactory_RenderFragment_" data-uid="Bunit.ComponentParameterFactory.RenderFragment*"></a>
+  <h4 id="Bunit_ComponentParameterFactory_RenderFragment_System_String_System_String_" data-uid="Bunit.ComponentParameterFactory.RenderFragment(System.String,System.String)">RenderFragment(String, String)</h4>
+  <div class="markdown level1 summary"><p>Creates a <span class="xref">Microsoft.AspNetCore.Components.RenderFragment</span> with the provided
+<code data-dev-comment-type="paramref" class="paramref">markup</code> as rendered output and passes it to the parameter specified in <code data-dev-comment-type="paramref" class="paramref">name</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ComponentParameter RenderFragment(string name, string markup)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">name</span></td>
+        <td><p>Parameter name.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">markup</span></td>
+        <td><p>Markup to pass to the render fragment parameter</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Bunit.ComponentParameter.html">ComponentParameter</a></td>
+        <td><p>The <a class="xref" href="Bunit.ComponentParameter.html">ComponentParameter</a>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/egil/bUnit/new/main/apiSpec/new?filename=Bunit_ComponentParameterFactory_RenderFragment__1_System_String_Bunit_ComponentParameter___.md&amp;value=---%0Auid%3A%20Bunit.ComponentParameterFactory.RenderFragment%60%601(System.String%2CBunit.ComponentParameter%5B%5D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/egil/bUnit/blob/main/src/bunit.core/ComponentParameterFactory.cs/#L187">View Source</a>
+  </span>
+  <a id="Bunit_ComponentParameterFactory_RenderFragment_" data-uid="Bunit.ComponentParameterFactory.RenderFragment*"></a>
+  <h4 id="Bunit_ComponentParameterFactory_RenderFragment__1_System_String_Bunit_ComponentParameter___" data-uid="Bunit.ComponentParameterFactory.RenderFragment``1(System.String,Bunit.ComponentParameter[])">RenderFragment&lt;TComponent&gt;(String, ComponentParameter[])</h4>
+  <div class="markdown level1 summary"><p>Creates a <span class="xref">Microsoft.AspNetCore.Components.RenderFragment</span> which will render a <code data-dev-comment-type="typeparamref" class="typeparamref">TComponent</code> component
+with the provided <code data-dev-comment-type="paramref" class="paramref">parameters</code> as input, and passes it to the parameter specified in <code data-dev-comment-type="paramref" class="paramref">name</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ComponentParameter RenderFragment&lt;TComponent&gt;(string name, params ComponentParameter[] parameters)
+
+    where TComponent : class, IComponent</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">name</span></td>
+        <td><p>Parameter name.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Bunit.ComponentParameter.html">ComponentParameter</a>[]</td>
+        <td><span class="parametername">parameters</span></td>
+        <td><p>Parameters to pass to the <code data-dev-comment-type="typeparamref" class="typeparamref">TComponent</code>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Bunit.ComponentParameter.html">ComponentParameter</a></td>
+        <td><p>The <a class="xref" href="Bunit.ComponentParameter.html">ComponentParameter</a>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">TComponent</span></td>
+        <td><p>The type of the component to render with the <span class="xref">Microsoft.AspNetCore.Components.RenderFragment</span></p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/egil/bUnit/new/main/apiSpec/new?filename=Bunit_ComponentParameterFactory_Template__1_System_String_Microsoft_AspNetCore_Components_RenderFragment___0__.md&amp;value=---%0Auid%3A%20Bunit.ComponentParameterFactory.Template%60%601(System.String%2CMicrosoft.AspNetCore.Components.RenderFragment%7B%60%600%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/egil/bUnit/blob/main/src/bunit.core/ComponentParameterFactory.cs/#L201">View Source</a>
+  </span>
+  <a id="Bunit_ComponentParameterFactory_Template_" data-uid="Bunit.ComponentParameterFactory.Template*"></a>
+  <h4 id="Bunit_ComponentParameterFactory_Template__1_System_String_Microsoft_AspNetCore_Components_RenderFragment___0__" data-uid="Bunit.ComponentParameterFactory.Template``1(System.String,Microsoft.AspNetCore.Components.RenderFragment{``0})">Template&lt;TValue&gt;(String, RenderFragment&lt;TValue&gt;)</h4>
+  <div class="markdown level1 summary"><p>Creates a template component parameter which will pass the <code data-dev-comment-type="paramref" class="paramref">template</code> <span class="xref">Microsoft.AspNetCore.Components.RenderFragment&lt;TValue&gt;</span>
+to the parameter with the name <code data-dev-comment-type="paramref" class="paramref">name</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ComponentParameter Template&lt;TValue&gt;(string name, RenderFragment&lt;TValue&gt; template)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">name</span></td>
+        <td><p>Parameter name.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">Microsoft.AspNetCore.Components.RenderFragment</span>&lt;TValue&gt;</td>
+        <td><span class="parametername">template</span></td>
+        <td><p><span class="xref">Microsoft.AspNetCore.Components.RenderFragment&lt;TValue&gt;</span> to pass to the parameter.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Bunit.ComponentParameter.html">ComponentParameter</a></td>
+        <td><p>The <a class="xref" href="Bunit.ComponentParameter.html">ComponentParameter</a>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">TValue</span></td>
+        <td><p>The value used to build the content.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/egil/bUnit/new/main/apiSpec/new?filename=Bunit_ComponentParameterFactory_Template__1_System_String_System_Func___0_System_String__.md&amp;value=---%0Auid%3A%20Bunit.ComponentParameterFactory.Template%60%601(System.String%2CSystem.Func%7B%60%600%2CSystem.String%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/egil/bUnit/blob/main/src/bunit.core/ComponentParameterFactory.cs/#L215">View Source</a>
+  </span>
+  <a id="Bunit_ComponentParameterFactory_Template_" data-uid="Bunit.ComponentParameterFactory.Template*"></a>
+  <h4 id="Bunit_ComponentParameterFactory_Template__1_System_String_System_Func___0_System_String__" data-uid="Bunit.ComponentParameterFactory.Template``1(System.String,System.Func{``0,System.String})">Template&lt;TValue&gt;(String, Func&lt;TValue, String&gt;)</h4>
+  <div class="markdown level1 summary"><p>Creates a template component parameter which will pass the a <span class="xref">Microsoft.AspNetCore.Components.RenderFragment&lt;TValue&gt;</span>
+to the parameter with the name <code data-dev-comment-type="paramref" class="paramref">name</code>.
+The <code data-dev-comment-type="paramref" class="paramref">markupFactory</code> will be used to generate the markup inside the template.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ComponentParameter Template&lt;TValue&gt;(string name, Func&lt;TValue, string&gt; markupFactory)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">name</span></td>
+        <td><p>Parameter name.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Func</span>&lt;TValue, <span class="xref">System.String</span>&gt;</td>
+        <td><span class="parametername">markupFactory</span></td>
+        <td><p>A markup factory that takes a <code data-dev-comment-type="typeparamref" class="typeparamref">TValue</code> as input and returns markup/HTML.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Bunit.ComponentParameter.html">ComponentParameter</a></td>
+        <td><p>The <a class="xref" href="Bunit.ComponentParameter.html">ComponentParameter</a>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">TValue</span></td>
+        <td><p>The value used to build the content.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/egil/bUnit/new/main/apiSpec/new?filename=Bunit_ComponentParameterFactory_Template__2_System_String_System_Func___1_Bunit_ComponentParameter____.md&amp;value=---%0Auid%3A%20Bunit.ComponentParameterFactory.Template%60%602(System.String%2CSystem.Func%7B%60%601%2CBunit.ComponentParameter%5B%5D%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/egil/bUnit/blob/main/src/bunit.core/ComponentParameterFactory.cs/#L230">View Source</a>
+  </span>
+  <a id="Bunit_ComponentParameterFactory_Template_" data-uid="Bunit.ComponentParameterFactory.Template*"></a>
+  <h4 id="Bunit_ComponentParameterFactory_Template__2_System_String_System_Func___1_Bunit_ComponentParameter____" data-uid="Bunit.ComponentParameterFactory.Template``2(System.String,System.Func{``1,Bunit.ComponentParameter[]})">Template&lt;TComponent, TValue&gt;(String, Func&lt;TValue, ComponentParameter[]&gt;)</h4>
+  <div class="markdown level1 summary"><p>Creates a template component parameter which will pass the a <span class="xref">Microsoft.AspNetCore.Components.RenderFragment&lt;TValue&gt;</span>
+to the <code data-dev-comment-type="paramref" class="paramref">parameterCollectionBuilder</code> at runtime. The parameters returned from it
+will be passed to the <code data-dev-comment-type="typeparamref" class="typeparamref">TComponent</code> and it will be rendered as the template.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ComponentParameter Template&lt;TComponent, TValue&gt;(string name, Func&lt;TValue, ComponentParameter[]&gt; parameterCollectionBuilder)
+
+    where TComponent : IComponent</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">name</span></td>
+        <td><p>Parameter name.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Func</span>&lt;TValue, <a class="xref" href="Bunit.ComponentParameter.html">ComponentParameter</a>[]&gt;</td>
+        <td><span class="parametername">parameterCollectionBuilder</span></td>
+        <td><p>The parameter collection builder function that will be passed the template <code data-dev-comment-type="typeparamref" class="typeparamref">TValue</code>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Bunit.ComponentParameter.html">ComponentParameter</a></td>
+        <td><p>The <a class="xref" href="Bunit.ComponentParameter.html">ComponentParameter</a>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">TComponent</span></td>
+        <td><p>The type of component to render in template.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="parametername">TValue</span></td>
+        <td><p>The value used to build the content.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="sponsor-highlight">
+                <a href="https://www.telerik.com/campaigns/blazor/free-trial-1?utm_source=egilhansen&utm_medium=cpm&utm_campaign=blazor-trial-bunit-sponsored-message">
+                  <img width="200" src="/sponsors/telerik-ad-site.svg">
+                </a>      
+              </div>
+              <div class="supported">
+                <a href="https://www.packtpub.com/" title="Packt">
+                  <img width="150" src="/sponsors/packt-retina-logo.png">
+                </a>
+                <p>Editorial support provided by <a href="https://www.packtpub.com/" title="Packt">Packt</a>.</p>
+              </div>
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/egil/bUnit/new/main/apiSpec/new?filename=Bunit_ComponentParameterFactory.md&amp;value=---%0Auid%3A%20Bunit.ComponentParameterFactory%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                  </li>
+                  <li>
+                    <a href="https://github.com/egil/bUnit/blob/main/src/bunit.core/ComponentParameterFactory.cs/#L11" class="contribution-link">View Source</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            <small>Documentation updated on 3/16/2021 9:33:36 AM +00:00 in commit 74fd44bf54</small>.
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/cshtml-razor.js"></script>
+    <script>
+      hljs.registerLanguage('cshtml-razor', window.hljsDefineCshtmlRazor);
+    </script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

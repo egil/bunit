@@ -1,0 +1,175 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Controlling the Root Render Tree | bUnit </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Controlling the Root Render Tree | bUnit ">
+    <meta name="generator" content="docfx 2.56.6.0">
+    <meta name="description" content="bUnit is a unit testing library for Blazor Components. You can easily define components under test in C# or Razor syntax and verify outcome using semantic HTML diffing/comparison logic. You can interact with and inspect components, trigger event handlers, provide cascading values, inject services, mock IJsRuntime, and perform snapshot testing.">
+  
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+  
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../styles/docfx.css">
+    <link rel="stylesheet" href="../../styles/main.css">
+    <meta property="docfx:navrel" content="../../toc.html">
+    <meta property="docfx:tocrel" content="../toc.html">
+    
+    <meta property="docfx:rel" content="../../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../../index.html">
+                <img height="60%" id="logo" class="img" src="../..//images/blazor-logo.png" alt="bUnit">
+                <span>bUnit</span>
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <div id="sponsor-button">
+                <iframe src="https://github.com/sponsors/egil/button" title="Sponsor egil" height="35" width="116" style="border: 0;"></iframe>
+              </div>
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="root-render-tree">
+<h1 id="controlling-the-root-render-tree">Controlling the Root Render Tree</h1>
+
+<p>The root render tree, the render tree in which components under test are rendered, can be added to before components are rendered with bUnit's test context. This is mostly useful when a component under test, or a component it depends on, must be rendered inside another component, that provides a cascading value to it.</p>
+<p>For example, when using Blazor’s authentication, it is common to add the <code>CascadingAuthenticationState</code> component higher up the render tree, such that it can provide authentication state to those components below it that need it. Adding this through the <a class="xref" href="../../api/Bunit.TestContextBase.html#Bunit_TestContextBase_RenderTree">RenderTree</a> property on the <a class="xref" href="../../api/Bunit.TestContextBase.html">TestContextBase</a> type makes it possible to add it once in a shared setup method, and not have to do so in every test method during the call to <a class="xref" href="../../api/Bunit.TestContext.html#Bunit_TestContext_RenderComponent__1_System_Action_Bunit_ComponentParameterCollectionBuilder___0___"><code>RenderComponent()</code></a>.</p>
+<p>This can also be useful when writing tests that use a third-party component library, that require a special root component to be added to the render tree, but which otherwise don’t change between tests.</p>
+<h2 id="adding-a-component-to-the-root-render-tree">Adding a Component to the Root Render Tree</h2>
+<p>The following example verifies that the <code>PrintCascadingValue</code> component correctly prints out the cascading value passed to it. This value is passed to it by adding the <code>CascadingValue&lt;string&gt;</code> component to the render tree and then rendering the <code>PrintCascadingValue</code> component. The <code>PrintCascadingValue</code> component looks like this:</p>
+<pre><code class="lang-cshtml" name="PrintCascadingValue.razor">Cascading value: @Value
+@code 
+{
+  [CascadingParameter]
+  public string Value { get; set; }
+}
+</code></pre>
+<p>Here is the test that adds the <code>CascadingValue&lt;string&gt;</code> component to the render tree and then renders the <code>PrintCascadingValue</code> component.</p>
+<pre><code class="lang-csharp" name="PrintCascadingValueTest.cs">using var ctx = new TestContext();
+
+// Add a cascading value to the test contexts root render tree.
+ctx.RenderTree.Add&lt;CascadingValue&lt;string&gt;&gt;(parameters =&gt; parameters
+  .Add(p =&gt; p.Value, &quot;FOO&quot;)
+);
+
+// The component will be rendered as a chld of last 
+// component added to the RenderTree property.
+var cut = ctx.RenderComponent&lt;PrintCascadingValue&gt;();
+
+// Verify that the cascading value was passed correctly.
+cut.MarkupMatches($&quot;Cascading value: FOO&quot;);
+</code></pre>
+<div class="NOTE">
+<h5>Note</h5>
+<p>The call to <a class="xref" href="../../api/Bunit.Rendering.RootRenderTree.html#Bunit_Rendering_RootRenderTree_Add__1_System_Action_Bunit_ComponentParameterCollectionBuilder___0___"><code>Add</code></a> can be done in a common setup method, outside the context of the test method listed here, for easy re-use between tests.</p>
+</div>
+<h2 id="add-only-if-not-already-in-root-render-tree">Add Only if Not Already in Root Render Tree</h2>
+<p>Sometimes common test setup logic exists outside the test class, perhaps abstracted away in other libraries. In those cases, the <a class="xref" href="../../api/Bunit.Rendering.RootRenderTree.html#Bunit_Rendering_RootRenderTree_TryAdd__1_System_Action_Bunit_ComponentParameterCollectionBuilder___0___"><code>TryAdd</code></a> method can be used to a components to the render tree, <em>only if</em> it has not already been added. <a class="xref" href="../../api/Bunit.Rendering.RootRenderTree.html#Bunit_Rendering_RootRenderTree_TryAdd__1_System_Action_Bunit_ComponentParameterCollectionBuilder___0___"><code>TryAdd</code></a> returns true if the component was added, false otherwise.</p>
+<pre><code class="lang-csharp">ctx.RenderTree.TryAdd&lt;CascadingValue&lt;string&gt;&gt;(parameters =&gt; parameters
+  .Add(p =&gt; p.Value, &quot;BAR?&quot;)
+);
+</code></pre>
+<p>In the listing above, the cascading value <code>BAR?</code> is added only if there is not another <code>CascadingValue&lt;string&gt;</code> component added to the render tree already.</p>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="sponsor-highlight">
+                <a href="https://www.telerik.com/campaigns/blazor/free-trial-1?utm_source=egilhansen&utm_medium=cpm&utm_campaign=blazor-trial-bunit-sponsored-message">
+                  <img width="200" src="/sponsors/telerik-ad-site.svg">
+                </a>      
+              </div>
+              <div class="supported">
+                <a href="https://www.packtpub.com/" title="Packt">
+                  <img width="150" src="/sponsors/packt-retina-logo.png">
+                </a>
+                <p>Editorial support provided by <a href="https://www.packtpub.com/" title="Packt">Packt</a>.</p>
+              </div>
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/egil/bUnit/blob/main/docs/site/docs/providing-input/root-render-tree.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            <small>Documentation updated on 3/16/2021 9:33:36 AM +00:00 in commit 74fd44bf54</small>.
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/cshtml-razor.js"></script>
+    <script>
+      hljs.registerLanguage('cshtml-razor', window.hljsDefineCshtmlRazor);
+    </script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+  </body>
+</html>

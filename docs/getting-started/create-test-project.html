@@ -1,0 +1,354 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Creating a new bUnit Test Project | bUnit </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Creating a new bUnit Test Project | bUnit ">
+    <meta name="generator" content="docfx 2.56.6.0">
+    <meta name="description" content="bUnit is a unit testing library for Blazor Components. You can easily define components under test in C# or Razor syntax and verify outcome using semantic HTML diffing/comparison logic. You can interact with and inspect components, trigger event handlers, provide cascading values, inject services, mock IJsRuntime, and perform snapshot testing.">
+  
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+  
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../styles/docfx.css">
+    <link rel="stylesheet" href="../../styles/main.css">
+    <meta property="docfx:navrel" content="../../toc.html">
+    <meta property="docfx:tocrel" content="../toc.html">
+    
+    <meta property="docfx:rel" content="../../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../../index.html">
+                <img height="60%" id="logo" class="img" src="../..//images/blazor-logo.png" alt="bUnit">
+                <span>bUnit</span>
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <div id="sponsor-button">
+                <iframe src="https://github.com/sponsors/egil/button" title="Sponsor egil" height="35" width="116" style="border: 0;"></iframe>
+              </div>
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="create-test-project">
+<h1 id="creating-a-new-bunit-test-project">Creating a new bUnit Test Project</h1>
+
+<p>To write tests, you need a place to put them - a test project. bUnit is not a unit test runner, so a general-purpose test framework like xUnit, NUnit, or MSTest is needed in addition to bUnit in order to write and run tests.</p>
+<p>To use bUnit with xUnit, the easiest approach is to use the bUnit project template described in the <a href="#creating-a-test-project-with-bunit-template">Create a test project with bUnit template</a> section further down the page. To create a test project manually and in a general-purpose testing frameworks agnostic way, read the following section.</p>
+<h2 id="creating-a-test-project-manually">Creating a Test Project Manually</h2>
+<p>This section will take you through the steps required to create a project for testing Blazor components using bUnit. Any of the three general-purpose test frameworks shown in step 1 below can be used. Briefly, here is what we will do:</p>
+<ol>
+<li>Create a new xUnit/NUnit/MSTest testing project</li>
+<li>Add bUnit to the test project</li>
+<li>Configure project settings</li>
+<li>Add the test project to your existing solution</li>
+</ol>
+<p>Let's look at these in more detail. These steps look like this from the 'dotnet' CLI:</p>
+<p><strong>1. Create a new test project</strong></p>
+<p>Use the following command (<em>click on the tab for the test framework of choice</em>):</p>
+<div class="tabGroup" id="tabgroup_CeZOj-G++Q">
+<ul role="tablist">
+<li role="presentation">
+<a href="#tabpanel_CeZOj-G++Q_xunit" role="tab" aria-controls="tabpanel_CeZOj-G++Q_xunit" data-tab="xunit" tabindex="0" aria-selected="true">xUnit</a>
+</li>
+<li role="presentation">
+<a href="#tabpanel_CeZOj-G++Q_nunit" role="tab" aria-controls="tabpanel_CeZOj-G++Q_nunit" data-tab="nunit" tabindex="-1">NUnit</a>
+</li>
+<li role="presentation">
+<a href="#tabpanel_CeZOj-G++Q_mstest" role="tab" aria-controls="tabpanel_CeZOj-G++Q_mstest" data-tab="mstest" tabindex="-1">MSTest</a>
+</li>
+</ul>
+<section id="tabpanel_CeZOj-G++Q_xunit" role="tabpanel" data-tab="xunit">
+
+<pre><code class="lang-dotnetcli">dotnet new xunit -o &lt;NAME OF TEST PROJECT&gt;
+</code></pre>
+</section>
+<section id="tabpanel_CeZOj-G++Q_nunit" role="tabpanel" data-tab="nunit" aria-hidden="true" hidden="hidden">
+
+<pre><code class="lang-dotnetcli">dotnet new nunit -o &lt;NAME OF TEST PROJECT&gt;
+</code></pre>
+</section>
+<section id="tabpanel_CeZOj-G++Q_mstest" role="tabpanel" data-tab="mstest" aria-hidden="true" hidden="hidden">
+
+<pre><code class="lang-dotnetcli">dotnet new mstest -o &lt;NAME OF TEST PROJECT&gt;
+</code></pre>
+</section>
+</div>
+
+<p>The <code>-o</code> option in the <code>dotnet new</code> command above is used to specify the name of the test project.</p>
+<p><strong>2. Add bUnit to the test project</strong></p>
+<p>To add bUnit to the test project, change to the newly created test projects folder and use the following command:</p>
+<div class="tabGroup" id="tabgroup_CeZOj-G++Q-1">
+<ul role="tablist">
+<li role="presentation">
+<a href="#tabpanel_CeZOj-G++Q-1_xunit" role="tab" aria-controls="tabpanel_CeZOj-G++Q-1_xunit" data-tab="xunit" tabindex="0" aria-selected="true">xUnit</a>
+</li>
+<li role="presentation">
+<a href="#tabpanel_CeZOj-G++Q-1_nunit" role="tab" aria-controls="tabpanel_CeZOj-G++Q-1_nunit" data-tab="nunit" tabindex="-1">NUnit</a>
+</li>
+<li role="presentation">
+<a href="#tabpanel_CeZOj-G++Q-1_mstest" role="tab" aria-controls="tabpanel_CeZOj-G++Q-1_mstest" data-tab="mstest" tabindex="-1">MSTest</a>
+</li>
+</ul>
+<section id="tabpanel_CeZOj-G++Q-1_xunit" role="tabpanel" data-tab="xunit">
+
+<pre><code class="lang-dotnetcli">cd &lt;NAME OF PROJECT&gt;
+dotnet add package bunit.web --version 1.0.0-preview-01
+dotnet add package bunit.xunit --version 1.0.0-preview-01
+</code></pre>
+</section>
+<section id="tabpanel_CeZOj-G++Q-1_nunit" role="tabpanel" data-tab="nunit" aria-hidden="true" hidden="hidden">
+
+<pre><code class="lang-dotnetcli">cd &lt;NAME OF PROJECT&gt;
+dotnet add package bunit.web --version 1.0.0-preview-01
+</code></pre>
+</section>
+<section id="tabpanel_CeZOj-G++Q-1_mstest" role="tabpanel" data-tab="mstest" aria-hidden="true" hidden="hidden">
+
+<pre><code class="lang-dotnetcli">cd &lt;NAME OF PROJECT&gt;
+dotnet add package bunit.web --version 1.0.0-preview-01
+</code></pre>
+</section>
+</div>
+
+<p><strong>3. Configure project settings</strong></p>
+<p>The test projects setting needs to be set to the following:</p>
+<ul>
+<li>the project's SDK needs to be set to <code>Microsoft.NET.Sdk.Razor</code></li>
+<li>set the <code>&lt;TargetFramework&gt;</code> to <code>net5.0</code></li>
+</ul>
+<div class="NOTE">
+<h5>Note</h5>
+<p>bUnit works with <code>netcoreapp3.1</code> and <code>netstandard2.1</code> test projects as well.</p>
+</div>
+<p>To do so, change the first part of the test projects <code>.csproj</code> file to look like this.:</p>
+<pre><code class="lang-xml">&lt;Project Sdk=&quot;Microsoft.NET.Sdk.Razor&quot;&gt;
+
+  &lt;PropertyGroup&gt;
+    &lt;TargetFramework&gt;net5.0&lt;/TargetFramework&gt;
+  &lt;/PropertyGroup&gt;  ...
+
+&lt;/Project&gt;
+</code></pre>
+<p><strong>4. Add the test project to your solution</strong></p>
+<p>If using Visual Studio, add the test project to your solution (<code>.sln</code>), and add a reference between the test project and the project containing the components that are to be tested:</p>
+<pre><code class="lang-dotnetcli">dotnet sln &lt;NAME OF PROJECT&gt;.sln add &lt;NAME OF TEST PROJECT&gt;
+dotnet add &lt;NAME OF TEST PROJECT&gt;.csproj reference &lt;NAME OF COMPONENT PROJECT&gt;.csproj
+</code></pre>
+<p>The result should be a test project with a <code>.csproj</code> that looks like this (non bUnit packages may have different version numbers):</p>
+<div class="tabGroup" id="tabgroup_CeZOj-G++Q-2">
+<ul role="tablist">
+<li role="presentation">
+<a href="#tabpanel_CeZOj-G++Q-2_xunit" role="tab" aria-controls="tabpanel_CeZOj-G++Q-2_xunit" data-tab="xunit" tabindex="0" aria-selected="true">xUnit</a>
+</li>
+<li role="presentation">
+<a href="#tabpanel_CeZOj-G++Q-2_nunit" role="tab" aria-controls="tabpanel_CeZOj-G++Q-2_nunit" data-tab="nunit" tabindex="-1">NUnit</a>
+</li>
+<li role="presentation">
+<a href="#tabpanel_CeZOj-G++Q-2_mstest" role="tab" aria-controls="tabpanel_CeZOj-G++Q-2_mstest" data-tab="mstest" tabindex="-1">MSTest</a>
+</li>
+</ul>
+<section id="tabpanel_CeZOj-G++Q-2_xunit" role="tabpanel" data-tab="xunit">
+
+<pre><code class="lang-xml">&lt;Project Sdk=&quot;Microsoft.NET.Sdk.Razor&quot;&gt;
+
+  &lt;PropertyGroup&gt;
+    &lt;TargetFramework&gt;net5.0&lt;/TargetFramework&gt;
+  &lt;/PropertyGroup&gt;
+
+  &lt;ItemGroup&gt;
+    &lt;PackageReference Include=&quot;bunit.web&quot; Version=&quot;1.0.0-preview-01&quot; /&gt;
+    &lt;PackageReference Include=&quot;bunit.xunit&quot; Version=&quot;1.0.0-preview-01&quot; /&gt;
+    &lt;PackageReference Include=&quot;Microsoft.NET.Test.Sdk&quot; Version=&quot;16.7.1&quot; /&gt;
+    &lt;PackageReference Include=&quot;xunit&quot; Version=&quot;2.4.1&quot; /&gt;
+    &lt;PackageReference Include=&quot;xunit.runner.visualstudio&quot; Version=&quot;2.4.3&quot;&gt;
+      &lt;PrivateAssets&gt;all&lt;/PrivateAssets&gt;
+      &lt;IncludeAssets&gt;runtime; build; native; contentfiles; analyzers; buildtransitive&lt;/IncludeAssets&gt;
+    &lt;/PackageReference&gt;
+  &lt;/ItemGroup&gt;
+
+  &lt;ItemGroup&gt;
+    &lt;ProjectReference Include=&quot;&lt;PATH TO COMPONENT LIB&gt;.csproj&quot; /&gt;
+  &lt;/ItemGroup&gt;
+  
+&lt;/Project&gt;
+</code></pre>
+</section>
+<section id="tabpanel_CeZOj-G++Q-2_nunit" role="tabpanel" data-tab="nunit" aria-hidden="true" hidden="hidden">
+
+<pre><code class="lang-xml">&lt;Project Sdk=&quot;Microsoft.NET.Sdk.Razor&quot;&gt;
+
+  &lt;PropertyGroup&gt;
+    &lt;TargetFramework&gt;net5.0&lt;/TargetFramework&gt;
+  &lt;/PropertyGroup&gt;
+
+  &lt;ItemGroup&gt;    
+    &lt;PackageReference Include=&quot;bunit.web&quot; Version=&quot;1.0.0-preview-01&quot; /&gt;
+    &lt;PackageReference Include=&quot;nunit&quot; Version=&quot;3.12.0&quot; /&gt;
+    &lt;PackageReference Include=&quot;Microsoft.NET.Test.Sdk&quot; Version=&quot;16.7.1&quot; /&gt;
+    &lt;PackageReference Include=&quot;NUnit3TestAdapter&quot; Version=&quot;3.16.1&quot;&gt;
+      &lt;PrivateAssets&gt;all&lt;/PrivateAssets&gt;
+      &lt;IncludeAssets&gt;runtime; build; native; contentfiles; analyzers; buildtransitive&lt;/IncludeAssets&gt;
+    &lt;/PackageReference&gt;
+  &lt;/ItemGroup&gt;
+
+  &lt;ItemGroup&gt;
+    &lt;ProjectReference Include=&quot;&lt;PATH TO COMPONENT LIB&gt;.csproj&quot; /&gt;
+  &lt;/ItemGroup&gt;
+
+&lt;/Project&gt;
+</code></pre>
+</section>
+<section id="tabpanel_CeZOj-G++Q-2_mstest" role="tabpanel" data-tab="mstest" aria-hidden="true" hidden="hidden">
+
+<pre><code class="lang-xml">&lt;Project Sdk=&quot;Microsoft.NET.Sdk.Razor&quot;&gt;
+
+  &lt;PropertyGroup&gt;
+    &lt;TargetFramework&gt;net5.0&lt;/TargetFramework&gt;
+  &lt;/PropertyGroup&gt;
+
+  &lt;ItemGroup&gt;
+    &lt;PackageReference Include=&quot;bunit.web&quot; Version=&quot;1.0.0-preview-01&quot; /&gt;
+    &lt;PackageReference Include=&quot;Microsoft.NET.Test.Sdk&quot; Version=&quot;16.7.1&quot; /&gt;
+    &lt;PackageReference Include=&quot;MSTest.TestAdapter&quot; Version=&quot;2.1.0&quot; /&gt;
+    &lt;PackageReference Include=&quot;MSTest.TestFramework&quot; Version=&quot;2.1.0&quot; /&gt;
+    &lt;PackageReference Include=&quot;coverlet.collector&quot; Version=&quot;1.2.0&quot; /&gt;
+  &lt;/ItemGroup&gt;
+
+  &lt;ItemGroup&gt;
+    &lt;ProjectReference Include=&quot;&lt;PATH TO COMPONENT LIB&gt;.csproj&quot; /&gt;
+  &lt;/ItemGroup&gt;
+
+&lt;/Project&gt;
+</code></pre>
+</section>
+</div>
+<h2 id="creating-a-test-project-with-bunit-template">Creating a Test Project with bUnit Template</h2>
+<p>To skip a few steps in the guide above, use the <a href="https://www.nuget.org/packages/bunit.template/">bUnit test project template</a>. The bUnit project template currently only works with the xUnit general-purpose testing framework, but other frameworks will be supported in the future.</p>
+<p>The steps  for creating a test project with the bUnit template are as follows:</p>
+<ol>
+<li>Install the template (only needed the first time)</li>
+<li>Create a new test project</li>
+<li>Add the test project to your solution</li>
+</ol>
+<p>These steps look like this from the <code>dotnet</code> CLI:</p>
+<p><strong>1. Install the template</strong></p>
+<p>Install the template from NuGet using this command:</p>
+<pre><code class="lang-dotnetcli">dotnet new --install bunit.template::1.0.0-preview-01
+</code></pre>
+<p><strong>2. Create a new test project</strong></p>
+<p>Use the following command to create a bUnit with xUnit test project:</p>
+<pre><code class="lang-dotnetcli">dotnet new bunit -o &lt;NAME OF TEST PROJECT&gt;
+</code></pre>
+<p>The <code>-o</code> option in the <code>dotnet new</code> command above is used to specify the name of the test project.</p>
+<p><strong>3. Add the test project to your solution</strong></p>
+<p>If using Visual Studio, add the test project to your solution (<code>.sln</code>), and add a reference between the test project and the project containing the components that should be tested:</p>
+<pre><code class="lang-dotnetcli">dotnet sln &lt;NAME OF PROJECT&gt;.sln add &lt;NAME OF TEST PROJECT&gt;
+dotnet add &lt;NAME OF TEST PROJECT&gt;.csproj reference &lt;NAME OF COMPONENT PROJECT&gt;.csproj
+</code></pre>
+<p>This will allow the test project to see and test the components in the component project.</p>
+<h2 id="further-reading">Further Reading</h2>
+<p>To start creating tests, continue reading the <a class="xref" href="writing-csharp-tests.html">Writing Tests in C# for Blazor Components</a> and <a class="xref" href="writing-razor-tests.html">Writing Tests in Razor Syntax for Blazor Components</a> pages.</p>
+<p>For additional tips and tricks that will make writing tests easier, see the <a class="xref" href="../misc-test-tips.html">Miscellaneous Testing Tips</a> page.</p>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="sponsor-highlight">
+                <a href="https://www.telerik.com/campaigns/blazor/free-trial-1?utm_source=egilhansen&utm_medium=cpm&utm_campaign=blazor-trial-bunit-sponsored-message">
+                  <img width="200" src="/sponsors/telerik-ad-site.svg">
+                </a>      
+              </div>
+              <div class="supported">
+                <a href="https://www.packtpub.com/" title="Packt">
+                  <img width="150" src="/sponsors/packt-retina-logo.png">
+                </a>
+                <p>Editorial support provided by <a href="https://www.packtpub.com/" title="Packt">Packt</a>.</p>
+              </div>
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/egil/bUnit/blob/main/docs/site/docs/getting-started/create-test-project.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            <small>Documentation updated on 3/16/2021 9:33:36 AM +00:00 in commit 74fd44bf54</small>.
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/cshtml-razor.js"></script>
+    <script>
+      hljs.registerLanguage('cshtml-razor', window.hljsDefineCshtmlRazor);
+    </script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+  </body>
+</html>

@@ -1,0 +1,536 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Class RootRenderTree
+   | bUnit </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Class RootRenderTree
+   | bUnit ">
+    <meta name="generator" content="docfx 2.56.6.0">
+    <meta name="description" content="bUnit is a unit testing library for Blazor Components. You can easily define components under test in C# or Razor syntax and verify outcome using semantic HTML diffing/comparison logic. You can interact with and inspect components, trigger event handlers, provide cascading values, inject services, mock IJsRuntime, and perform snapshot testing.">
+  
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+  
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    <meta property="docfx:rel" content="../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img height="60%" id="logo" class="img" src="..//images/blazor-logo.png" alt="bUnit">
+                <span>bUnit</span>
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <div id="sponsor-button">
+                <iframe src="https://github.com/sponsors/egil/button" title="Sponsor egil" height="35" width="116" style="border: 0;"></iframe>
+              </div>
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="Bunit.Rendering.RootRenderTree">
+  
+  
+  <h1 id="Bunit_Rendering_RootRenderTree" data-uid="Bunit.Rendering.RootRenderTree" class="text-break">Class RootRenderTree
+  </h1>
+  <div class="markdown level0 summary"><p>Represents a root render tree, wherein components under tests will be rendered.
+Components added to the render tree must have either a <code>ChildContent</code> or
+<code>Body</code> parameter.</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><span class="xref">System.Object</span></div>
+    <div class="level1"><span class="xref">RootRenderTree</span></div>
+  </div>
+  <div classs="implements">
+    <h5>Implements</h5>
+    <div><span class="xref">System.Collections.Generic.IReadOnlyCollection</span>&lt;<a class="xref" href="Bunit.Rendering.RootRenderTreeRegistration.html">RootRenderTreeRegistration</a>&gt;</div>
+    <div><span class="xref">System.Collections.Generic.IEnumerable</span>&lt;<a class="xref" href="Bunit.Rendering.RootRenderTreeRegistration.html">RootRenderTreeRegistration</a>&gt;</div>
+    <div><span class="xref">System.Collections.IEnumerable</span></div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <span class="xref">System.Object.Equals(System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.Equals(System.Object, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.GetHashCode()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.GetType()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.MemberwiseClone()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.ReferenceEquals(System.Object, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.ToString()</span>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="Bunit.Rendering.html">Bunit.Rendering</a></h6>
+  <h6><strong>Assembly</strong>: Bunit.Core.dll</h6>
+  <h5 id="Bunit_Rendering_RootRenderTree_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public sealed class RootRenderTree : IReadOnlyCollection&lt;RootRenderTreeRegistration&gt;, IEnumerable&lt;RootRenderTreeRegistration&gt;, IEnumerable</code></pre>
+  </div>
+  <h3 id="properties">Properties
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/egil/bUnit/new/main/apiSpec/new?filename=Bunit_Rendering_RootRenderTree_Count.md&amp;value=---%0Auid%3A%20Bunit.Rendering.RootRenderTree.Count%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/egil/bUnit/blob/main/src/bunit.core/Rendering/RootRenderTree.cs/#L65">View Source</a>
+  </span>
+  <a id="Bunit_Rendering_RootRenderTree_Count_" data-uid="Bunit.Rendering.RootRenderTree.Count*"></a>
+  <h4 id="Bunit_Rendering_RootRenderTree_Count" data-uid="Bunit.Rendering.RootRenderTree.Count">Count</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int Count { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="methods">Methods
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/egil/bUnit/new/main/apiSpec/new?filename=Bunit_Rendering_RootRenderTree_Add__1_System_Action_Bunit_ComponentParameterCollectionBuilder___0___.md&amp;value=---%0Auid%3A%20Bunit.Rendering.RootRenderTree.Add%60%601(System.Action%7BBunit.ComponentParameterCollectionBuilder%7B%60%600%7D%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/egil/bUnit/blob/main/src/bunit.core/Rendering/RootRenderTree.cs/#L26">View Source</a>
+  </span>
+  <a id="Bunit_Rendering_RootRenderTree_Add_" data-uid="Bunit.Rendering.RootRenderTree.Add*"></a>
+  <h4 id="Bunit_Rendering_RootRenderTree_Add__1_System_Action_Bunit_ComponentParameterCollectionBuilder___0___" data-uid="Bunit.Rendering.RootRenderTree.Add``1(System.Action{Bunit.ComponentParameterCollectionBuilder{``0}})">Add&lt;TComponent&gt;(Action&lt;ComponentParameterCollectionBuilder&lt;TComponent&gt;&gt;)</h4>
+  <div class="markdown level1 summary"><p>Adds a component to the render tree. This method can
+be called multiple times, with each invocation adding a component
+to the render tree. The <code data-dev-comment-type="typeparamref" class="typeparamref">TComponent</code> must have a <code>ChildContent</code>
+or <code>Body</code> parameter.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Add&lt;TComponent&gt;(Action&lt;ComponentParameterCollectionBuilder&lt;TComponent&gt;&gt; parameterBuilder = null)
+
+    where TComponent : IComponent</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Action</span>&lt;<a class="xref" href="Bunit.ComponentParameterCollectionBuilder-1.html">ComponentParameterCollectionBuilder</a>&lt;TComponent&gt;&gt;</td>
+        <td><span class="parametername">parameterBuilder</span></td>
+        <td><p>An optional parameter builder, used to pass parameters to <code data-dev-comment-type="typeparamref" class="typeparamref">TComponent</code>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">TComponent</span></td>
+        <td><p>The type of the component to add to the render tree.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/egil/bUnit/new/main/apiSpec/new?filename=Bunit_Rendering_RootRenderTree_GetCountOf__1.md&amp;value=---%0Auid%3A%20Bunit.Rendering.RootRenderTree.GetCountOf%60%601%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/egil/bUnit/blob/main/src/bunit.core/Rendering/RootRenderTree.cs/#L97">View Source</a>
+  </span>
+  <a id="Bunit_Rendering_RootRenderTree_GetCountOf_" data-uid="Bunit.Rendering.RootRenderTree.GetCountOf*"></a>
+  <h4 id="Bunit_Rendering_RootRenderTree_GetCountOf__1" data-uid="Bunit.Rendering.RootRenderTree.GetCountOf``1">GetCountOf&lt;TComponent&gt;()</h4>
+  <div class="markdown level1 summary"><p>Gets the number of registered components of type <code data-dev-comment-type="typeparamref" class="typeparamref">TComponent</code>
+in the render tree.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int GetCountOf&lt;TComponent&gt;()
+
+    where TComponent : IComponent</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><p>Number of components of type <code data-dev-comment-type="typeparamref" class="typeparamref">TComponent</code> in render tree.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">TComponent</span></td>
+        <td><p>Component type to count.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/egil/bUnit/new/main/apiSpec/new?filename=Bunit_Rendering_RootRenderTree_GetEnumerator.md&amp;value=---%0Auid%3A%20Bunit.Rendering.RootRenderTree.GetEnumerator%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/egil/bUnit/blob/main/src/bunit.core/Rendering/RootRenderTree.cs/#L68">View Source</a>
+  </span>
+  <a id="Bunit_Rendering_RootRenderTree_GetEnumerator_" data-uid="Bunit.Rendering.RootRenderTree.GetEnumerator*"></a>
+  <h4 id="Bunit_Rendering_RootRenderTree_GetEnumerator" data-uid="Bunit.Rendering.RootRenderTree.GetEnumerator">GetEnumerator()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IEnumerator&lt;RootRenderTreeRegistration&gt; GetEnumerator()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Collections.Generic.IEnumerator</span>&lt;<a class="xref" href="Bunit.Rendering.RootRenderTreeRegistration.html">RootRenderTreeRegistration</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/egil/bUnit/new/main/apiSpec/new?filename=Bunit_Rendering_RootRenderTree_TryAdd__1_System_Action_Bunit_ComponentParameterCollectionBuilder___0___.md&amp;value=---%0Auid%3A%20Bunit.Rendering.RootRenderTree.TryAdd%60%601(System.Action%7BBunit.ComponentParameterCollectionBuilder%7B%60%600%7D%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/egil/bUnit/blob/main/src/bunit.core/Rendering/RootRenderTree.cs/#L49">View Source</a>
+  </span>
+  <a id="Bunit_Rendering_RootRenderTree_TryAdd_" data-uid="Bunit.Rendering.RootRenderTree.TryAdd*"></a>
+  <h4 id="Bunit_Rendering_RootRenderTree_TryAdd__1_System_Action_Bunit_ComponentParameterCollectionBuilder___0___" data-uid="Bunit.Rendering.RootRenderTree.TryAdd``1(System.Action{Bunit.ComponentParameterCollectionBuilder{``0}})">TryAdd&lt;TComponent&gt;(Action&lt;ComponentParameterCollectionBuilder&lt;TComponent&gt;&gt;)</h4>
+  <div class="markdown level1 summary"><p>Try to add a component to the render tree if it has not already been added. This method can
+be called multiple times, with each invocation adding a component
+to the render tree. The <code data-dev-comment-type="typeparamref" class="typeparamref">TComponent</code> must have a <code>ChildContent</code>
+or <code>Body</code> parameter.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool TryAdd&lt;TComponent&gt;(Action&lt;ComponentParameterCollectionBuilder&lt;TComponent&gt;&gt; parameterBuilder = null)
+
+    where TComponent : IComponent</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Action</span>&lt;<a class="xref" href="Bunit.ComponentParameterCollectionBuilder-1.html">ComponentParameterCollectionBuilder</a>&lt;TComponent&gt;&gt;</td>
+        <td><span class="parametername">parameterBuilder</span></td>
+        <td><p>An optional parameter builder, used to pass parameters to <code data-dev-comment-type="typeparamref" class="typeparamref">TComponent</code>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><p>True if component was added, false if it was previously added and not added again.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">TComponent</span></td>
+        <td><p>The type of the component to add to the render tree.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Bunit_Rendering_RootRenderTree_TryAdd__1_System_Action_Bunit_ComponentParameterCollectionBuilder___0____remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>This method will only add the component to the render tree if it has not already been added.
+Use <a class="xref" href="Bunit.Rendering.RootRenderTree.html#Bunit_Rendering_RootRenderTree_Add__1_System_Action_Bunit_ComponentParameterCollectionBuilder___0___">Add&lt;TComponent&gt;(Action&lt;ComponentParameterCollectionBuilder&lt;TComponent&gt;&gt;)</a> to
+add the same component multiple times.</p>
+</div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/egil/bUnit/new/main/apiSpec/new?filename=Bunit_Rendering_RootRenderTree_Wrap_Microsoft_AspNetCore_Components_RenderFragment_.md&amp;value=---%0Auid%3A%20Bunit.Rendering.RootRenderTree.Wrap(Microsoft.AspNetCore.Components.RenderFragment)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/egil/bUnit/blob/main/src/bunit.core/Rendering/RootRenderTree.cs/#L79">View Source</a>
+  </span>
+  <a id="Bunit_Rendering_RootRenderTree_Wrap_" data-uid="Bunit.Rendering.RootRenderTree.Wrap*"></a>
+  <h4 id="Bunit_Rendering_RootRenderTree_Wrap_Microsoft_AspNetCore_Components_RenderFragment_" data-uid="Bunit.Rendering.RootRenderTree.Wrap(Microsoft.AspNetCore.Components.RenderFragment)">Wrap(RenderFragment)</h4>
+  <div class="markdown level1 summary"><p>Creates a new <span class="xref">Microsoft.AspNetCore.Components.RenderFragment</span> that wraps <code data-dev-comment-type="paramref" class="paramref">target</code>
+inside the components registered in this <a class="xref" href="Bunit.Rendering.RootRenderTree.html">RootRenderTree</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public RenderFragment Wrap(RenderFragment target)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Microsoft.AspNetCore.Components.RenderFragment</span></td>
+        <td><span class="parametername">target</span></td>
+        <td><p><span class="xref">Microsoft.AspNetCore.Components.RenderFragment</span> to render inside the render tree.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Microsoft.AspNetCore.Components.RenderFragment</span></td>
+        <td><p>A <span class="xref">Microsoft.AspNetCore.Components.RenderFragment</span> that renders the <code data-dev-comment-type="paramref" class="paramref">target</code> inside this <a class="xref" href="Bunit.Rendering.RootRenderTree.html">RootRenderTree</a> render tree.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="eii">Explicit Interface Implementations
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/egil/bUnit/new/main/apiSpec/new?filename=Bunit_Rendering_RootRenderTree_System_Collections_IEnumerable_GetEnumerator.md&amp;value=---%0Auid%3A%20Bunit.Rendering.RootRenderTree.System%23Collections%23IEnumerable%23GetEnumerator%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/egil/bUnit/blob/main/src/bunit.core/Rendering/RootRenderTree.cs/#L71">View Source</a>
+  </span>
+  <a id="Bunit_Rendering_RootRenderTree_System_Collections_IEnumerable_GetEnumerator_" data-uid="Bunit.Rendering.RootRenderTree.System#Collections#IEnumerable#GetEnumerator*"></a>
+  <h4 id="Bunit_Rendering_RootRenderTree_System_Collections_IEnumerable_GetEnumerator" data-uid="Bunit.Rendering.RootRenderTree.System#Collections#IEnumerable#GetEnumerator">IEnumerable.GetEnumerator()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">IEnumerator IEnumerable.GetEnumerator()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Collections.IEnumerator</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="implements">Implements</h3>
+  <div>
+      <span class="xref">System.Collections.Generic.IReadOnlyCollection&lt;T&gt;</span>
+  </div>
+  <div>
+      <span class="xref">System.Collections.Generic.IEnumerable&lt;T&gt;</span>
+  </div>
+  <div>
+      <span class="xref">System.Collections.IEnumerable</span>
+  </div>
+  <h3 id="extensionmethods">Extension Methods</h3>
+  <div>
+      <a class="xref" href="Bunit.Extensions.EnumerableExtensions.html#Bunit_Extensions_EnumerableExtensions_IsNullOrEmpty__1_System_Collections_Generic_IEnumerable___0__">EnumerableExtensions.IsNullOrEmpty&lt;T&gt;(IEnumerable&lt;T&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="Bunit.JSRuntimeAssertExtensions.html#Bunit_JSRuntimeAssertExtensions_ShouldBeElementReferenceTo_System_Object_AngleSharp_Dom_IElement_">JSRuntimeAssertExtensions.ShouldBeElementReferenceTo(Object, IElement)</a>
+  </div>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="sponsor-highlight">
+                <a href="https://www.telerik.com/campaigns/blazor/free-trial-1?utm_source=egilhansen&utm_medium=cpm&utm_campaign=blazor-trial-bunit-sponsored-message">
+                  <img width="200" src="/sponsors/telerik-ad-site.svg">
+                </a>      
+              </div>
+              <div class="supported">
+                <a href="https://www.packtpub.com/" title="Packt">
+                  <img width="150" src="/sponsors/packt-retina-logo.png">
+                </a>
+                <p>Editorial support provided by <a href="https://www.packtpub.com/" title="Packt">Packt</a>.</p>
+              </div>
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/egil/bUnit/new/main/apiSpec/new?filename=Bunit_Rendering_RootRenderTree.md&amp;value=---%0Auid%3A%20Bunit.Rendering.RootRenderTree%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                  </li>
+                  <li>
+                    <a href="https://github.com/egil/bUnit/blob/main/src/bunit.core/Rendering/RootRenderTree.cs/#L14" class="contribution-link">View Source</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            <small>Documentation updated on 3/16/2021 9:33:36 AM +00:00 in commit 74fd44bf54</small>.
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/cshtml-razor.js"></script>
+    <script>
+      hljs.registerLanguage('cshtml-razor', window.hljsDefineCshtmlRazor);
+    </script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

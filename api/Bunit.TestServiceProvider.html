@@ -1,0 +1,882 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Class TestServiceProvider
+   | bUnit </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Class TestServiceProvider
+   | bUnit ">
+    <meta name="generator" content="docfx 2.56.6.0">
+    <meta name="description" content="bUnit is a unit testing library for Blazor Components. You can easily define components under test in C# or Razor syntax and verify outcome using semantic HTML diffing/comparison logic. You can interact with and inspect components, trigger event handlers, provide cascading values, inject services, mock IJsRuntime, and perform snapshot testing.">
+  
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+  
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    <meta property="docfx:rel" content="../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img height="60%" id="logo" class="img" src="..//images/blazor-logo.png" alt="bUnit">
+                <span>bUnit</span>
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <div id="sponsor-button">
+                <iframe src="https://github.com/sponsors/egil/button" title="Sponsor egil" height="35" width="116" style="border: 0;"></iframe>
+              </div>
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="Bunit.TestServiceProvider">
+  
+  
+  <h1 id="Bunit_TestServiceProvider" data-uid="Bunit.TestServiceProvider" class="text-break">Class TestServiceProvider
+  </h1>
+  <div class="markdown level0 summary"><p>Represents a <span class="xref">System.IServiceProvider</span> and <span class="xref">Microsoft.Extensions.DependencyInjection.IServiceCollection</span>
+as a single type used for test purposes.</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><span class="xref">System.Object</span></div>
+    <div class="level1"><span class="xref">TestServiceProvider</span></div>
+  </div>
+  <div classs="implements">
+    <h5>Implements</h5>
+    <div><span class="xref">System.IServiceProvider</span></div>
+    <div><span class="xref">Microsoft.Extensions.DependencyInjection.IServiceCollection</span></div>
+    <div><span class="xref">System.Collections.Generic.IList</span>&lt;<span class="xref">Microsoft.Extensions.DependencyInjection.ServiceDescriptor</span>&gt;</div>
+    <div><span class="xref">System.Collections.Generic.ICollection</span>&lt;<span class="xref">Microsoft.Extensions.DependencyInjection.ServiceDescriptor</span>&gt;</div>
+    <div><span class="xref">System.Collections.Generic.IEnumerable</span>&lt;<span class="xref">Microsoft.Extensions.DependencyInjection.ServiceDescriptor</span>&gt;</div>
+    <div><span class="xref">System.Collections.IEnumerable</span></div>
+    <div><span class="xref">System.IDisposable</span></div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <span class="xref">System.Object.Equals(System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.Equals(System.Object, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.GetHashCode()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.GetType()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.MemberwiseClone()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.ReferenceEquals(System.Object, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.ToString()</span>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="Bunit.html">Bunit</a></h6>
+  <h6><strong>Assembly</strong>: Bunit.Core.dll</h6>
+  <h5 id="Bunit_TestServiceProvider_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public sealed class TestServiceProvider : IServiceProvider, IServiceCollection, IList&lt;ServiceDescriptor&gt;, ICollection&lt;ServiceDescriptor&gt;, IEnumerable&lt;ServiceDescriptor&gt;, IEnumerable, IDisposable</code></pre>
+  </div>
+  <h3 id="constructors">Constructors
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/egil/bUnit/new/main/apiSpec/new?filename=Bunit_TestServiceProvider__ctor_Microsoft_Extensions_DependencyInjection_IServiceCollection_.md&amp;value=---%0Auid%3A%20Bunit.TestServiceProvider.%23ctor(Microsoft.Extensions.DependencyInjection.IServiceCollection)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/egil/bUnit/blob/main/src/bunit.core/TestServiceProvider.cs/#L45">View Source</a>
+  </span>
+  <a id="Bunit_TestServiceProvider__ctor_" data-uid="Bunit.TestServiceProvider.#ctor*"></a>
+  <h4 id="Bunit_TestServiceProvider__ctor_Microsoft_Extensions_DependencyInjection_IServiceCollection_" data-uid="Bunit.TestServiceProvider.#ctor(Microsoft.Extensions.DependencyInjection.IServiceCollection)">TestServiceProvider(IServiceCollection)</h4>
+  <div class="markdown level1 summary"><p>Creates an instance of the <a class="xref" href="Bunit.TestServiceProvider.html">TestServiceProvider</a> and sets its service collection to the
+provided <code data-dev-comment-type="paramref" class="paramref">initialServiceCollection</code>, if any.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TestServiceProvider(IServiceCollection initialServiceCollection = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Microsoft.Extensions.DependencyInjection.IServiceCollection</span></td>
+        <td><span class="parametername">initialServiceCollection</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="properties">Properties
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/egil/bUnit/new/main/apiSpec/new?filename=Bunit_TestServiceProvider_Count.md&amp;value=---%0Auid%3A%20Bunit.TestServiceProvider.Count%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/egil/bUnit/blob/main/src/bunit.core/TestServiceProvider.cs/#L24">View Source</a>
+  </span>
+  <a id="Bunit_TestServiceProvider_Count_" data-uid="Bunit.TestServiceProvider.Count*"></a>
+  <h4 id="Bunit_TestServiceProvider_Count" data-uid="Bunit.TestServiceProvider.Count">Count</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int Count { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/egil/bUnit/new/main/apiSpec/new?filename=Bunit_TestServiceProvider_IsProviderInitialized.md&amp;value=---%0Auid%3A%20Bunit.TestServiceProvider.IsProviderInitialized%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/egil/bUnit/blob/main/src/bunit.core/TestServiceProvider.cs/#L21">View Source</a>
+  </span>
+  <a id="Bunit_TestServiceProvider_IsProviderInitialized_" data-uid="Bunit.TestServiceProvider.IsProviderInitialized*"></a>
+  <h4 id="Bunit_TestServiceProvider_IsProviderInitialized" data-uid="Bunit.TestServiceProvider.IsProviderInitialized">IsProviderInitialized</h4>
+  <div class="markdown level1 summary"><p>Gets whether this <a class="xref" href="Bunit.TestServiceProvider.html">TestServiceProvider</a> has been initialized, and
+no longer will accept calls to the <code>AddService</code>'s methods.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool IsProviderInitialized { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/egil/bUnit/new/main/apiSpec/new?filename=Bunit_TestServiceProvider_IsReadOnly.md&amp;value=---%0Auid%3A%20Bunit.TestServiceProvider.IsReadOnly%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/egil/bUnit/blob/main/src/bunit.core/TestServiceProvider.cs/#L27">View Source</a>
+  </span>
+  <a id="Bunit_TestServiceProvider_IsReadOnly_" data-uid="Bunit.TestServiceProvider.IsReadOnly*"></a>
+  <h4 id="Bunit_TestServiceProvider_IsReadOnly" data-uid="Bunit.TestServiceProvider.IsReadOnly">IsReadOnly</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool IsReadOnly { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/egil/bUnit/new/main/apiSpec/new?filename=Bunit_TestServiceProvider_Item_System_Int32_.md&amp;value=---%0Auid%3A%20Bunit.TestServiceProvider.Item(System.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/egil/bUnit/blob/main/src/bunit.core/TestServiceProvider.cs/#L30">View Source</a>
+  </span>
+  <a id="Bunit_TestServiceProvider_Item_" data-uid="Bunit.TestServiceProvider.Item*"></a>
+  <h4 id="Bunit_TestServiceProvider_Item_System_Int32_" data-uid="Bunit.TestServiceProvider.Item(System.Int32)">Item[Int32]</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ServiceDescriptor this[int index] { get; set; }</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">index</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Microsoft.Extensions.DependencyInjection.ServiceDescriptor</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="methods">Methods
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/egil/bUnit/new/main/apiSpec/new?filename=Bunit_TestServiceProvider_Add_Microsoft_Extensions_DependencyInjection_ServiceDescriptor_.md&amp;value=---%0Auid%3A%20Bunit.TestServiceProvider.Add(Microsoft.Extensions.DependencyInjection.ServiceDescriptor)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/egil/bUnit/blob/main/src/bunit.core/TestServiceProvider.cs/#L107">View Source</a>
+  </span>
+  <a id="Bunit_TestServiceProvider_Add_" data-uid="Bunit.TestServiceProvider.Add*"></a>
+  <h4 id="Bunit_TestServiceProvider_Add_Microsoft_Extensions_DependencyInjection_ServiceDescriptor_" data-uid="Bunit.TestServiceProvider.Add(Microsoft.Extensions.DependencyInjection.ServiceDescriptor)">Add(ServiceDescriptor)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Add(ServiceDescriptor item)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Microsoft.Extensions.DependencyInjection.ServiceDescriptor</span></td>
+        <td><span class="parametername">item</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/egil/bUnit/new/main/apiSpec/new?filename=Bunit_TestServiceProvider_Clear.md&amp;value=---%0Auid%3A%20Bunit.TestServiceProvider.Clear%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/egil/bUnit/blob/main/src/bunit.core/TestServiceProvider.cs/#L113">View Source</a>
+  </span>
+  <a id="Bunit_TestServiceProvider_Clear_" data-uid="Bunit.TestServiceProvider.Clear*"></a>
+  <h4 id="Bunit_TestServiceProvider_Clear" data-uid="Bunit.TestServiceProvider.Clear">Clear()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Clear()</code></pre>
+  </div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/egil/bUnit/new/main/apiSpec/new?filename=Bunit_TestServiceProvider_Contains_Microsoft_Extensions_DependencyInjection_ServiceDescriptor_.md&amp;value=---%0Auid%3A%20Bunit.TestServiceProvider.Contains(Microsoft.Extensions.DependencyInjection.ServiceDescriptor)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/egil/bUnit/blob/main/src/bunit.core/TestServiceProvider.cs/#L120">View Source</a>
+  </span>
+  <a id="Bunit_TestServiceProvider_Contains_" data-uid="Bunit.TestServiceProvider.Contains*"></a>
+  <h4 id="Bunit_TestServiceProvider_Contains_Microsoft_Extensions_DependencyInjection_ServiceDescriptor_" data-uid="Bunit.TestServiceProvider.Contains(Microsoft.Extensions.DependencyInjection.ServiceDescriptor)">Contains(ServiceDescriptor)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool Contains(ServiceDescriptor item)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Microsoft.Extensions.DependencyInjection.ServiceDescriptor</span></td>
+        <td><span class="parametername">item</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/egil/bUnit/new/main/apiSpec/new?filename=Bunit_TestServiceProvider_CopyTo_Microsoft_Extensions_DependencyInjection_ServiceDescriptor___System_Int32_.md&amp;value=---%0Auid%3A%20Bunit.TestServiceProvider.CopyTo(Microsoft.Extensions.DependencyInjection.ServiceDescriptor%5B%5D%2CSystem.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/egil/bUnit/blob/main/src/bunit.core/TestServiceProvider.cs/#L122">View Source</a>
+  </span>
+  <a id="Bunit_TestServiceProvider_CopyTo_" data-uid="Bunit.TestServiceProvider.CopyTo*"></a>
+  <h4 id="Bunit_TestServiceProvider_CopyTo_Microsoft_Extensions_DependencyInjection_ServiceDescriptor___System_Int32_" data-uid="Bunit.TestServiceProvider.CopyTo(Microsoft.Extensions.DependencyInjection.ServiceDescriptor[],System.Int32)">CopyTo(ServiceDescriptor[], Int32)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void CopyTo(ServiceDescriptor[] array, int arrayIndex)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Microsoft.Extensions.DependencyInjection.ServiceDescriptor</span>[]</td>
+        <td><span class="parametername">array</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">arrayIndex</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/egil/bUnit/new/main/apiSpec/new?filename=Bunit_TestServiceProvider_Dispose.md&amp;value=---%0Auid%3A%20Bunit.TestServiceProvider.Dispose%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/egil/bUnit/blob/main/src/bunit.core/TestServiceProvider.cs/#L79">View Source</a>
+  </span>
+  <a id="Bunit_TestServiceProvider_Dispose_" data-uid="Bunit.TestServiceProvider.Dispose*"></a>
+  <h4 id="Bunit_TestServiceProvider_Dispose" data-uid="Bunit.TestServiceProvider.Dispose">Dispose()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Dispose()</code></pre>
+  </div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/egil/bUnit/new/main/apiSpec/new?filename=Bunit_TestServiceProvider_GetEnumerator.md&amp;value=---%0Auid%3A%20Bunit.TestServiceProvider.GetEnumerator%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/egil/bUnit/blob/main/src/bunit.core/TestServiceProvider.cs/#L73">View Source</a>
+  </span>
+  <a id="Bunit_TestServiceProvider_GetEnumerator_" data-uid="Bunit.TestServiceProvider.GetEnumerator*"></a>
+  <h4 id="Bunit_TestServiceProvider_GetEnumerator" data-uid="Bunit.TestServiceProvider.GetEnumerator">GetEnumerator()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IEnumerator&lt;ServiceDescriptor&gt; GetEnumerator()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Collections.Generic.IEnumerator</span>&lt;<span class="xref">Microsoft.Extensions.DependencyInjection.ServiceDescriptor</span>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/egil/bUnit/new/main/apiSpec/new?filename=Bunit_TestServiceProvider_GetService_System_Type_.md&amp;value=---%0Auid%3A%20Bunit.TestServiceProvider.GetService(System.Type)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/egil/bUnit/blob/main/src/bunit.core/TestServiceProvider.cs/#L64">View Source</a>
+  </span>
+  <a id="Bunit_TestServiceProvider_GetService_" data-uid="Bunit.TestServiceProvider.GetService*"></a>
+  <h4 id="Bunit_TestServiceProvider_GetService_System_Type_" data-uid="Bunit.TestServiceProvider.GetService(System.Type)">GetService(Type)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public object GetService(Type serviceType)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Type</span></td>
+        <td><span class="parametername">serviceType</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Object</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/egil/bUnit/new/main/apiSpec/new?filename=Bunit_TestServiceProvider_GetService__1.md&amp;value=---%0Auid%3A%20Bunit.TestServiceProvider.GetService%60%601%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/egil/bUnit/blob/main/src/bunit.core/TestServiceProvider.cs/#L61">View Source</a>
+  </span>
+  <a id="Bunit_TestServiceProvider_GetService_" data-uid="Bunit.TestServiceProvider.GetService*"></a>
+  <h4 id="Bunit_TestServiceProvider_GetService__1" data-uid="Bunit.TestServiceProvider.GetService``1">GetService&lt;TService&gt;()</h4>
+  <div class="markdown level1 summary"><p>Get service of type T from the test provider.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TService GetService&lt;TService&gt;()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TService</span></td>
+        <td><p>A service object of type T or null if there is no such service.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">TService</span></td>
+        <td><p>The type of service object to get.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/egil/bUnit/new/main/apiSpec/new?filename=Bunit_TestServiceProvider_IndexOf_Microsoft_Extensions_DependencyInjection_ServiceDescriptor_.md&amp;value=---%0Auid%3A%20Bunit.TestServiceProvider.IndexOf(Microsoft.Extensions.DependencyInjection.ServiceDescriptor)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/egil/bUnit/blob/main/src/bunit.core/TestServiceProvider.cs/#L92">View Source</a>
+  </span>
+  <a id="Bunit_TestServiceProvider_IndexOf_" data-uid="Bunit.TestServiceProvider.IndexOf*"></a>
+  <h4 id="Bunit_TestServiceProvider_IndexOf_Microsoft_Extensions_DependencyInjection_ServiceDescriptor_" data-uid="Bunit.TestServiceProvider.IndexOf(Microsoft.Extensions.DependencyInjection.ServiceDescriptor)">IndexOf(ServiceDescriptor)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int IndexOf(ServiceDescriptor item)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Microsoft.Extensions.DependencyInjection.ServiceDescriptor</span></td>
+        <td><span class="parametername">item</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/egil/bUnit/new/main/apiSpec/new?filename=Bunit_TestServiceProvider_Insert_System_Int32_Microsoft_Extensions_DependencyInjection_ServiceDescriptor_.md&amp;value=---%0Auid%3A%20Bunit.TestServiceProvider.Insert(System.Int32%2CMicrosoft.Extensions.DependencyInjection.ServiceDescriptor)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/egil/bUnit/blob/main/src/bunit.core/TestServiceProvider.cs/#L94">View Source</a>
+  </span>
+  <a id="Bunit_TestServiceProvider_Insert_" data-uid="Bunit.TestServiceProvider.Insert*"></a>
+  <h4 id="Bunit_TestServiceProvider_Insert_System_Int32_Microsoft_Extensions_DependencyInjection_ServiceDescriptor_" data-uid="Bunit.TestServiceProvider.Insert(System.Int32,Microsoft.Extensions.DependencyInjection.ServiceDescriptor)">Insert(Int32, ServiceDescriptor)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Insert(int index, ServiceDescriptor item)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">index</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">Microsoft.Extensions.DependencyInjection.ServiceDescriptor</span></td>
+        <td><span class="parametername">item</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/egil/bUnit/new/main/apiSpec/new?filename=Bunit_TestServiceProvider_Remove_Microsoft_Extensions_DependencyInjection_ServiceDescriptor_.md&amp;value=---%0Auid%3A%20Bunit.TestServiceProvider.Remove(Microsoft.Extensions.DependencyInjection.ServiceDescriptor)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/egil/bUnit/blob/main/src/bunit.core/TestServiceProvider.cs/#L124">View Source</a>
+  </span>
+  <a id="Bunit_TestServiceProvider_Remove_" data-uid="Bunit.TestServiceProvider.Remove*"></a>
+  <h4 id="Bunit_TestServiceProvider_Remove_Microsoft_Extensions_DependencyInjection_ServiceDescriptor_" data-uid="Bunit.TestServiceProvider.Remove(Microsoft.Extensions.DependencyInjection.ServiceDescriptor)">Remove(ServiceDescriptor)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool Remove(ServiceDescriptor item)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Microsoft.Extensions.DependencyInjection.ServiceDescriptor</span></td>
+        <td><span class="parametername">item</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/egil/bUnit/new/main/apiSpec/new?filename=Bunit_TestServiceProvider_RemoveAt_System_Int32_.md&amp;value=---%0Auid%3A%20Bunit.TestServiceProvider.RemoveAt(System.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/egil/bUnit/blob/main/src/bunit.core/TestServiceProvider.cs/#L100">View Source</a>
+  </span>
+  <a id="Bunit_TestServiceProvider_RemoveAt_" data-uid="Bunit.TestServiceProvider.RemoveAt*"></a>
+  <h4 id="Bunit_TestServiceProvider_RemoveAt_System_Int32_" data-uid="Bunit.TestServiceProvider.RemoveAt(System.Int32)">RemoveAt(Int32)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void RemoveAt(int index)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">index</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="eii">Explicit Interface Implementations
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/egil/bUnit/new/main/apiSpec/new?filename=Bunit_TestServiceProvider_System_Collections_IEnumerable_GetEnumerator.md&amp;value=---%0Auid%3A%20Bunit.TestServiceProvider.System%23Collections%23IEnumerable%23GetEnumerator%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/egil/bUnit/blob/main/src/bunit.core/TestServiceProvider.cs/#L76">View Source</a>
+  </span>
+  <a id="Bunit_TestServiceProvider_System_Collections_IEnumerable_GetEnumerator_" data-uid="Bunit.TestServiceProvider.System#Collections#IEnumerable#GetEnumerator*"></a>
+  <h4 id="Bunit_TestServiceProvider_System_Collections_IEnumerable_GetEnumerator" data-uid="Bunit.TestServiceProvider.System#Collections#IEnumerable#GetEnumerator">IEnumerable.GetEnumerator()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">IEnumerator IEnumerable.GetEnumerator()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Collections.IEnumerator</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="implements">Implements</h3>
+  <div>
+      <span class="xref">System.IServiceProvider</span>
+  </div>
+  <div>
+      <span class="xref">Microsoft.Extensions.DependencyInjection.IServiceCollection</span>
+  </div>
+  <div>
+      <span class="xref">System.Collections.Generic.IList&lt;T&gt;</span>
+  </div>
+  <div>
+      <span class="xref">System.Collections.Generic.ICollection&lt;T&gt;</span>
+  </div>
+  <div>
+      <span class="xref">System.Collections.Generic.IEnumerable&lt;T&gt;</span>
+  </div>
+  <div>
+      <span class="xref">System.Collections.IEnumerable</span>
+  </div>
+  <div>
+      <span class="xref">System.IDisposable</span>
+  </div>
+  <h3 id="extensionmethods">Extension Methods</h3>
+  <div>
+      <a class="xref" href="Bunit.Extensions.EnumerableExtensions.html#Bunit_Extensions_EnumerableExtensions_IsNullOrEmpty__1_System_Collections_Generic_IEnumerable___0__">EnumerableExtensions.IsNullOrEmpty&lt;T&gt;(IEnumerable&lt;T&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="Bunit.Extensions.LoggerHelperExtensions.html#Bunit_Extensions_LoggerHelperExtensions_CreateLogger__1_System_IServiceProvider_">LoggerHelperExtensions.CreateLogger&lt;TCategoryName&gt;(IServiceProvider)</a>
+  </div>
+  <div>
+      <a class="xref" href="Bunit.JSRuntimeAssertExtensions.html#Bunit_JSRuntimeAssertExtensions_ShouldBeElementReferenceTo_System_Object_AngleSharp_Dom_IElement_">JSRuntimeAssertExtensions.ShouldBeElementReferenceTo(Object, IElement)</a>
+  </div>
+  <div>
+      <a class="xref" href="Bunit.MockJSRuntimeExtensions.html#Bunit_MockJSRuntimeExtensions_AddMockJSRuntime_Bunit_TestServiceProvider_Bunit_JSRuntimeMode_">MockJSRuntimeExtensions.AddMockJSRuntime(TestServiceProvider, JSRuntimeMode)</a>
+  </div>
+  <div>
+      <a class="xref" href="Bunit.Extensions.TestServiceProviderExtensions.html#Bunit_Extensions_TestServiceProviderExtensions_AddDefaultTestContextServices_Microsoft_Extensions_DependencyInjection_IServiceCollection_Bunit_TestContextBase_Bunit_BunitJSInterop_">TestServiceProviderExtensions.AddDefaultTestContextServices(IServiceCollection, TestContextBase, BunitJSInterop)</a>
+  </div>
+  <div>
+      <a class="xref" href="Bunit.XunitLoggerExtensions.html#Bunit_XunitLoggerExtensions_AddXunitLogger_Microsoft_Extensions_DependencyInjection_IServiceCollection_Microsoft_Extensions_Logging_LogLevel_">XunitLoggerExtensions.AddXunitLogger(IServiceCollection, LogLevel)</a>
+  </div>
+  <div>
+      <a class="xref" href="Bunit.XunitLoggerExtensions.html#Bunit_XunitLoggerExtensions_AddXunitLogger_Microsoft_Extensions_DependencyInjection_IServiceCollection_Xunit_Abstractions_ITestOutputHelper_Microsoft_Extensions_Logging_LogLevel_">XunitLoggerExtensions.AddXunitLogger(IServiceCollection, ITestOutputHelper, LogLevel)</a>
+  </div>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="sponsor-highlight">
+                <a href="https://www.telerik.com/campaigns/blazor/free-trial-1?utm_source=egilhansen&utm_medium=cpm&utm_campaign=blazor-trial-bunit-sponsored-message">
+                  <img width="200" src="/sponsors/telerik-ad-site.svg">
+                </a>      
+              </div>
+              <div class="supported">
+                <a href="https://www.packtpub.com/" title="Packt">
+                  <img width="150" src="/sponsors/packt-retina-logo.png">
+                </a>
+                <p>Editorial support provided by <a href="https://www.packtpub.com/" title="Packt">Packt</a>.</p>
+              </div>
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/egil/bUnit/new/main/apiSpec/new?filename=Bunit_TestServiceProvider.md&amp;value=---%0Auid%3A%20Bunit.TestServiceProvider%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                  </li>
+                  <li>
+                    <a href="https://github.com/egil/bUnit/blob/main/src/bunit.core/TestServiceProvider.cs/#L12" class="contribution-link">View Source</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            <small>Documentation updated on 3/16/2021 9:33:36 AM +00:00 in commit 74fd44bf54</small>.
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/cshtml-razor.js"></script>
+    <script>
+      hljs.registerLanguage('cshtml-razor', window.hljsDefineCshtmlRazor);
+    </script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

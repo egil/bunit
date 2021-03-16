@@ -1,0 +1,337 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Fixture Test Details | bUnit </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Fixture Test Details | bUnit ">
+    <meta name="generator" content="docfx 2.56.6.0">
+    <meta name="description" content="bUnit is a unit testing library for Blazor Components. You can easily define components under test in C# or Razor syntax and verify outcome using semantic HTML diffing/comparison logic. You can interact with and inspect components, trigger event handlers, provide cascading values, inject services, mock IJsRuntime, and perform snapshot testing.">
+  
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+  
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../styles/docfx.css">
+    <link rel="stylesheet" href="../../styles/main.css">
+    <meta property="docfx:navrel" content="../../toc.html">
+    <meta property="docfx:tocrel" content="../toc.html">
+    
+    <meta property="docfx:rel" content="../../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../../index.html">
+                <img height="60%" id="logo" class="img" src="../..//images/blazor-logo.png" alt="bUnit">
+                <span>bUnit</span>
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <div id="sponsor-button">
+                <iframe src="https://github.com/sponsors/egil/button" title="Sponsor egil" height="35" width="116" style="border: 0;"></iframe>
+              </div>
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="fixture-details">
+<h1 id="fixture-test-details"><code>&lt;Fixture&gt;</code> Test Details</h1>
+
+<p>bUnit's <a class="xref" href="../../api/Bunit.Fixture.html">Fixture</a> component provides different parameters you can set to change the behavior of the test. It also allows you to set up both a component under test and additional fragments that can be used in the test. Fragments are a way to define additional markup that is needed in a test, for example to serve as an expected value in an assertion.</p>
+<div class="WARNING">
+<h5>Warning</h5>
+<p>Razor tests, where <a class="xref" href="../../api/Bunit.Fixture.html">Fixture</a> components are used, are currently only compatible with using xUnit as the general-purpose testing framework.</p>
+</div>
+<h2 id="parameters">Parameters</h2>
+<p>All the parameters the <a class="xref" href="../../api/Bunit.Fixture.html">Fixture</a> component supports are shown in the listing below:</p>
+<pre><code class="lang-cshtml">@inherits TestComponentBase
+
+&lt;Fixture Setup=@Setup
+         SetupAsync=@SetupAsync
+         Test=@Test
+         TestAsync=@TestAsync
+         Description=&quot;Description of test&quot;
+         Timeout=&quot;TimeSpan.FromSeconds(2)&quot;
+         Skip=&quot;Reason to skip the test&quot;&gt;
+
+  @code
+  {
+    void Setup(Fixture fixture) { }
+    Task SetupAsync(Fixture fixture) =&gt; Task.CompletedTask;
+    // NOTE: Only one of Test/TestAsync can be used at the same time.
+    //       Both are included here for illustration purposes only.
+    void Test(Fixture fixture) { }
+    Task TestAsync(Fixture fixture) =&gt; Task.CompletedTask;
+  }
+&lt;/Fixture&gt;
+</code></pre>
+<p><strong>Setup and Test Methods:</strong></p>
+<p>Let us start by looking at the parameters that take a method or lambda as input. The methods are called in the order they are listed below, and should be used for the described purpose:</p>
+<ol>
+<li><strong><a class="xref" href="../../api/Bunit.RazorTesting.FixtureBase-1.html#Bunit_RazorTesting_FixtureBase_1_Setup">Setup</a></strong> and <strong><a class="xref" href="../../api/Bunit.RazorTesting.FixtureBase-1.html#Bunit_RazorTesting_FixtureBase_1_SetupAsync">SetupAsync</a>:</strong><br>
+The <code>Setup</code> and <code>SetupAsync</code> methods are called first, and you can provide both if needed. If both are provided, <code>Setup</code> is called first.<br>
+These are usually used to configure the <a class="xref" href="../../api/Bunit.TestContextBase.html#Bunit_TestContextBase_Services">Services</a> collection of the <a class="xref" href="../../api/Bunit.Fixture.html">Fixture</a> component before the component under test or any fragments are rendered.</li>
+<li><strong><a class="xref" href="../../api/Bunit.RazorTesting.FixtureBase-1.html#Bunit_RazorTesting_FixtureBase_1_Test">Test</a></strong> or <strong><a class="xref" href="../../api/Bunit.RazorTesting.FixtureBase-1.html#Bunit_RazorTesting_FixtureBase_1_TestAsync">TestAsync</a>:</strong><br>
+The <code>Test</code> or <code>TestAsync</code> method is called after the setup methods.<br>
+<em>One, and only one</em> of the test methods can be specified per fixture. Use the test method to access the component under test and any fragments defined in the fixture, and interact and assert against them.</li>
+</ol>
+<p>In the example above, the setup and test methods are declared in a <code>@code { }</code> block nested inside the <a class="xref" href="../../api/Bunit.Fixture.html">Fixture</a> component. This visually groups the methods nicely with the <a class="xref" href="../../api/Bunit.Fixture.html">Fixture</a> component, making it easier to see what parts of a test belong together, especially when you have multiple tests inside the same test component.</p>
+<p>You can place the methods anywhere you want inside the test component, which can be useful. For example, if you have the same setup steps for multiple tests, you can avoid code duplication by placing them in a common setup method that can be shared by the tests in the same test component.</p>
+<p><strong>Other parameters</strong></p>
+<p>There are other parameters that affect how the test runs, and how it is displayed in something like Visual Studio's Test Explorer:</p>
+<ol>
+<li><strong><a class="xref" href="../../api/Bunit.RazorTesting.RazorTestBase.html#Bunit_RazorTesting_RazorTestBase_Description">Description</a>:</strong><br>
+If a description is provided, it will be displayed by the test runner when the test runs, and in Visual Studio's Test Explorer. If no description is provided, the name of the provided test method is used.</li>
+<li><strong><a class="xref" href="../../api/Bunit.RazorTesting.RazorTestBase.html#Bunit_RazorTesting_RazorTestBase_Skip">Skip</a>:</strong><br>
+If the skip parameter is provided, the test is skipped and the text entered in the skip parameter is passed to the test runner as the reason to skip the test.</li>
+<li><strong><a class="xref" href="../../api/Bunit.RazorTesting.RazorTestBase.html#Bunit_RazorTesting_RazorTestBase_Timeout">Timeout</a>:</strong><br>
+If provided, the test runner will terminate the test after the specified amount of time if it has not completed already.</li>
+</ol>
+<h2 id="componentundertest-and-fragment"><code>&lt;ComponentUnderTest&gt;</code> and <code>&lt;Fragment&gt;</code></h2>
+<p>The <a class="xref" href="../../api/Bunit.Fixture.html">Fixture</a> component only accepts the <a class="xref" href="../../api/Bunit.ComponentUnderTest.html">ComponentUnderTest</a> and <a class="xref" href="../../api/Bunit.Fragment.html">Fragment</a> components as its child content. All other components and markup are ignored. For example:</p>
+<pre><code class="lang-cshtml">@inherits TestComponentBase
+
+&lt;Fixture Test=&quot;...&quot;&gt;
+  &lt;ComponentUnderTest&gt;
+    &lt;!-- Razor or HTML markup goes here --&gt;
+  &lt;/ComponentUnderTest&gt;
+  &lt;Fragment&gt;
+    &lt;!-- Razor or HTML markup goes here --&gt;
+  &lt;/Fragment&gt;
+  &lt;Fragment Id=&quot;some id&quot;&gt;
+    &lt;!-- Razor or HTML markup goes here --&gt;
+  &lt;/Fragment&gt;
+&lt;/Fixture&gt;
+</code></pre>
+<p>Here are the rules for the <a class="xref" href="../../api/Bunit.Fixture.html">Fixture</a> component’s child content:</p>
+<ol>
+<li>One <a class="xref" href="../../api/Bunit.ComponentUnderTest.html">ComponentUnderTest</a> component must be added, and it should not be empty.</li>
+<li>Zero or more <a class="xref" href="../../api/Bunit.Fragment.html">Fragment</a> components can be added.</li>
+<li>The order in which the <a class="xref" href="../../api/Bunit.ComponentUnderTest.html">ComponentUnderTest</a> and <a class="xref" href="../../api/Bunit.Fragment.html">Fragment</a> components are added does not matter.</li>
+<li>The <a class="xref" href="../../api/Bunit.ComponentUnderTest.html">ComponentUnderTest</a> and <a class="xref" href="../../api/Bunit.Fragment.html">Fragment</a> components can contain both Razor markup and regular HTML markup.</li>
+<li>If more than one <a class="xref" href="../../api/Bunit.Fragment.html">Fragment</a> component is added, give each fragment an <code>Id</code> to be able to identify them when retrieving them in the test method.</li>
+<li>The first <a class="xref" href="../../api/Bunit.Fragment.html">Fragment</a> component added can always be retrieved without an id.</li>
+</ol>
+<h2 id="using-componentundertest-and-fragment-in-the-test-methods">Using <code>&lt;ComponentUnderTest&gt;</code> and <code>&lt;Fragment&gt;</code> in the Test Methods</h2>
+<p>The <a class="xref" href="../../api/Bunit.Fixture.html">Fixture</a>'s setup and test methods receive the <a class="xref" href="../../api/Bunit.Fixture.html">Fixture</a> instance as input when they are called. It is through the <a class="xref" href="../../api/Bunit.Fixture.html">Fixture</a> instance that we can get the component under test and any fragments declared inside it. The relevant methods come in both generic and non-generic variants:</p>
+<ul>
+<li><p><strong><a class="xref" href="../../api/Bunit.Fixture.html#Bunit_Fixture_GetComponentUnderTest">GetComponentUnderTest()</a>:</strong><br>
+Use this to return an <a class="xref" href="../../api/Bunit.IRenderedFragment.html">IRenderedFragment</a>, which represents the content declared inside the <a class="xref" href="../../api/Bunit.ComponentUnderTest.html">ComponentUnderTest</a> component. A <a class="xref" href="../../api/Bunit.IRenderedFragment.html">IRenderedFragment</a> does not give you access to the instance of the component under test, but it does give you access to the rendered markup.</p>
+</li>
+<li><p><strong><a class="xref" href="../../api/Bunit.Fixture.html#Bunit_Fixture_GetComponentUnderTest__1">GetComponentUnderTest&lt;TComponent&gt;()</a>:</strong><br>
+Use this to return an <a class="xref" href="../../api/Bunit.IRenderedComponent-1.html">IRenderedComponent&lt;TComponent&gt;</a>, which represents a component of type <code>TComponent</code> declared inside the <a class="xref" href="../../api/Bunit.ComponentUnderTest.html">ComponentUnderTest</a> component. The <a class="xref" href="../../api/Bunit.IRenderedComponent-1.html">IRenderedComponent&lt;TComponent&gt;</a> gives you access to the <code>TComponent</code> instance, as well as the rendered markup of it.</p>
+</li>
+<li><p><strong><a class="xref" href="../../api/Bunit.Fixture.html#Bunit_Fixture_GetFragment_System_String_">GetFragment(String)</a>:</strong><br>
+Use this to get a <a class="xref" href="../../api/Bunit.IRenderedFragment.html">IRenderedFragment</a>, which represents the content declared inside the <a class="xref" href="../../api/Bunit.Fragment.html">Fragment</a> component.</p>
+</li>
+<li><p><strong><a class="xref" href="../../api/Bunit.Fixture.html#Bunit_Fixture_GetFragment__1_System_String_">GetFragment&lt;TComponent&gt;(String)</a></strong><br>
+Use this to return an <a class="xref" href="../../api/Bunit.IRenderedComponent-1.html">IRenderedComponent&lt;TComponent&gt;</a>, which represents a component of type <code>TComponent</code> declared inside the <a class="xref" href="../../api/Bunit.Fragment.html">Fragment</a> component.</p>
+</li>
+</ul>
+<p>For both <code>GetFragment</code> methods, the <code>id</code> string parameter is optional. If it is not provided, the first <a class="xref" href="../../api/Bunit.Fragment.html">Fragment</a> is used to return a <a class="xref" href="../../api/Bunit.IRenderedFragment.html">IRenderedFragment</a> or <a class="xref" href="../../api/Bunit.IRenderedComponent-1.html">IRenderedComponent&lt;TComponent&gt;</a>. Otherwise, the <a class="xref" href="../../api/Bunit.Fragment.html">Fragment</a> with an <code>Id</code> parameter that matches the <code>id</code> specified in the <code>GetFragment</code> method call will be used.</p>
+<p>The generic versions of <a class="xref" href="../../api/Bunit.Fixture.html#Bunit_Fixture_GetComponentUnderTest__1">GetComponentUnderTest&lt;TComponent&gt;()</a> and <a class="xref" href="../../api/Bunit.Fixture.html#Bunit_Fixture_GetFragment__1_System_String_">GetFragment&lt;TComponent&gt;(String)</a> can specify a component of type <code>TComponent</code> which is not the first child of <a class="xref" href="../../api/Bunit.ComponentUnderTest.html">ComponentUnderTest</a> or <a class="xref" href="../../api/Bunit.Fragment.html">Fragment</a>. This is useful in situations such as the component under test being wrapped inside a <code>&lt;CascadingValue&gt;</code>. The <code>GetComponentUnderTest</code> and <code>GetFragment</code> methods will return the <em>first</em> component they find that matches the requested type through a depth-first search of the render tree.</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>You can call the <code>GetComponentUnderTest</code> or <code>GetFragment</code> methods multiple times on the same <code>Fixture</code> instance. Each call will return the same instance for the same input. However, you cannot mix the generic and non-generic versions.</p>
+</div>
+<h2 id="simpletodo-test-example"><code>&lt;SimpleTodo&gt;</code> Test Example</h2>
+<p>Let's look at an example of an elaborate test that tests the lifecycle of a simple task list component, <code>&lt;SimpleTodo&gt;</code> (listed below), which has a service injected, receives a cascading value, and changes between renders:</p>
+<pre><code class="lang-cshtml" name="SimpleTodo.razor">@inject List&lt;string&gt; Tasks
+
+&lt;form&gt;
+    &lt;input @bind-value=@newTaskValue placeholder=&quot;Add todo here . . .&quot; type=&quot;text&quot; /&gt;
+    &lt;button type=&quot;submit&quot; @onclick=@HandleTaskAdded&gt;Add task&lt;/button&gt;
+&lt;/form&gt;
+&lt;ul id=&quot;tasks&quot; class=@ThemeClass&gt;
+    @foreach (var task in Tasks)
+    {
+        &lt;li&gt;@task&lt;/li&gt;
+    }
+&lt;/ul&gt;
+@code {
+  [CascadingParameter(Name = &quot;Theme&quot;)]
+  public string ThemeClass { get; set; } = string.Empty;
+
+  private string newTaskValue = string.Empty;
+
+  private void HandleTaskAdded()
+  {
+    if (!string.IsNullOrWhiteSpace(newTaskValue))
+      Tasks.Add(newTaskValue);
+
+    newTaskValue = string.Empty;
+  }
+}
+</code></pre>
+<p>In the test, we want to verify that:</p>
+<ul>
+<li>The <code>&lt;form&gt;</code> resets itself correctly after a task has been added</li>
+<li>The task is added correctly to the task list</li>
+<li>The &quot;Theme&quot; cascading value is correctly assigned to the task list</li>
+</ul>
+<p>The test looks like this:</p>
+<pre><code class="lang-cshtml" name="SimpleTodoTest.razor" highlight-lines="4,5,8-10,13,20,29,30,35-37">@inherits TestComponentBase
+
+&lt;Fixture Description=&quot;When a task is added, then the input field gets reset&quot;
+         Setup=&quot;RegisterTasksService&quot;
+         Test=&quot;WhenTaskIsAddedInputGetsReset&quot;&gt;
+
+  &lt;ComponentUnderTest&gt;
+    &lt;CascadingValue Name=&quot;Theme&quot; Value=@(&quot;dark-theme&quot;)&gt;
+      &lt;SimpleTodo&gt;&lt;/SimpleTodo&gt;
+    &lt;/CascadingValue&gt;
+  &lt;/ComponentUnderTest&gt;
+
+  &lt;Fragment&gt;
+    &lt;form&gt;
+      &lt;input placeholder=&quot;Add todo here . . .&quot; type=&quot;text&quot; value=&quot;&quot; /&gt;
+        &lt;button type=&quot;submit&quot;&gt;Add task&lt;/button&gt;
+      &lt;/form&gt;
+  &lt;/Fragment&gt;
+
+  &lt;Fragment Id=&quot;expected tasks&quot;&gt;
+    &lt;ul class=&quot;dark-theme&quot; id=&quot;tasks&quot;&gt;
+      &lt;li&gt;Existing task&lt;/li&gt;
+      &lt;li&gt;FOO BAR BAZ&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/Fragment&gt;
+
+  @code
+  {
+    void RegisterTasksService(Fixture fixture)
+      =&gt; fixture.Services.AddSingleton(new List&lt;string&gt;{ &quot;Existing task&quot; });
+
+    void WhenTaskIsAddedInputGetsReset(Fixture fixture)
+    {
+      // Arrange - get the component under test and fragments
+      IRenderedComponent&lt;SimpleTodo&gt; cut = fixture.GetComponentUnderTest&lt;SimpleTodo&gt;();
+      IRenderedFragment expectedFormAfterClick = fixture.GetFragment();
+      IRenderedFragment expectedTasks = fixture.GetFragment(&quot;expected tasks&quot;);
+
+      // Act - change the value of the input element and click the submit button
+      cut.Find(&quot;input&quot;).Change(&quot;FOO BAR BAZ&quot;);
+      cut.Find(&quot;button&quot;).Click();
+
+      // Assert - verify cascading value was received
+      Assert.Equal(&quot;dark-theme&quot;, cut.Instance.ThemeClass);
+
+      // Assert - verify that tasks had the correct theme applied
+      //          and the task added.
+      IElement actualTasks = cut.Find(&quot;#tasks&quot;);
+      actualTasks.MarkupMatches(expectedTasks);
+
+      // Assert - verify that the input form was reset after task was added
+      IElement actualForm = cut.Find(&quot;form&quot;);
+      actualForm.MarkupMatches(expectedFormAfterClick);
+    }
+  }
+&lt;/Fixture&gt;
+</code></pre>
+<p>Let's look at what's going on in this test:</p>
+<ol>
+<li>The fixture has both a setup and test method specified. The setup method is used to register an empty list of tasks that the <code>&lt;SimpleTodo&gt;</code> component requires.</li>
+<li>The <code>&lt;SimpleTodo&gt;</code> component is wrapped in a <code>&lt;CascadingValue&gt;</code> component which passes down the &quot;Theme&quot; cascading value.</li>
+<li>The first <code>&lt;Fragment&gt;</code> does not have an <code>Id</code> parameter. It is not needed since the <code>GetFragment(string? id = null)</code> method will pick the first <code>&lt;Fragment&gt;</code> if no <code>id</code> argument is passed to it.</li>
+<li>The second <code>&lt;Fragment Id=&quot;expected tasks&quot;&gt;</code> does have an <code>Id</code> parameter, to make it possible to get the second fragment through a call to the <code>GetFragment(&quot;expected tasks&quot;)</code> method.</li>
+<li>The test uses the generic version of <code>GetComponentUnderTest&lt;SimpleTodo&gt;()</code>, which gives us access to the instance of <code>SimpleTodo</code> and allows us to inspect its properties, e.g. <code>ThemeClass</code>.</li>
+</ol>
+<p>This covers the “arrange”-steps in the test above and shows how you can easily access both the component under test and other fragments that you might need to write your test concisely. We will cover the details of the &quot;act&quot; and &quot;assertion&quot; steps in the <a class="xref" href="../interaction/index.html">Interacting with a Component Under Test</a> and <a class="xref" href="../verification/index.html">Verifying Output from a Component Under Test</a> pages.</p>
+<p>Learn more about injecting services into components under test on the <a class="xref" href="../providing-input/inject-services-into-components.html">Injecting Services into Components Under Test</a> page.</p>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="sponsor-highlight">
+                <a href="https://www.telerik.com/campaigns/blazor/free-trial-1?utm_source=egilhansen&utm_medium=cpm&utm_campaign=blazor-trial-bunit-sponsored-message">
+                  <img width="200" src="/sponsors/telerik-ad-site.svg">
+                </a>      
+              </div>
+              <div class="supported">
+                <a href="https://www.packtpub.com/" title="Packt">
+                  <img width="150" src="/sponsors/packt-retina-logo.png">
+                </a>
+                <p>Editorial support provided by <a href="https://www.packtpub.com/" title="Packt">Packt</a>.</p>
+              </div>
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/egil/bUnit/blob/main/docs/site/docs/getting-started/fixture-details.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            <small>Documentation updated on 3/16/2021 9:33:36 AM +00:00 in commit 74fd44bf54</small>.
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/cshtml-razor.js"></script>
+    <script>
+      hljs.registerLanguage('cshtml-razor', window.hljsDefineCshtmlRazor);
+    </script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+  </body>
+</html>

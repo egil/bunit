@@ -1,0 +1,171 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Verifying the State of a Component Under Test | bUnit </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Verifying the State of a Component Under Test | bUnit ">
+    <meta name="generator" content="docfx 2.56.6.0">
+    <meta name="description" content="bUnit is a unit testing library for Blazor Components. You can easily define components under test in C# or Razor syntax and verify outcome using semantic HTML diffing/comparison logic. You can interact with and inspect components, trigger event handlers, provide cascading values, inject services, mock IJsRuntime, and perform snapshot testing.">
+  
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+  
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../styles/docfx.css">
+    <link rel="stylesheet" href="../../styles/main.css">
+    <meta property="docfx:navrel" content="../../toc.html">
+    <meta property="docfx:tocrel" content="../toc.html">
+    
+    <meta property="docfx:rel" content="../../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../../index.html">
+                <img height="60%" id="logo" class="img" src="../..//images/blazor-logo.png" alt="bUnit">
+                <span>bUnit</span>
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <div id="sponsor-button">
+                <iframe src="https://github.com/sponsors/egil/button" title="Sponsor egil" height="35" width="116" style="border: 0;"></iframe>
+              </div>
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="verify-component-state">
+<h1 id="verifying-the-state-of-a-component">Verifying the State of a Component</h1>
+
+<p>Calling <a class="xref" href="../../api/Bunit.Extensions.TestRendererExtensions.html#Bunit_Extensions_TestRendererExtensions_RenderComponent__1_Bunit_Rendering_ITestRenderer_System_Action_Bunit_ComponentParameterCollectionBuilder___0___"><code>RenderComponent&lt;TComponent&gt;()</code></a> on a <a class="xref" href="../../api/Bunit.TestContext.html">TestContext</a> or calling <a class="xref" href="../../api/Bunit.Fixture.html#Bunit_Fixture_GetComponentUnderTest__1">GetComponentUnderTest&lt;TComponent&gt;()</a> on a <a class="xref" href="../../api/Bunit.Fixture.html">Fixture</a> returns an instance of the <a class="xref" href="../../api/Bunit.IRenderedComponent-1.html">IRenderedComponent&lt;TComponent&gt;</a> type.</p>
+<p>The <a class="xref" href="../../api/Bunit.IRenderedComponent-1.html">IRenderedComponent&lt;TComponent&gt;</a> type makes it possible to inspect the instance of the component under test (<code>TComponent</code>), and trigger re-renders explicitly.</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>Since <a class="xref" href="../../api/Bunit.IRenderedComponent-1.html">IRenderedComponent&lt;TComponent&gt;</a> inherits from <a class="xref" href="../../api/Bunit.IRenderedFragment.html">IRenderedFragment</a>, all the markup verification techniques covered on the <a class="xref" href="verify-markup.html">Verifying Markup from a Component</a> page also apply to the <a class="xref" href="../../api/Bunit.IRenderedComponent-1.html">IRenderedComponent&lt;TComponent&gt;</a> type.</p>
+</div>
+<h2 id="inspecting-the-component-under-test">Inspecting the Component Under Test</h2>
+<p>The <a class="xref" href="../../api/Bunit.IRenderedComponentBase-1.html#Bunit_IRenderedComponentBase_1_Instance">Instance</a> property on the <a class="xref" href="../../api/Bunit.IRenderedComponent-1.html">IRenderedComponent&lt;TComponent&gt;</a> type provides access to the component under test. For example:</p>
+<pre><code class="lang-csharp">using var ctx = new TestContext();
+
+IRenderedComponent&lt;Alert&gt; cut = ctx.RenderComponent&lt;Alert&gt;();
+
+Alert alert = cut.Instance;
+
+// Assert against &lt;Alert /&gt; instance
+</code></pre>
+<div class="WARNING">
+<h5>Warning</h5>
+<p>While it is possible to set <code>[Parameter]</code> and <code>[CascadingParameter]</code> properties directly through the <a class="xref" href="../../api/Bunit.IRenderedComponentBase-1.html#Bunit_IRenderedComponentBase_1_Instance">Instance</a> property on the <a class="xref" href="../../api/Bunit.IRenderedComponent-1.html">IRenderedComponent&lt;TComponent&gt;</a> type, doing so does not implicitly trigger a render and the component life-cycle methods are not called.</p>
+<p>The correct approach is to set parameters through the <a class="xref" href="../../api/Bunit.RenderedComponentRenderExtensions.html#Bunit_RenderedComponentRenderExtensions_SetParametersAndRender__1_Bunit_IRenderedComponentBase___0__System_Action_Bunit_ComponentParameterCollectionBuilder___0___"><code>SetParametersAndRender()</code></a> methods. See the <a class="xref" href="../interaction/trigger-renders.html">Triggering a Render Life Cycle on a Component</a> page for more on this.</p>
+</div>
+<h2 id="finding-components-in-the-render-tree">Finding Components in the Render Tree</h2>
+<p>To get the instances of components nested inside the component under test, use the
+<a class="xref" href="../../api/Bunit.RenderedFragmentExtensions.html#Bunit_RenderedFragmentExtensions_FindComponent__1_Bunit_IRenderedFragment_"><code>FindComponent&lt;TComponent&gt;()</code></a> and <a class="xref" href="../../api/Bunit.RenderedFragmentExtensions.html#Bunit_RenderedFragmentExtensions_FindComponents__1_Bunit_IRenderedFragment_"><code>FindComponents&lt;TComponent&gt;()</code></a> methods on the <a class="xref" href="../../api/Bunit.IRenderedComponent-1.html">IRenderedComponent&lt;TComponent&gt;</a> type. Suppose, for each task in the todo list, we have a <code>&lt;TodoList&gt;</code> component with <code>&lt;Task&gt;</code> components nested inside. In this case, the <code>&lt;Task&gt;</code> components can be found like this:</p>
+<pre><code class="lang-csharp">using var ctx = new TestContext();
+var cut = ctx.RenderComponent&lt;TodoList&gt;(parameter =&gt; parameter
+  .Add(p =&gt; p.Tasks, new [] { &quot;Task 1&quot;, &quot;Task 2&quot; })
+);
+
+var tasks = cut.FindComponents&lt;Task&gt;();
+
+Assert.Equal(2, tasks.Count);
+</code></pre>
+<p>Both the <a class="xref" href="../../api/Bunit.RenderedFragmentExtensions.html#Bunit_RenderedFragmentExtensions_FindComponent__1_Bunit_IRenderedFragment_"><code>FindComponent&lt;TComponent&gt;()</code></a> and <a class="xref" href="../../api/Bunit.RenderedFragmentExtensions.html#Bunit_RenderedFragmentExtensions_FindComponents__1_Bunit_IRenderedFragment_"><code>FindComponents&lt;TComponent&gt;()</code></a> methods perform a <strong>depth-first search</strong> of the render tree, with the first method returning only the first matching component found, and the latter returning all matching components in the render tree.</p>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="sponsor-highlight">
+                <a href="https://www.telerik.com/campaigns/blazor/free-trial-1?utm_source=egilhansen&utm_medium=cpm&utm_campaign=blazor-trial-bunit-sponsored-message">
+                  <img width="200" src="/sponsors/telerik-ad-site.svg">
+                </a>      
+              </div>
+              <div class="supported">
+                <a href="https://www.packtpub.com/" title="Packt">
+                  <img width="150" src="/sponsors/packt-retina-logo.png">
+                </a>
+                <p>Editorial support provided by <a href="https://www.packtpub.com/" title="Packt">Packt</a>.</p>
+              </div>
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/egil/bUnit/blob/main/docs/site/docs/verification/verify-component-state.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            <small>Documentation updated on 3/16/2021 9:33:36 AM +00:00 in commit 74fd44bf54</small>.
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/cshtml-razor.js"></script>
+    <script>
+      hljs.registerLanguage('cshtml-razor', window.hljsDefineCshtmlRazor);
+    </script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+  </body>
+</html>

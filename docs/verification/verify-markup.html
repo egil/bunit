@@ -1,0 +1,402 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Verifying Markup from a Component | bUnit </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Verifying Markup from a Component | bUnit ">
+    <meta name="generator" content="docfx 2.56.6.0">
+    <meta name="description" content="bUnit is a unit testing library for Blazor Components. You can easily define components under test in C# or Razor syntax and verify outcome using semantic HTML diffing/comparison logic. You can interact with and inspect components, trigger event handlers, provide cascading values, inject services, mock IJsRuntime, and perform snapshot testing.">
+  
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+  
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../styles/docfx.css">
+    <link rel="stylesheet" href="../../styles/main.css">
+    <meta property="docfx:navrel" content="../../toc.html">
+    <meta property="docfx:tocrel" content="../toc.html">
+    
+    <meta property="docfx:rel" content="../../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../../index.html">
+                <img height="60%" id="logo" class="img" src="../..//images/blazor-logo.png" alt="bUnit">
+                <span>bUnit</span>
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <div id="sponsor-button">
+                <iframe src="https://github.com/sponsors/egil/button" title="Sponsor egil" height="35" width="116" style="border: 0;"></iframe>
+              </div>
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="verify-markup">
+<h1 id="verifying-markup-from-a-component">Verifying Markup from a Component</h1>
+
+<p>When a component is rendered in a test, the result is a <a class="xref" href="../../api/Bunit.IRenderedFragment.html">IRenderedFragment</a> or a <a class="xref" href="../../api/Bunit.IRenderedComponent-1.html">IRenderedComponent&lt;TComponent&gt;</a>. Through these, it is possible to access the rendered markup (HTML) of the component and, in the case of <a class="xref" href="../../api/Bunit.IRenderedComponent-1.html">IRenderedComponent&lt;TComponent&gt;</a>, the instance of the component.</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>An <a class="xref" href="../../api/Bunit.IRenderedComponent-1.html">IRenderedComponent&lt;TComponent&gt;</a> inherits from <a class="xref" href="../../api/Bunit.IRenderedFragment.html">IRenderedFragment</a>. This page will only cover features of the <a class="xref" href="../../api/Bunit.IRenderedFragment.html">IRenderedFragment</a> type. <a class="xref" href="../../api/Bunit.IRenderedComponent-1.html">IRenderedComponent&lt;TComponent&gt;</a> is covered on the <a class="xref" href="verify-component-state.html">Verifying the State of a Component Under Test</a> page.</p>
+</div>
+<p>This page covers the following <strong>verification approaches:</strong></p>
+<ul>
+<li>Basic verification of raw markup</li>
+<li>Semantic comparison of markup</li>
+<li>Inspecting the individual DOM nodes in the DOM tree</li>
+<li>Finding expected differences in markup between renders</li>
+</ul>
+<p>The following sections will cover each of these.</p>
+<h2 id="basic-verification-of-raw-markup">Basic Verification of Raw Markup</h2>
+<p>To access the rendered markup of a component, just use the <a class="xref" href="../../api/Bunit.IRenderedFragment.html#Bunit_IRenderedFragment_Markup">Markup</a> property on <a class="xref" href="../../api/Bunit.IRenderedFragment.html">IRenderedFragment</a>. This holds the <em>raw</em> HTML from the component as a <code>string</code>.</p>
+<div class="WARNING">
+<h5>Warning</h5>
+<p>Be aware that all indentions and whitespace in your components (<code>.razor</code> files) are included in the raw rendered markup, so it is often wise to normalize the markup string a little. For example, via the string <code>Trim()</code> method to make the tests more stable. Otherwise, a change to the formatting in your components might break the tests unnecessarily when it does not need to.</p>
+<p>To avoid these issues and others related to asserting against raw markup, use the semantic HTML comparer that comes with bUnit, described in the next section.</p>
+</div>
+<p>To get the markup as a string, do the following:</p>
+<pre><code class="lang-csharp" highlight-lines="5">using var ctx = new TestContext();
+
+var cut = ctx.RenderComponent&lt;HelloWorld&gt;();
+
+var renderedMarkup = cut.Markup;
+Assert.Equal(&quot;&lt;h1&gt;Hello world from Blazor&lt;/h1&gt;&quot;, renderedMarkup);
+</code></pre>
+<p>You can perform standard string assertions against the markup string, like checking whether it contains a value or is empty.</p>
+<h2 id="semantic-comparison-of-markup">Semantic Comparison of Markup</h2>
+<p>Working with raw markup only works well with very simple output, but even then you have to sanitize it to get stable tests. A much better approach is to use the semantic HTML comparer that comes with bUnit.</p>
+<h3 id="how-does-the-semantic-html-comparer-work">How does the Semantic HTML Comparer Work?</h3>
+<p>The comparer takes two HTML fragments (e.g. in the form of a C# string) as input, and returns <code>true</code> if both HTML fragments result in the same visual rendered output in a web browser. If not, it returns <code>false</code>.</p>
+<p>For example, a web browser will render this HTML:</p>
+<pre><code class="lang-html">&lt;span&gt;Foo Bar&lt;/span&gt;
+</code></pre>
+<p>This will be done in exactly the same way as this HTML:</p>
+<pre><code class="lang-html">&lt;span&gt;
+  Foo       Bar
+&lt;/span&gt;
+</code></pre>
+<p>This is why it makes sense to allow tests to pass, <em>even</em> when the rendered HTML markup is not entirely identical to the expected HTML from a normal string comparer's perspective.</p>
+<p>bUnit's semantic HTML comparer safely ignores things like insignificant whitespace and the order of attributes on elements, as well as many more things. <strong>This leads to much more stable tests, as - for example - a reformatted component doesn't break its tests because of insignificant whitespace changes.</strong> More details of the semantic comparer can be found on the <a class="xref" href="semantic-html-comparison.html">Customizing the Semantic HTML Comparison</a> page.</p>
+<h3 id="the-markupmatches-method">The MarkupMatches() Method</h3>
+<p>The HTML comparer can be easily accessed through <code>MarkupMatches()</code> extension methods, available in places that represent HTML fragments in bUnit, i.e. on <a class="xref" href="../../api/Bunit.IRenderedFragment.html">IRenderedFragment</a> and the <code>INode</code> and <code>INodeList</code> types.</p>
+<p>In the following examples, the <code>&lt;Heading&gt;</code> component listed below will be used as the component under test.</p>
+<pre><code class="lang-razor" name="Heading.razor">&lt;h3 id=&quot;heading-1337&quot; required&gt;
+  Heading text
+  &lt;small class=&quot;text-muted mark&quot;&gt;
+    Secondary text
+  &lt;/small&gt;
+&lt;/h3&gt;
+</code></pre>
+<p>To use the <code>MarkupMatches()</code> method to perform a semantic comparison of the output of the <code>&lt;Heading&gt;</code> component through its <a class="xref" href="../../api/Bunit.IRenderedFragment.html">IRenderedFragment</a>, do the following:</p>
+<pre><code class="lang-csharp" highlight-lines="5-9">using var ctx = new TestContext();
+
+var cut = ctx.RenderComponent&lt;Heading&gt;();
+
+cut.MarkupMatches(@&quot;&lt;h3 id=&quot;&quot;heading-1337&quot;&quot; required&gt;
+                      Heading text
+                      &lt;small class=&quot;&quot;mark text-muted&quot;&quot;&gt;Secondary text&lt;/small&gt;
+                    &lt;/h3&gt;&quot;);
+</code></pre>
+<p>The highlighted line shows the call to the <code>MarkupMatches()</code> method. This test passes even though the insignificant whitespace is not exactly the same between the expected HTML string and the raw markup produced by the <code>&lt;Heading&gt;</code> component. It even works when the CSS class list is not in the same order on the <code>&lt;small&gt;</code> element.</p>
+<p>The <code>MarkupMatches()</code> method is also available on <code>INode</code> and <code>INodeList</code> types, for example:</p>
+<pre><code class="lang-csharp" highlight-lines="5-6">using var ctx = new TestContext();
+
+var cut = ctx.RenderComponent&lt;Heading&gt;();
+
+var smallElm = cut.Find(&quot;small&quot;);
+smallElm.MarkupMatches(@&quot;&lt;small class=&quot;&quot;mark text-muted&quot;&quot;&gt;Secondary text&lt;/small&gt;&quot;);
+</code></pre>
+<p>Here we use the <code>Find(string cssSelector)</code> method to find the <code>&lt;small&gt;</code> element, and only verify it and its content and attributes.</p>
+<div class="TIP">
+<h5>Tip</h5>
+<p>Working with <code>Find()</code>, <code>FindAll()</code>, <code>INode</code> and <code>INodeList</code> is covered later on this page.</p>
+</div>
+<p>Text content can also be verified with the <code>MarkupMatches()</code> method, e.g. the text inside the <code>&lt;small&gt;</code> element. It has the advantage over regular string comparison in that it removes insignificant whitespace in the text automatically - even between words - where a normal string <code>Trim()</code> method isn't enough. For example:</p>
+<pre><code class="lang-csharp" highlight-lines="5">using var ctx = new TestContext();
+
+var cut = ctx.RenderComponent&lt;Heading&gt;();
+
+var smallElmText = cut.Find(&quot;small&quot;).TextContent;
+smallElmText.MarkupMatches(&quot;Secondary text&quot;);
+</code></pre>
+<p>The semantic HTML comparer can be customized to make a test case even more stable and easier to maintain. For example, it is possible to ignore an element or attribute during comparison, or provide a regular expression to the comparer when comparing a specific element or attribute to make the comparer work with generated data.</p>
+<p>Learn more about the customization options on the <a class="xref" href="semantic-html-comparison.html">Customizing the Semantic HTML Comparison</a> page.</p>
+<h2 id="inspecting-dom-nodes">Inspecting DOM Nodes</h2>
+<p>The rendered markup from a component is available as a DOM node through the <a class="xref" href="../../api/Bunit.IRenderedFragment.html#Bunit_IRenderedFragment_Nodes">Nodes</a> property on <a class="xref" href="../../api/Bunit.IRenderedFragment.html">IRenderedFragment</a>, as well as the <code>Find(string cssSelector)</code> and <code>FindAll(string cssSelector)</code> extension methods on <a class="xref" href="../../api/Bunit.IRenderedFragment.html">IRenderedFragment</a>.</p>
+<p>The <a class="xref" href="../../api/Bunit.IRenderedFragment.html#Bunit_IRenderedFragment_Nodes">Nodes</a> property and the <code>FindAll()</code> method return an <a href="https://anglesharp.github.io/">AngleSharp</a> <code>INodeList</code> type, and the <code>Find()</code> method returns an <a href="https://anglesharp.github.io/">AngleSharp</a> <code>IElement</code> type.</p>
+<p>The DOM API in AngleSharp follows the W3C DOM API specifications and gives you the same results as a state-of-the-art browser’s implementation of the DOM API in JavaScript. Besides the official DOM API, AngleSharp and bUnit add some useful extension methods on top. This makes working with DOM nodes convenient.</p>
+<h3 id="finding-nodes-with-the-find-and-findall-methods">Finding Nodes with the Find() and FindAll() methods</h3>
+<p>Users of the famous JavaScript framework <a href="https://jquery.com/">jQuery</a> will recognize these two methods:</p>
+<ul>
+<li><a class="xref" href="../../api/Bunit.RenderedFragmentExtensions.html#Bunit_RenderedFragmentExtensions_Find_Bunit_IRenderedFragment_System_String_"><code>Find(string cssSelector)</code></a> takes a &quot;CSS selector&quot; as input and returns an <code>IElement</code> as output, or throws an exception if none are found.</li>
+<li><a class="xref" href="../../api/Bunit.RenderedFragmentExtensions.html#Bunit_RenderedFragmentExtensions_FindAll_Bunit_IRenderedFragment_System_String_System_Boolean_"><code>FindAll(string cssSelector)</code></a> takes a &quot;CSS selector&quot; as input and returns a list of <code>IElement</code> elements.</li>
+</ul>
+<p>Let's see some examples of using the <a class="xref" href="../../api/Bunit.RenderedFragmentExtensions.html#Bunit_RenderedFragmentExtensions_Find_Bunit_IRenderedFragment_System_String_"><code>Find(string cssSelector)</code></a> and <a class="xref" href="../../api/Bunit.RenderedFragmentExtensions.html#Bunit_RenderedFragmentExtensions_FindAll_Bunit_IRenderedFragment_System_String_System_Boolean_"><code>FindAll(string cssSelector)</code></a> methods to query the <code>&lt;FancyTable&gt;</code> component listed below.</p>
+<pre><code class="lang-razor" name="FancyTable.razor">&lt;table&gt;
+  &lt;caption&gt;Lorem lipsum captium&lt;/caption&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;white-space:nowrap&quot;&gt;Foo&lt;/td&gt;
+      &lt;td&gt;Bar&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;white-space:nowrap&quot;&gt;Baz&lt;/td&gt;
+      &lt;td&gt;Boo&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+</code></pre>
+<p>To find the <code>&lt;caption&gt;</code> element and the first <code>&lt;td&gt;</code> elements in each row, do the following:</p>
+<pre><code class="lang-csharp" highlight-lines="5-6">using var ctx = new TestContext();
+
+var cut = ctx.RenderComponent&lt;FancyTable&gt;();
+
+var tableCaption = cut.Find(&quot;caption&quot;);
+var tableCells = cut.FindAll(&quot;td:first-child&quot;);
+</code></pre>
+<p>Once you have one or more elements, you verify against them,  such as by  inspecting their properties through the DOM API. For example:</p>
+<pre><code class="lang-csharp">Assert.Empty(tableCaption.Attributes);
+Assert.Equal(2, tableCells.Count);
+Assert.All(tableCells, td =&gt; td.HasAttribute(&quot;style&quot;));
+</code></pre><h4 id="auto-refreshing-find-queries">Auto-refreshing Find() Queries</h4>
+<p>An element found with the <a class="xref" href="../../api/Bunit.RenderedFragmentExtensions.html#Bunit_RenderedFragmentExtensions_Find_Bunit_IRenderedFragment_System_String_"><code>Find(string cssSelector)</code></a> method will be updated if the component it came from is re-rendered.</p>
+<p>However, that does not apply to elements that are found by traversing the DOM tree via the <a class="xref" href="../../api/Bunit.IRenderedFragment.html#Bunit_IRenderedFragment_Nodes">Nodes</a> property on <a class="xref" href="../../api/Bunit.IRenderedFragment.html">IRenderedFragment</a>, for example, as those nodes do not know when their root component is re-rendered. Consequently, they don’t know when they should be updated.</p>
+<p>As a result of this, it is always recommended to use the <a class="xref" href="../../api/Bunit.RenderedFragmentExtensions.html#Bunit_RenderedFragmentExtensions_Find_Bunit_IRenderedFragment_System_String_"><code>Find(string cssSelector)</code></a> method when searching for a single element. Alternatively, always reissue the query whenever you need the element.</p>
+<h4 id="auto-refreshable-findall-queries">Auto-refreshable FindAll() Queries</h4>
+<p>The <a class="xref" href="../../api/Bunit.RenderedFragmentExtensions.html#Bunit_RenderedFragmentExtensions_FindAll_Bunit_IRenderedFragment_System_String_System_Boolean_"><code>FindAll(string cssSelector, bool enableAutoRefresh = false)</code></a> method has an optional parameter, <code>enableAutoRefresh</code>, which when set to <code>true</code> will return a collection of <code>IElement</code>. This automatically refreshes itself when the component the elements came from is re-rendered.</p>
+<h2 id="finding-expected-differences">Finding Expected Differences</h2>
+<p>It can sometimes be easier to verify that an expected change, and only that change, has occurred in the rendered markup than it can be to specify how all the rendered markup should look after re-rendering.</p>
+<p>bUnit comes with a number of ways for finding lists of <code>IDiff</code>; the representation of a difference between two HTML fragments. All of these are direct methods or extension methods on the <a class="xref" href="../../api/Bunit.IRenderedFragment.html">IRenderedFragment</a> type or on the <code>INode</code> or <code>INodeList</code> types:</p>
+<ul>
+<li><a class="xref" href="../../api/Bunit.IRenderedFragment.html#Bunit_IRenderedFragment_GetChangesSinceFirstRender">GetChangesSinceFirstRender()</a> method on <a class="xref" href="../../api/Bunit.IRenderedFragment.html">IRenderedFragment</a>. This method returns a list of differences since the initial first render of a component.</li>
+<li><a class="xref" href="../../api/Bunit.IRenderedFragment.html#Bunit_IRenderedFragment_GetChangesSinceSnapshot">GetChangesSinceSnapshot()</a> and <a class="xref" href="../../api/Bunit.IRenderedFragment.html#Bunit_IRenderedFragment_SaveSnapshot">SaveSnapshot()</a> methods on <a class="xref" href="../../api/Bunit.IRenderedFragment.html">IRenderedFragment</a>. These two methods combined make it possible to get a list of differences between the last time the <a class="xref" href="../../api/Bunit.IRenderedFragment.html#Bunit_IRenderedFragment_SaveSnapshot">SaveSnapshot()</a> method was called and the time a call to the <a class="xref" href="../../api/Bunit.IRenderedFragment.html#Bunit_IRenderedFragment_GetChangesSinceSnapshot">GetChangesSinceSnapshot()</a> method is placed.</li>
+<li><code>CompareTo()</code> methods from <a class="xref" href="../../api/Bunit.CompareToExtensions.html">CompareToExtensions</a> for the <a class="xref" href="../../api/Bunit.IRenderedFragment.html">IRenderedFragment</a>, <code>INode</code>, and <code>INodeList</code> types. These methods return a list of differences between the two input HTML fragments.</li>
+</ul>
+<p>In addition to this, there are a number of experimental assertion helpers for <code>IDiff</code> and <code>IEnumerable&lt;IDiff&gt;</code>, making it easier and more concise to declare your assertions.</p>
+<p>Let's look at a few examples  of using the assertion helpers. In the first one, we will use the <code>&lt;Counter&gt;</code> component listed below:</p>
+<pre><code class="lang-razor" name="Counter.razor">&lt;h1&gt;Counter&lt;/h1&gt;
+
+&lt;p&gt;
+    Current count: @currentCount
+&lt;/p&gt;
+
+&lt;button class=&quot;btn btn-primary&quot; @onclick=&quot;IncrementCount&quot;&gt;Click me&lt;/button&gt;
+
+@code {
+  int currentCount = 0;
+
+  void IncrementCount()
+  {
+    currentCount++;
+  }
+}
+</code></pre>
+<p>Here is an example of using the <a class="xref" href="../../api/Bunit.IRenderedFragment.html#Bunit_IRenderedFragment_GetChangesSinceFirstRender">GetChangesSinceFirstRender()</a> method:</p>
+<pre><code class="lang-csharp" highlight-lines="8,11,14">using var ctx = new TestContext();
+var cut = ctx.RenderComponent&lt;Counter&gt;();
+
+// Act - increment the counter
+cut.Find(&quot;button&quot;).Click();
+
+// Assert - find differences between first render and click
+var diffs = cut.GetChangesSinceFirstRender();
+
+// Only expect there to be one change      
+var diff = diffs.ShouldHaveSingleChange();
+// and that change should be a text 
+// change to &quot;Current count: 1&quot;
+diff.ShouldBeTextChange(&quot;Current count: 1&quot;);
+</code></pre>
+<p>This is what happens in the test:</p>
+<ul>
+<li>On line 8, <a class="xref" href="../../api/Bunit.IRenderedFragment.html#Bunit_IRenderedFragment_GetChangesSinceFirstRender">GetChangesSinceFirstRender()</a> is used to get a list of differences.</li>
+<li>On line 11, the <a class="xref" href="../../api/Bunit.DiffAssertExtensions.html#Bunit_DiffAssertExtensions_ShouldHaveSingleChange_System_Collections_Generic_IEnumerable_AngleSharp_Diffing_Core_IDiff__"><code>ShouldHaveSingleChange()</code></a> method is used to verify that there is only one change found.</li>
+<li>On line 14, the <a class="xref" href="../../api/Bunit.ShouldBeTextChangeAssertExtensions.html#Bunit_ShouldBeTextChangeAssertExtensions_ShouldBeTextChange_AngleSharp_Diffing_Core_IDiff_System_String_System_String_"><code>ShouldBeTextChange()</code></a> method is used to verify that the single <code>IDiff</code> is a text change.</li>
+</ul>
+<p>Testing a more <strong>complex life cycle of a component</strong> can be done more easily using the <a class="xref" href="../../api/Bunit.IRenderedFragment.html#Bunit_IRenderedFragment_GetChangesSinceSnapshot">GetChangesSinceSnapshot()</a> and <a class="xref" href="../../api/Bunit.IRenderedFragment.html#Bunit_IRenderedFragment_SaveSnapshot">SaveSnapshot()</a> methods along with a host of other assert helpers.</p>
+<p>This example tests the <code>&lt;CheckList&gt;</code> component listed below. The component allows you to add new items to the checklist by typing into the input field and hitting the <code>enter</code> key. Items can be removed from the list again by clicking on them.</p>
+<pre><code class="lang-razor" name="CheckList.razor">&lt;input type=&quot;text&quot; placeholder=&quot;Add new item&quot; 
+       @bind=&quot;newItemValue&quot;
+       @onkeyup=&quot;OnTextInput&quot; /&gt;
+&lt;ul&gt;
+  @foreach (var item in items)
+  {
+    &lt;li @onclick=&quot;() =&gt; items.Remove(item)&quot;&gt;@item&lt;/li&gt;
+  }
+&lt;/ul&gt;
+@code
+{
+  private string newItemValue = string.Empty;
+  private List&lt;string&gt; items = new List&lt;string&gt;();
+
+  private void OnTextInput(KeyboardEventArgs args)
+  {
+    if(args.Key == &quot;Enter&quot;)
+    {
+      items.Add(newItemValue);
+      newItemValue = string.Empty;
+    }
+  }
+}
+</code></pre>
+<p>To test the end-to-end life cycle of adding and removing items from the <code>&lt;CheckList&gt;</code> component, do the following:</p>
+<pre><code class="lang-csharp">// Arrange
+using var ctx = new TestContext();
+var cut = ctx.RenderComponent&lt;CheckList&gt;();
+var inputField = cut.Find(&quot;input&quot;);
+
+// Add first item
+inputField.Change(&quot;First item&quot;);
+inputField.KeyUp(key: &quot;Enter&quot;);
+
+// Assert that first item was added correctly
+var diffs = cut.GetChangesSinceFirstRender();
+diffs.ShouldHaveSingleChange()
+  .ShouldBeAddition(&quot;&lt;li&gt;First item&lt;/li&gt;&quot;);
+
+// Save snapshot of current DOM nodes
+cut.SaveSnapshot();
+
+// Add a second item
+inputField.Change(&quot;Second item&quot;);
+inputField.KeyUp(key: &quot;Enter&quot;);
+
+// Assert that both first and second item was added
+// since the first render
+diffs = cut.GetChangesSinceFirstRender();
+diffs.ShouldHaveChanges(
+  diff =&gt; diff.ShouldBeAddition(&quot;&lt;li&gt;First item&lt;/li&gt;&quot;),
+  diff =&gt; diff.ShouldBeAddition(&quot;&lt;li&gt;Second item&lt;/li&gt;&quot;)
+);
+
+// Assert that only the second item was added 
+// since the call to SaveSnapshot()
+diffs = cut.GetChangesSinceSnapshot();
+diffs.ShouldHaveSingleChange()
+  .ShouldBeAddition(&quot;&lt;li&gt;Second item&lt;/li&gt;&quot;);
+
+// Save snapshot again of current DOM nodes
+cut.SaveSnapshot();
+
+// Click last item to remove it from list
+cut.Find(&quot;li:last-child&quot;).Click();
+
+// Assert that the second item was removed 
+// since the call to SaveSnapshot()
+diffs = cut.GetChangesSinceSnapshot();
+diffs.ShouldHaveSingleChange()
+  .ShouldBeRemoval(&quot;&lt;li&gt;Second item&lt;/li&gt;&quot;);
+</code></pre>
+<p>This is what happens in the test:</p>
+<ol>
+<li>First the component is rendered and the input field is found.</li>
+<li>The first item is added through the input field.</li>
+<li>The <a class="xref" href="../../api/Bunit.IRenderedFragment.html#Bunit_IRenderedFragment_GetChangesSinceFirstRender">GetChangesSinceFirstRender()</a>, <a class="xref" href="../../api/Bunit.DiffAssertExtensions.html#Bunit_DiffAssertExtensions_ShouldHaveSingleChange_System_Collections_Generic_IEnumerable_AngleSharp_Diffing_Core_IDiff__"><code>ShouldHaveSingleChange()</code></a> and <a class="xref" href="../../api/Bunit.ShouldBeAdditionAssertExtensions.html#Bunit_ShouldBeAdditionAssertExtensions_ShouldBeAddition_AngleSharp_Diffing_Core_IDiff_System_String_System_String_"><code>ShouldBeAddition()</code></a> methods are used to verify that the item was correctly added.</li>
+<li>The <a class="xref" href="../../api/Bunit.IRenderedFragment.html#Bunit_IRenderedFragment_SaveSnapshot">SaveSnapshot()</a> is used to save a snapshot of current DOM nodes internally in the <code>cut</code>. This reduces the number of diffs found in the following steps, simplifying verification.</li>
+<li>A second item is added to the check list.</li>
+<li>Two verifications are performed at this point, one using the <a class="xref" href="../../api/Bunit.IRenderedFragment.html#Bunit_IRenderedFragment_GetChangesSinceFirstRender">GetChangesSinceFirstRender()</a> method which finds two changes, and one using the <a class="xref" href="../../api/Bunit.IRenderedFragment.html#Bunit_IRenderedFragment_GetChangesSinceSnapshot">GetChangesSinceSnapshot()</a> method, which finds a single change. The first is only done for illustrative purposes.</li>
+<li>A new snapshot is saved, replacing the previous one with another call to the <a class="xref" href="../../api/Bunit.IRenderedFragment.html#Bunit_IRenderedFragment_SaveSnapshot">SaveSnapshot()</a> method.</li>
+<li>Finally the last item in the list is found and clicked, and the <a class="xref" href="../../api/Bunit.IRenderedFragment.html#Bunit_IRenderedFragment_GetChangesSinceSnapshot">GetChangesSinceSnapshot()</a> method is used to find the changes, a single diff, which is verified as a removal of the second item.</li>
+</ol>
+<p>As mentioned earlier, the <code>IDiff</code> assertion helpers are still experimental. Any feedback and suggestions for improvements should be directed to the <a href="https://github.com/egil/bUnit/issues/84">related issue</a> on GitHub.</p>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="sponsor-highlight">
+                <a href="https://www.telerik.com/campaigns/blazor/free-trial-1?utm_source=egilhansen&utm_medium=cpm&utm_campaign=blazor-trial-bunit-sponsored-message">
+                  <img width="200" src="/sponsors/telerik-ad-site.svg">
+                </a>      
+              </div>
+              <div class="supported">
+                <a href="https://www.packtpub.com/" title="Packt">
+                  <img width="150" src="/sponsors/packt-retina-logo.png">
+                </a>
+                <p>Editorial support provided by <a href="https://www.packtpub.com/" title="Packt">Packt</a>.</p>
+              </div>
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/egil/bUnit/blob/main/docs/site/docs/verification/verify-markup.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            <small>Documentation updated on 3/16/2021 9:33:36 AM +00:00 in commit 74fd44bf54</small>.
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/cshtml-razor.js"></script>
+    <script>
+      hljs.registerLanguage('cshtml-razor', window.hljsDefineCshtmlRazor);
+    </script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+  </body>
+</html>

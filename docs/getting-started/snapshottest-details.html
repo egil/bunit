@@ -1,0 +1,188 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>SnapshotTest Details | bUnit </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="SnapshotTest Details | bUnit ">
+    <meta name="generator" content="docfx 2.56.6.0">
+    <meta name="description" content="bUnit is a unit testing library for Blazor Components. You can easily define components under test in C# or Razor syntax and verify outcome using semantic HTML diffing/comparison logic. You can interact with and inspect components, trigger event handlers, provide cascading values, inject services, mock IJsRuntime, and perform snapshot testing.">
+  
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+  
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../styles/docfx.css">
+    <link rel="stylesheet" href="../../styles/main.css">
+    <meta property="docfx:navrel" content="../../toc.html">
+    <meta property="docfx:tocrel" content="../toc.html">
+    
+    <meta property="docfx:rel" content="../../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../../index.html">
+                <img height="60%" id="logo" class="img" src="../..//images/blazor-logo.png" alt="bUnit">
+                <span>bUnit</span>
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <div id="sponsor-button">
+                <iframe src="https://github.com/sponsors/egil/button" title="Sponsor egil" height="35" width="116" style="border: 0;"></iframe>
+              </div>
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="snapshottest-details">
+<h1 id="snapshottest-details"><code>&lt;SnapshotTest&gt;</code> Details</h1>
+
+<p>bUnit's support for snapshot testing comes with the <a class="xref" href="../../api/Bunit.SnapshotTest.html">SnapshotTest</a> component. In snapshot testing, you declare your input (e.g. one or more components under test) and the expected output, and the library will automatically tell you if they do not match.</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>One notable snapshot testing feature is currently missing: the ability to auto-generate the expected output initially, when it is not specified. If you want to contribute to resolving this, take a look at <a href="https://github.com/egil/bunit/issues/3">issue #3 on GitHub</a>.</p>
+</div>
+<div class="WARNING">
+<h5>Warning</h5>
+<p>Razor tests, where <a class="xref" href="../../api/Bunit.SnapshotTest.html">SnapshotTest</a> components are used, are currently only compatible with xUnit as the general-purpose testing framework.</p>
+</div>
+<h2 id="parameters">Parameters</h2>
+<p>All parameters that the <a class="xref" href="../../api/Bunit.SnapshotTest.html">SnapshotTest</a> component supports are listed below:</p>
+<pre><code class="lang-cshtml">@inherits TestComponentBase
+
+&lt;SnapshotTest Setup=@Setup
+              SetupAsync=@SetupAsync
+              Description=&quot;Description of test&quot;
+              Timeout=&quot;TimeSpan.FromSeconds(2)&quot;
+              Skip=&quot;Reason to skip the test&quot;&gt;
+  &lt;TestInput&gt;...&lt;/TestInput&gt;
+  &lt;ExpectedOutput&gt;...&lt;/ExpectedOutput&gt;
+  @code
+  {
+    void Setup(SnapshotTest test) { }
+    Task SetupAsync(SnapshotTest test) =&gt; Task.CompletedTask;
+  }
+&lt;/SnapshotTest&gt;
+</code></pre>
+<p>Let us go over each of these:</p>
+<ol>
+<li><strong><a class="xref" href="../../api/Bunit.RazorTesting.FixtureBase-1.html#Bunit_RazorTesting_FixtureBase_1_Setup">Setup</a></strong> and <strong><a class="xref" href="../../api/Bunit.RazorTesting.FixtureBase-1.html#Bunit_RazorTesting_FixtureBase_1_SetupAsync">SetupAsync</a>:</strong><br>
+The <code>Setup</code> and <code>SetupAsync</code> methods can be used to register any services that should be injected into the components declared inside the <code>&lt;TestInput&gt;</code> and <code>&lt;ExpectedOutput&gt;</code>, and you can use both <code>Setup</code> and <code>SetupAsync</code> if needed. If both are provided, <code>Setup</code> is called first.</li>
+<li><strong><a class="xref" href="../../api/Bunit.RazorTesting.RazorTestBase.html#Bunit_RazorTesting_RazorTestBase_Description">Description</a>:</strong><br>
+If a description is provided, it will be displayed by the test runner when the test runs, as well as in Visual Studio's Test Explorer. If no description is provided then &quot;SnapshotTest #NUM&quot; is used, where NUM is the position the test has in the file it is declared in.</li>
+<li><strong><a class="xref" href="../../api/Bunit.RazorTesting.RazorTestBase.html#Bunit_RazorTesting_RazorTestBase_Skip">Skip</a>:</strong><br>
+If the skip parameter is provided, the test is skipped and the text entered in the skip parameter is passed to the test runner as the reason for skipping the test.</li>
+<li><strong><a class="xref" href="../../api/Bunit.RazorTesting.RazorTestBase.html#Bunit_RazorTesting_RazorTestBase_Timeout">Timeout</a>:</strong><br>
+If provided, the test runner will terminate the test after the specified amount of time if it has not completed already.</li>
+<li><strong><a class="xref" href="../../api/Bunit.SnapshotTest.html#Bunit_SnapshotTest_TestInput">TestInput</a> child component:</strong><br>
+Inside the <code>&lt;TestInput&gt;</code> child component is where you put all Razor and HTML markup that constitutes the test input or component under test.</li>
+<li><strong><a class="xref" href="../../api/Bunit.SnapshotTest.html#Bunit_SnapshotTest_ExpectedOutput">ExpectedOutput</a> child component:</strong><br>
+Inside the <code>&lt;ExpectedOutput&gt;</code> child component is where you put all Razor and HTML markup that represents what the rendered result of <code>&lt;TestInput&gt;</code> should be.</li>
+</ol>
+<h2 id="what-happens-when-the-test-runs">What Happens When the Test Runs?</h2>
+<p>When a <a class="xref" href="../../api/Bunit.SnapshotTest.html">SnapshotTest</a> runs, this happens:</p>
+<ol>
+<li>It will first call the setup methods</li>
+<li>Then it will render the <code>&lt;TestInput&gt;</code> and <code>&lt;ExpectedOutput&gt;</code> child components</li>
+<li>Finally, it will compare the rendered markup from the <code>&lt;TestInput&gt;</code> and <code>&lt;ExpectedOutput&gt;</code> child components using the semantic HTML comparer built into bUnit</li>
+</ol>
+<p>The semantic comparison in bUnit allows you to customize the snapshot verification  through <em>&quot;comparison modifiers&quot;</em> in the <code>&lt;ExpectedOutput&gt;</code> markup. For example, if you want to tell the semantic comparer to ignore the case of the text content inside an element, you can add the <code>diff:ignoreCase</code> attribute to the element inside <code>&lt;ExpectedOutput&gt;</code>.</p>
+<p>To learn more about semantic comparison modifiers, go to the <a class="xref" href="../verification/semantic-html-comparison.html">Customizing the Semantic HTML Comparison</a> page.</p>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="sponsor-highlight">
+                <a href="https://www.telerik.com/campaigns/blazor/free-trial-1?utm_source=egilhansen&utm_medium=cpm&utm_campaign=blazor-trial-bunit-sponsored-message">
+                  <img width="200" src="/sponsors/telerik-ad-site.svg">
+                </a>      
+              </div>
+              <div class="supported">
+                <a href="https://www.packtpub.com/" title="Packt">
+                  <img width="150" src="/sponsors/packt-retina-logo.png">
+                </a>
+                <p>Editorial support provided by <a href="https://www.packtpub.com/" title="Packt">Packt</a>.</p>
+              </div>
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/egil/bUnit/blob/main/docs/site/docs/getting-started/snapshottest-details.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            <small>Documentation updated on 3/16/2021 9:33:36 AM +00:00 in commit 74fd44bf54</small>.
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/cshtml-razor.js"></script>
+    <script>
+      hljs.registerLanguage('cshtml-razor', window.hljsDefineCshtmlRazor);
+    </script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+  </body>
+</html>

@@ -1,0 +1,1868 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Class ComponentParameterCollectionBuilder&lt;TComponent&gt;
+   | bUnit </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Class ComponentParameterCollectionBuilder&lt;TComponent&gt;
+   | bUnit ">
+    <meta name="generator" content="docfx 2.56.6.0">
+    <meta name="description" content="bUnit is a unit testing library for Blazor Components. You can easily define components under test in C# or Razor syntax and verify outcome using semantic HTML diffing/comparison logic. You can interact with and inspect components, trigger event handlers, provide cascading values, inject services, mock IJsRuntime, and perform snapshot testing.">
+  
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+  
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    <meta property="docfx:rel" content="../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img height="60%" id="logo" class="img" src="..//images/blazor-logo.png" alt="bUnit">
+                <span>bUnit</span>
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <div id="sponsor-button">
+                <iframe src="https://github.com/sponsors/egil/button" title="Sponsor egil" height="35" width="116" style="border: 0;"></iframe>
+              </div>
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="Bunit.ComponentParameterCollectionBuilder`1">
+  
+  
+  <h1 id="Bunit_ComponentParameterCollectionBuilder_1" data-uid="Bunit.ComponentParameterCollectionBuilder`1" class="text-break">Class ComponentParameterCollectionBuilder&lt;TComponent&gt;
+  </h1>
+  <div class="markdown level0 summary"><p>A <a class="xref" href="Bunit.ComponentParameterCollection.html">ComponentParameterCollection</a> builder for a specific <code data-dev-comment-type="typeparamref" class="typeparamref">TComponent</code> component under test.</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><span class="xref">System.Object</span></div>
+    <div class="level1"><span class="xref">ComponentParameterCollectionBuilder&lt;TComponent&gt;</span></div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <span class="xref">System.Object.Equals(System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.Equals(System.Object, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.GetHashCode()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.GetType()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.MemberwiseClone()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.ReferenceEquals(System.Object, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.ToString()</span>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="Bunit.html">Bunit</a></h6>
+  <h6><strong>Assembly</strong>: Bunit.Core.dll</h6>
+  <h5 id="Bunit_ComponentParameterCollectionBuilder_1_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public sealed class ComponentParameterCollectionBuilder&lt;TComponent&gt;
+
+    where TComponent : IComponent</code></pre>
+  </div>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">TComponent</span></td>
+        <td><p>The type of component under test to add the parameters</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="constructors">Constructors
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/egil/bUnit/new/main/apiSpec/new?filename=Bunit_ComponentParameterCollectionBuilder_1__ctor.md&amp;value=---%0Auid%3A%20Bunit.ComponentParameterCollectionBuilder%601.%23ctor%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/egil/bUnit/blob/main/src/bunit.core/ComponentParameterCollectionBuilder.cs/#L34">View Source</a>
+  </span>
+  <a id="Bunit_ComponentParameterCollectionBuilder_1__ctor_" data-uid="Bunit.ComponentParameterCollectionBuilder`1.#ctor*"></a>
+  <h4 id="Bunit_ComponentParameterCollectionBuilder_1__ctor" data-uid="Bunit.ComponentParameterCollectionBuilder`1.#ctor">ComponentParameterCollectionBuilder()</h4>
+  <div class="markdown level1 summary"><p>Creates an instance of the <a class="xref" href="Bunit.ComponentParameterCollectionBuilder-1.html">ComponentParameterCollectionBuilder&lt;TComponent&gt;</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ComponentParameterCollectionBuilder()</code></pre>
+  </div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/egil/bUnit/new/main/apiSpec/new?filename=Bunit_ComponentParameterCollectionBuilder_1__ctor_System_Action_Bunit_ComponentParameterCollectionBuilder__0___.md&amp;value=---%0Auid%3A%20Bunit.ComponentParameterCollectionBuilder%601.%23ctor(System.Action%7BBunit.ComponentParameterCollectionBuilder%7B%600%7D%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/egil/bUnit/blob/main/src/bunit.core/ComponentParameterCollectionBuilder.cs/#L40">View Source</a>
+  </span>
+  <a id="Bunit_ComponentParameterCollectionBuilder_1__ctor_" data-uid="Bunit.ComponentParameterCollectionBuilder`1.#ctor*"></a>
+  <h4 id="Bunit_ComponentParameterCollectionBuilder_1__ctor_System_Action_Bunit_ComponentParameterCollectionBuilder__0___" data-uid="Bunit.ComponentParameterCollectionBuilder`1.#ctor(System.Action{Bunit.ComponentParameterCollectionBuilder{`0}})">ComponentParameterCollectionBuilder(Action&lt;ComponentParameterCollectionBuilder&lt;TComponent&gt;&gt;)</h4>
+  <div class="markdown level1 summary"><p>Creates an instance of the <a class="xref" href="Bunit.ComponentParameterCollectionBuilder-1.html">ComponentParameterCollectionBuilder&lt;TComponent&gt;</a> and
+invokes the <code data-dev-comment-type="paramref" class="paramref">parameterAdder</code> with it as the argument.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ComponentParameterCollectionBuilder(Action&lt;ComponentParameterCollectionBuilder&lt;TComponent&gt;&gt; parameterAdder)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Action</span>&lt;<a class="xref" href="Bunit.ComponentParameterCollectionBuilder-1.html">ComponentParameterCollectionBuilder</a>&lt;TComponent&gt;&gt;</td>
+        <td><span class="parametername">parameterAdder</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="methods">Methods
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/egil/bUnit/new/main/apiSpec/new?filename=Bunit_ComponentParameterCollectionBuilder_1_Add_System_Linq_Expressions_Expression_System_Func__0_Microsoft_AspNetCore_Components_EventCallback___System_Action_.md&amp;value=---%0Auid%3A%20Bunit.ComponentParameterCollectionBuilder%601.Add(System.Linq.Expressions.Expression%7BSystem.Func%7B%600%2CMicrosoft.AspNetCore.Components.EventCallback%7D%7D%2CSystem.Action)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/egil/bUnit/blob/main/src/bunit.core/ComponentParameterCollectionBuilder.cs/#L120">View Source</a>
+  </span>
+  <a id="Bunit_ComponentParameterCollectionBuilder_1_Add_" data-uid="Bunit.ComponentParameterCollectionBuilder`1.Add*"></a>
+  <h4 id="Bunit_ComponentParameterCollectionBuilder_1_Add_System_Linq_Expressions_Expression_System_Func__0_Microsoft_AspNetCore_Components_EventCallback___System_Action_" data-uid="Bunit.ComponentParameterCollectionBuilder`1.Add(System.Linq.Expressions.Expression{System.Func{`0,Microsoft.AspNetCore.Components.EventCallback}},System.Action)">Add(Expression&lt;Func&lt;TComponent, EventCallback&gt;&gt;, Action)</h4>
+  <div class="markdown level1 summary"><p>Adds a component parameter for an <span class="xref">Microsoft.AspNetCore.Components.EventCallback</span> parameter selected with <code data-dev-comment-type="paramref" class="paramref">parameterSelector</code>,
+where the <code data-dev-comment-type="paramref" class="paramref">callback</code> is used as value.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ComponentParameterCollectionBuilder&lt;TComponent&gt; Add(Expression&lt;Func&lt;TComponent, EventCallback&gt;&gt; parameterSelector, Action callback)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Linq.Expressions.Expression</span>&lt;<span class="xref">System.Func</span>&lt;TComponent, <span class="xref">Microsoft.AspNetCore.Components.EventCallback</span>&gt;&gt;</td>
+        <td><span class="parametername">parameterSelector</span></td>
+        <td><p>A lambda function that selects the parameter.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Action</span></td>
+        <td><span class="parametername">callback</span></td>
+        <td><p>The callback to pass to the <span class="xref">Microsoft.AspNetCore.Components.EventCallback</span>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Bunit.ComponentParameterCollectionBuilder-1.html">ComponentParameterCollectionBuilder</a>&lt;TComponent&gt;</td>
+        <td><p>This <a class="xref" href="Bunit.ComponentParameterCollectionBuilder-1.html">ComponentParameterCollectionBuilder&lt;TComponent&gt;</a>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/egil/bUnit/new/main/apiSpec/new?filename=Bunit_ComponentParameterCollectionBuilder_1_Add_System_Linq_Expressions_Expression_System_Func__0_Microsoft_AspNetCore_Components_EventCallback___System_Action_System_Object__.md&amp;value=---%0Auid%3A%20Bunit.ComponentParameterCollectionBuilder%601.Add(System.Linq.Expressions.Expression%7BSystem.Func%7B%600%2CMicrosoft.AspNetCore.Components.EventCallback%7D%7D%2CSystem.Action%7BSystem.Object%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/egil/bUnit/blob/main/src/bunit.core/ComponentParameterCollectionBuilder.cs/#L140">View Source</a>
+  </span>
+  <a id="Bunit_ComponentParameterCollectionBuilder_1_Add_" data-uid="Bunit.ComponentParameterCollectionBuilder`1.Add*"></a>
+  <h4 id="Bunit_ComponentParameterCollectionBuilder_1_Add_System_Linq_Expressions_Expression_System_Func__0_Microsoft_AspNetCore_Components_EventCallback___System_Action_System_Object__" data-uid="Bunit.ComponentParameterCollectionBuilder`1.Add(System.Linq.Expressions.Expression{System.Func{`0,Microsoft.AspNetCore.Components.EventCallback}},System.Action{System.Object})">Add(Expression&lt;Func&lt;TComponent, EventCallback&gt;&gt;, Action&lt;Object&gt;)</h4>
+  <div class="markdown level1 summary"><p>Adds a component parameter for an <span class="xref">Microsoft.AspNetCore.Components.EventCallback</span> parameter selected with <code data-dev-comment-type="paramref" class="paramref">parameterSelector</code>,
+where the <code data-dev-comment-type="paramref" class="paramref">callback</code> is used as value.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ComponentParameterCollectionBuilder&lt;TComponent&gt; Add(Expression&lt;Func&lt;TComponent, EventCallback&gt;&gt; parameterSelector, Action&lt;object&gt; callback)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Linq.Expressions.Expression</span>&lt;<span class="xref">System.Func</span>&lt;TComponent, <span class="xref">Microsoft.AspNetCore.Components.EventCallback</span>&gt;&gt;</td>
+        <td><span class="parametername">parameterSelector</span></td>
+        <td><p>A lambda function that selects the parameter.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Action</span>&lt;<span class="xref">System.Object</span>&gt;</td>
+        <td><span class="parametername">callback</span></td>
+        <td><p>The callback to pass to the <span class="xref">Microsoft.AspNetCore.Components.EventCallback</span>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Bunit.ComponentParameterCollectionBuilder-1.html">ComponentParameterCollectionBuilder</a>&lt;TComponent&gt;</td>
+        <td><p>This <a class="xref" href="Bunit.ComponentParameterCollectionBuilder-1.html">ComponentParameterCollectionBuilder&lt;TComponent&gt;</a>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/egil/bUnit/new/main/apiSpec/new?filename=Bunit_ComponentParameterCollectionBuilder_1_Add_System_Linq_Expressions_Expression_System_Func__0_Microsoft_AspNetCore_Components_EventCallback___System_Func_System_Threading_Tasks_Task__.md&amp;value=---%0Auid%3A%20Bunit.ComponentParameterCollectionBuilder%601.Add(System.Linq.Expressions.Expression%7BSystem.Func%7B%600%2CMicrosoft.AspNetCore.Components.EventCallback%7D%7D%2CSystem.Func%7BSystem.Threading.Tasks.Task%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/egil/bUnit/blob/main/src/bunit.core/ComponentParameterCollectionBuilder.cs/#L160">View Source</a>
+  </span>
+  <a id="Bunit_ComponentParameterCollectionBuilder_1_Add_" data-uid="Bunit.ComponentParameterCollectionBuilder`1.Add*"></a>
+  <h4 id="Bunit_ComponentParameterCollectionBuilder_1_Add_System_Linq_Expressions_Expression_System_Func__0_Microsoft_AspNetCore_Components_EventCallback___System_Func_System_Threading_Tasks_Task__" data-uid="Bunit.ComponentParameterCollectionBuilder`1.Add(System.Linq.Expressions.Expression{System.Func{`0,Microsoft.AspNetCore.Components.EventCallback}},System.Func{System.Threading.Tasks.Task})">Add(Expression&lt;Func&lt;TComponent, EventCallback&gt;&gt;, Func&lt;Task&gt;)</h4>
+  <div class="markdown level1 summary"><p>Adds a component parameter for an <span class="xref">Microsoft.AspNetCore.Components.EventCallback</span> parameter selected with <code data-dev-comment-type="paramref" class="paramref">parameterSelector</code>,
+where the <code data-dev-comment-type="paramref" class="paramref">callback</code> is used as value.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ComponentParameterCollectionBuilder&lt;TComponent&gt; Add(Expression&lt;Func&lt;TComponent, EventCallback&gt;&gt; parameterSelector, Func&lt;Task&gt; callback)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Linq.Expressions.Expression</span>&lt;<span class="xref">System.Func</span>&lt;TComponent, <span class="xref">Microsoft.AspNetCore.Components.EventCallback</span>&gt;&gt;</td>
+        <td><span class="parametername">parameterSelector</span></td>
+        <td><p>A lambda function that selects the parameter.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Func</span>&lt;<span class="xref">System.Threading.Tasks.Task</span>&gt;</td>
+        <td><span class="parametername">callback</span></td>
+        <td><p>The callback to pass to the <span class="xref">Microsoft.AspNetCore.Components.EventCallback</span>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Bunit.ComponentParameterCollectionBuilder-1.html">ComponentParameterCollectionBuilder</a>&lt;TComponent&gt;</td>
+        <td><p>This <a class="xref" href="Bunit.ComponentParameterCollectionBuilder-1.html">ComponentParameterCollectionBuilder&lt;TComponent&gt;</a>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/egil/bUnit/new/main/apiSpec/new?filename=Bunit_ComponentParameterCollectionBuilder_1_Add_System_Linq_Expressions_Expression_System_Func__0_Microsoft_AspNetCore_Components_RenderFragment___System_String_.md&amp;value=---%0Auid%3A%20Bunit.ComponentParameterCollectionBuilder%601.Add(System.Linq.Expressions.Expression%7BSystem.Func%7B%600%2CMicrosoft.AspNetCore.Components.RenderFragment%7D%7D%2CSystem.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/egil/bUnit/blob/main/src/bunit.core/ComponentParameterCollectionBuilder.cs/#L79">View Source</a>
+  </span>
+  <a id="Bunit_ComponentParameterCollectionBuilder_1_Add_" data-uid="Bunit.ComponentParameterCollectionBuilder`1.Add*"></a>
+  <h4 id="Bunit_ComponentParameterCollectionBuilder_1_Add_System_Linq_Expressions_Expression_System_Func__0_Microsoft_AspNetCore_Components_RenderFragment___System_String_" data-uid="Bunit.ComponentParameterCollectionBuilder`1.Add(System.Linq.Expressions.Expression{System.Func{`0,Microsoft.AspNetCore.Components.RenderFragment}},System.String)">Add(Expression&lt;Func&lt;TComponent, RenderFragment&gt;&gt;, String)</h4>
+  <div class="markdown level1 summary"><p>Adds a component parameter for a <span class="xref">Microsoft.AspNetCore.Components.RenderFragment</span> parameter selected with <code data-dev-comment-type="paramref" class="paramref">parameterSelector</code>,
+where the <span class="xref">Microsoft.AspNetCore.Components.RenderFragment</span> value is the markup passed in through the <code data-dev-comment-type="paramref" class="paramref">markup</code> argument.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ComponentParameterCollectionBuilder&lt;TComponent&gt; Add(Expression&lt;Func&lt;TComponent, RenderFragment&gt;&gt; parameterSelector, string markup)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Linq.Expressions.Expression</span>&lt;<span class="xref">System.Func</span>&lt;TComponent, <span class="xref">Microsoft.AspNetCore.Components.RenderFragment</span>&gt;&gt;</td>
+        <td><span class="parametername">parameterSelector</span></td>
+        <td><p>A lambda function that selects the parameter.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">markup</span></td>
+        <td><p>The markup string to pass to the <span class="xref">Microsoft.AspNetCore.Components.RenderFragment</span>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Bunit.ComponentParameterCollectionBuilder-1.html">ComponentParameterCollectionBuilder</a>&lt;TComponent&gt;</td>
+        <td><p>This <a class="xref" href="Bunit.ComponentParameterCollectionBuilder-1.html">ComponentParameterCollectionBuilder&lt;TComponent&gt;</a>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/egil/bUnit/new/main/apiSpec/new?filename=Bunit_ComponentParameterCollectionBuilder_1_Add_System_Linq_Expressions_Expression_System_Func__0_System_Nullable_Microsoft_AspNetCore_Components_EventCallback____System_Action_.md&amp;value=---%0Auid%3A%20Bunit.ComponentParameterCollectionBuilder%601.Add(System.Linq.Expressions.Expression%7BSystem.Func%7B%600%2CSystem.Nullable%7BMicrosoft.AspNetCore.Components.EventCallback%7D%7D%7D%2CSystem.Action)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/egil/bUnit/blob/main/src/bunit.core/ComponentParameterCollectionBuilder.cs/#L130">View Source</a>
+  </span>
+  <a id="Bunit_ComponentParameterCollectionBuilder_1_Add_" data-uid="Bunit.ComponentParameterCollectionBuilder`1.Add*"></a>
+  <h4 id="Bunit_ComponentParameterCollectionBuilder_1_Add_System_Linq_Expressions_Expression_System_Func__0_System_Nullable_Microsoft_AspNetCore_Components_EventCallback____System_Action_" data-uid="Bunit.ComponentParameterCollectionBuilder`1.Add(System.Linq.Expressions.Expression{System.Func{`0,System.Nullable{Microsoft.AspNetCore.Components.EventCallback}}},System.Action)">Add(Expression&lt;Func&lt;TComponent, Nullable&lt;EventCallback&gt;&gt;&gt;, Action)</h4>
+  <div class="markdown level1 summary"><p>Adds a component parameter for a nullable <span class="xref">Microsoft.AspNetCore.Components.EventCallback</span> parameter selected with <code data-dev-comment-type="paramref" class="paramref">parameterSelector</code>,
+where the <code data-dev-comment-type="paramref" class="paramref">callback</code> is used as value.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ComponentParameterCollectionBuilder&lt;TComponent&gt; Add(Expression&lt;Func&lt;TComponent, EventCallback?&gt;&gt; parameterSelector, Action callback)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Linq.Expressions.Expression</span>&lt;<span class="xref">System.Func</span>&lt;TComponent, <span class="xref">System.Nullable</span>&lt;<span class="xref">Microsoft.AspNetCore.Components.EventCallback</span>&gt;&gt;&gt;</td>
+        <td><span class="parametername">parameterSelector</span></td>
+        <td><p>A lambda function that selects the parameter.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Action</span></td>
+        <td><span class="parametername">callback</span></td>
+        <td><p>The callback to pass to the <span class="xref">Microsoft.AspNetCore.Components.EventCallback</span>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Bunit.ComponentParameterCollectionBuilder-1.html">ComponentParameterCollectionBuilder</a>&lt;TComponent&gt;</td>
+        <td><p>This <a class="xref" href="Bunit.ComponentParameterCollectionBuilder-1.html">ComponentParameterCollectionBuilder&lt;TComponent&gt;</a>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/egil/bUnit/new/main/apiSpec/new?filename=Bunit_ComponentParameterCollectionBuilder_1_Add_System_Linq_Expressions_Expression_System_Func__0_System_Nullable_Microsoft_AspNetCore_Components_EventCallback____System_Action_System_Object__.md&amp;value=---%0Auid%3A%20Bunit.ComponentParameterCollectionBuilder%601.Add(System.Linq.Expressions.Expression%7BSystem.Func%7B%600%2CSystem.Nullable%7BMicrosoft.AspNetCore.Components.EventCallback%7D%7D%7D%2CSystem.Action%7BSystem.Object%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/egil/bUnit/blob/main/src/bunit.core/ComponentParameterCollectionBuilder.cs/#L150">View Source</a>
+  </span>
+  <a id="Bunit_ComponentParameterCollectionBuilder_1_Add_" data-uid="Bunit.ComponentParameterCollectionBuilder`1.Add*"></a>
+  <h4 id="Bunit_ComponentParameterCollectionBuilder_1_Add_System_Linq_Expressions_Expression_System_Func__0_System_Nullable_Microsoft_AspNetCore_Components_EventCallback____System_Action_System_Object__" data-uid="Bunit.ComponentParameterCollectionBuilder`1.Add(System.Linq.Expressions.Expression{System.Func{`0,System.Nullable{Microsoft.AspNetCore.Components.EventCallback}}},System.Action{System.Object})">Add(Expression&lt;Func&lt;TComponent, Nullable&lt;EventCallback&gt;&gt;&gt;, Action&lt;Object&gt;)</h4>
+  <div class="markdown level1 summary"><p>Adds a component parameter for a nullable <span class="xref">Microsoft.AspNetCore.Components.EventCallback</span> parameter selected with <code data-dev-comment-type="paramref" class="paramref">parameterSelector</code>,
+where the <code data-dev-comment-type="paramref" class="paramref">callback</code> is used as value.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ComponentParameterCollectionBuilder&lt;TComponent&gt; Add(Expression&lt;Func&lt;TComponent, EventCallback?&gt;&gt; parameterSelector, Action&lt;object&gt; callback)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Linq.Expressions.Expression</span>&lt;<span class="xref">System.Func</span>&lt;TComponent, <span class="xref">System.Nullable</span>&lt;<span class="xref">Microsoft.AspNetCore.Components.EventCallback</span>&gt;&gt;&gt;</td>
+        <td><span class="parametername">parameterSelector</span></td>
+        <td><p>A lambda function that selects the parameter.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Action</span>&lt;<span class="xref">System.Object</span>&gt;</td>
+        <td><span class="parametername">callback</span></td>
+        <td><p>The callback to pass to the <span class="xref">Microsoft.AspNetCore.Components.EventCallback</span>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Bunit.ComponentParameterCollectionBuilder-1.html">ComponentParameterCollectionBuilder</a>&lt;TComponent&gt;</td>
+        <td><p>This <a class="xref" href="Bunit.ComponentParameterCollectionBuilder-1.html">ComponentParameterCollectionBuilder&lt;TComponent&gt;</a>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/egil/bUnit/new/main/apiSpec/new?filename=Bunit_ComponentParameterCollectionBuilder_1_Add_System_Linq_Expressions_Expression_System_Func__0_System_Nullable_Microsoft_AspNetCore_Components_EventCallback____System_Func_System_Threading_Tasks_Task__.md&amp;value=---%0Auid%3A%20Bunit.ComponentParameterCollectionBuilder%601.Add(System.Linq.Expressions.Expression%7BSystem.Func%7B%600%2CSystem.Nullable%7BMicrosoft.AspNetCore.Components.EventCallback%7D%7D%7D%2CSystem.Func%7BSystem.Threading.Tasks.Task%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/egil/bUnit/blob/main/src/bunit.core/ComponentParameterCollectionBuilder.cs/#L170">View Source</a>
+  </span>
+  <a id="Bunit_ComponentParameterCollectionBuilder_1_Add_" data-uid="Bunit.ComponentParameterCollectionBuilder`1.Add*"></a>
+  <h4 id="Bunit_ComponentParameterCollectionBuilder_1_Add_System_Linq_Expressions_Expression_System_Func__0_System_Nullable_Microsoft_AspNetCore_Components_EventCallback____System_Func_System_Threading_Tasks_Task__" data-uid="Bunit.ComponentParameterCollectionBuilder`1.Add(System.Linq.Expressions.Expression{System.Func{`0,System.Nullable{Microsoft.AspNetCore.Components.EventCallback}}},System.Func{System.Threading.Tasks.Task})">Add(Expression&lt;Func&lt;TComponent, Nullable&lt;EventCallback&gt;&gt;&gt;, Func&lt;Task&gt;)</h4>
+  <div class="markdown level1 summary"><p>Adds a component parameter for a nullable <span class="xref">Microsoft.AspNetCore.Components.EventCallback</span> parameter selected with <code data-dev-comment-type="paramref" class="paramref">parameterSelector</code>,
+where the <code data-dev-comment-type="paramref" class="paramref">callback</code> is used as value.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ComponentParameterCollectionBuilder&lt;TComponent&gt; Add(Expression&lt;Func&lt;TComponent, EventCallback?&gt;&gt; parameterSelector, Func&lt;Task&gt; callback)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Linq.Expressions.Expression</span>&lt;<span class="xref">System.Func</span>&lt;TComponent, <span class="xref">System.Nullable</span>&lt;<span class="xref">Microsoft.AspNetCore.Components.EventCallback</span>&gt;&gt;&gt;</td>
+        <td><span class="parametername">parameterSelector</span></td>
+        <td><p>A lambda function that selects the parameter.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Func</span>&lt;<span class="xref">System.Threading.Tasks.Task</span>&gt;</td>
+        <td><span class="parametername">callback</span></td>
+        <td><p>The callback to pass to the <span class="xref">Microsoft.AspNetCore.Components.EventCallback</span>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Bunit.ComponentParameterCollectionBuilder-1.html">ComponentParameterCollectionBuilder</a>&lt;TComponent&gt;</td>
+        <td><p>This <a class="xref" href="Bunit.ComponentParameterCollectionBuilder-1.html">ComponentParameterCollectionBuilder&lt;TComponent&gt;</a>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/egil/bUnit/new/main/apiSpec/new?filename=Bunit_ComponentParameterCollectionBuilder_1_Add__1_System_Linq_Expressions_Expression_System_Func__0___0_____0_.md&amp;value=---%0Auid%3A%20Bunit.ComponentParameterCollectionBuilder%601.Add%60%601(System.Linq.Expressions.Expression%7BSystem.Func%7B%600%2C%60%600%7D%7D%2C%60%600)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/egil/bUnit/blob/main/src/bunit.core/ComponentParameterCollectionBuilder.cs/#L53">View Source</a>
+  </span>
+  <a id="Bunit_ComponentParameterCollectionBuilder_1_Add_" data-uid="Bunit.ComponentParameterCollectionBuilder`1.Add*"></a>
+  <h4 id="Bunit_ComponentParameterCollectionBuilder_1_Add__1_System_Linq_Expressions_Expression_System_Func__0___0_____0_" data-uid="Bunit.ComponentParameterCollectionBuilder`1.Add``1(System.Linq.Expressions.Expression{System.Func{`0,``0}},``0)">Add&lt;TValue&gt;(Expression&lt;Func&lt;TComponent, TValue&gt;&gt;, TValue)</h4>
+  <div class="markdown level1 summary"><p>Adds a component parameter for the parameter selected with <code data-dev-comment-type="paramref" class="paramref">parameterSelector</code>
+with the value <code data-dev-comment-type="paramref" class="paramref">value</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ComponentParameterCollectionBuilder&lt;TComponent&gt; Add&lt;TValue&gt;(Expression&lt;Func&lt;TComponent, TValue&gt;&gt; parameterSelector, TValue value)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Linq.Expressions.Expression</span>&lt;<span class="xref">System.Func</span>&lt;TComponent, TValue&gt;&gt;</td>
+        <td><span class="parametername">parameterSelector</span></td>
+        <td><p>A lambda function that selects the parameter.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">TValue</span></td>
+        <td><span class="parametername">value</span></td>
+        <td><p>The value to pass to <code data-dev-comment-type="typeparamref" class="typeparamref">TComponent</code>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Bunit.ComponentParameterCollectionBuilder-1.html">ComponentParameterCollectionBuilder</a>&lt;TComponent&gt;</td>
+        <td><p>This <a class="xref" href="Bunit.ComponentParameterCollectionBuilder-1.html">ComponentParameterCollectionBuilder&lt;TComponent&gt;</a>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">TValue</span></td>
+        <td><p>Type of <code data-dev-comment-type="paramref" class="paramref">value</code>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/egil/bUnit/new/main/apiSpec/new?filename=Bunit_ComponentParameterCollectionBuilder_1_Add__1_System_Linq_Expressions_Expression_System_Func__0_Microsoft_AspNetCore_Components_EventCallback___0____System_Action_.md&amp;value=---%0Auid%3A%20Bunit.ComponentParameterCollectionBuilder%601.Add%60%601(System.Linq.Expressions.Expression%7BSystem.Func%7B%600%2CMicrosoft.AspNetCore.Components.EventCallback%7B%60%600%7D%7D%7D%2CSystem.Action)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/egil/bUnit/blob/main/src/bunit.core/ComponentParameterCollectionBuilder.cs/#L180">View Source</a>
+  </span>
+  <a id="Bunit_ComponentParameterCollectionBuilder_1_Add_" data-uid="Bunit.ComponentParameterCollectionBuilder`1.Add*"></a>
+  <h4 id="Bunit_ComponentParameterCollectionBuilder_1_Add__1_System_Linq_Expressions_Expression_System_Func__0_Microsoft_AspNetCore_Components_EventCallback___0____System_Action_" data-uid="Bunit.ComponentParameterCollectionBuilder`1.Add``1(System.Linq.Expressions.Expression{System.Func{`0,Microsoft.AspNetCore.Components.EventCallback{``0}}},System.Action)">Add&lt;TValue&gt;(Expression&lt;Func&lt;TComponent, EventCallback&lt;TValue&gt;&gt;&gt;, Action)</h4>
+  <div class="markdown level1 summary"><p>Adds a component parameter for an <span class="xref">Microsoft.AspNetCore.Components.EventCallback`1</span> parameter selected with <code data-dev-comment-type="paramref" class="paramref">parameterSelector</code>,
+where the <code data-dev-comment-type="paramref" class="paramref">callback</code> is used as value.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ComponentParameterCollectionBuilder&lt;TComponent&gt; Add&lt;TValue&gt;(Expression&lt;Func&lt;TComponent, EventCallback&lt;TValue&gt;&gt;&gt; parameterSelector, Action callback)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Linq.Expressions.Expression</span>&lt;<span class="xref">System.Func</span>&lt;TComponent, <span class="xref">Microsoft.AspNetCore.Components.EventCallback</span>&lt;TValue&gt;&gt;&gt;</td>
+        <td><span class="parametername">parameterSelector</span></td>
+        <td><p>A lambda function that selects the parameter.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Action</span></td>
+        <td><span class="parametername">callback</span></td>
+        <td><p>The callback to pass to the <span class="xref">Microsoft.AspNetCore.Components.EventCallback</span>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Bunit.ComponentParameterCollectionBuilder-1.html">ComponentParameterCollectionBuilder</a>&lt;TComponent&gt;</td>
+        <td><p>This <a class="xref" href="Bunit.ComponentParameterCollectionBuilder-1.html">ComponentParameterCollectionBuilder&lt;TComponent&gt;</a>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">TValue</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/egil/bUnit/new/main/apiSpec/new?filename=Bunit_ComponentParameterCollectionBuilder_1_Add__1_System_Linq_Expressions_Expression_System_Func__0_Microsoft_AspNetCore_Components_EventCallback___0____System_Action___0__.md&amp;value=---%0Auid%3A%20Bunit.ComponentParameterCollectionBuilder%601.Add%60%601(System.Linq.Expressions.Expression%7BSystem.Func%7B%600%2CMicrosoft.AspNetCore.Components.EventCallback%7B%60%600%7D%7D%7D%2CSystem.Action%7B%60%600%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/egil/bUnit/blob/main/src/bunit.core/ComponentParameterCollectionBuilder.cs/#L200">View Source</a>
+  </span>
+  <a id="Bunit_ComponentParameterCollectionBuilder_1_Add_" data-uid="Bunit.ComponentParameterCollectionBuilder`1.Add*"></a>
+  <h4 id="Bunit_ComponentParameterCollectionBuilder_1_Add__1_System_Linq_Expressions_Expression_System_Func__0_Microsoft_AspNetCore_Components_EventCallback___0____System_Action___0__" data-uid="Bunit.ComponentParameterCollectionBuilder`1.Add``1(System.Linq.Expressions.Expression{System.Func{`0,Microsoft.AspNetCore.Components.EventCallback{``0}}},System.Action{``0})">Add&lt;TValue&gt;(Expression&lt;Func&lt;TComponent, EventCallback&lt;TValue&gt;&gt;&gt;, Action&lt;TValue&gt;)</h4>
+  <div class="markdown level1 summary"><p>Adds a component parameter for an <span class="xref">Microsoft.AspNetCore.Components.EventCallback`1</span> parameter selected with <code data-dev-comment-type="paramref" class="paramref">parameterSelector</code>,
+where the <code data-dev-comment-type="paramref" class="paramref">callback</code> is used as value.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ComponentParameterCollectionBuilder&lt;TComponent&gt; Add&lt;TValue&gt;(Expression&lt;Func&lt;TComponent, EventCallback&lt;TValue&gt;&gt;&gt; parameterSelector, Action&lt;TValue&gt; callback)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Linq.Expressions.Expression</span>&lt;<span class="xref">System.Func</span>&lt;TComponent, <span class="xref">Microsoft.AspNetCore.Components.EventCallback</span>&lt;TValue&gt;&gt;&gt;</td>
+        <td><span class="parametername">parameterSelector</span></td>
+        <td><p>A lambda function that selects the parameter.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Action</span>&lt;TValue&gt;</td>
+        <td><span class="parametername">callback</span></td>
+        <td><p>The callback to pass to the <span class="xref">Microsoft.AspNetCore.Components.EventCallback</span>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Bunit.ComponentParameterCollectionBuilder-1.html">ComponentParameterCollectionBuilder</a>&lt;TComponent&gt;</td>
+        <td><p>This <a class="xref" href="Bunit.ComponentParameterCollectionBuilder-1.html">ComponentParameterCollectionBuilder&lt;TComponent&gt;</a>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">TValue</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/egil/bUnit/new/main/apiSpec/new?filename=Bunit_ComponentParameterCollectionBuilder_1_Add__1_System_Linq_Expressions_Expression_System_Func__0_Microsoft_AspNetCore_Components_EventCallback___0____System_Func_System_Threading_Tasks_Task__.md&amp;value=---%0Auid%3A%20Bunit.ComponentParameterCollectionBuilder%601.Add%60%601(System.Linq.Expressions.Expression%7BSystem.Func%7B%600%2CMicrosoft.AspNetCore.Components.EventCallback%7B%60%600%7D%7D%7D%2CSystem.Func%7BSystem.Threading.Tasks.Task%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/egil/bUnit/blob/main/src/bunit.core/ComponentParameterCollectionBuilder.cs/#L220">View Source</a>
+  </span>
+  <a id="Bunit_ComponentParameterCollectionBuilder_1_Add_" data-uid="Bunit.ComponentParameterCollectionBuilder`1.Add*"></a>
+  <h4 id="Bunit_ComponentParameterCollectionBuilder_1_Add__1_System_Linq_Expressions_Expression_System_Func__0_Microsoft_AspNetCore_Components_EventCallback___0____System_Func_System_Threading_Tasks_Task__" data-uid="Bunit.ComponentParameterCollectionBuilder`1.Add``1(System.Linq.Expressions.Expression{System.Func{`0,Microsoft.AspNetCore.Components.EventCallback{``0}}},System.Func{System.Threading.Tasks.Task})">Add&lt;TValue&gt;(Expression&lt;Func&lt;TComponent, EventCallback&lt;TValue&gt;&gt;&gt;, Func&lt;Task&gt;)</h4>
+  <div class="markdown level1 summary"><p>Adds a component parameter for an <span class="xref">Microsoft.AspNetCore.Components.EventCallback`1</span> parameter selected with <code data-dev-comment-type="paramref" class="paramref">parameterSelector</code>,
+where the <code data-dev-comment-type="paramref" class="paramref">callback</code> is used as value.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ComponentParameterCollectionBuilder&lt;TComponent&gt; Add&lt;TValue&gt;(Expression&lt;Func&lt;TComponent, EventCallback&lt;TValue&gt;&gt;&gt; parameterSelector, Func&lt;Task&gt; callback)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Linq.Expressions.Expression</span>&lt;<span class="xref">System.Func</span>&lt;TComponent, <span class="xref">Microsoft.AspNetCore.Components.EventCallback</span>&lt;TValue&gt;&gt;&gt;</td>
+        <td><span class="parametername">parameterSelector</span></td>
+        <td><p>A lambda function that selects the parameter.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Func</span>&lt;<span class="xref">System.Threading.Tasks.Task</span>&gt;</td>
+        <td><span class="parametername">callback</span></td>
+        <td><p>The callback to pass to the <span class="xref">Microsoft.AspNetCore.Components.EventCallback</span>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Bunit.ComponentParameterCollectionBuilder-1.html">ComponentParameterCollectionBuilder</a>&lt;TComponent&gt;</td>
+        <td><p>This <a class="xref" href="Bunit.ComponentParameterCollectionBuilder-1.html">ComponentParameterCollectionBuilder&lt;TComponent&gt;</a>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">TValue</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/egil/bUnit/new/main/apiSpec/new?filename=Bunit_ComponentParameterCollectionBuilder_1_Add__1_System_Linq_Expressions_Expression_System_Func__0_Microsoft_AspNetCore_Components_RenderFragment___0____System_Func___0_System_String__.md&amp;value=---%0Auid%3A%20Bunit.ComponentParameterCollectionBuilder%601.Add%60%601(System.Linq.Expressions.Expression%7BSystem.Func%7B%600%2CMicrosoft.AspNetCore.Components.RenderFragment%7B%60%600%7D%7D%7D%2CSystem.Func%7B%60%600%2CSystem.String%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/egil/bUnit/blob/main/src/bunit.core/ComponentParameterCollectionBuilder.cs/#L90">View Source</a>
+  </span>
+  <a id="Bunit_ComponentParameterCollectionBuilder_1_Add_" data-uid="Bunit.ComponentParameterCollectionBuilder`1.Add*"></a>
+  <h4 id="Bunit_ComponentParameterCollectionBuilder_1_Add__1_System_Linq_Expressions_Expression_System_Func__0_Microsoft_AspNetCore_Components_RenderFragment___0____System_Func___0_System_String__" data-uid="Bunit.ComponentParameterCollectionBuilder`1.Add``1(System.Linq.Expressions.Expression{System.Func{`0,Microsoft.AspNetCore.Components.RenderFragment{``0}}},System.Func{``0,System.String})">Add&lt;TValue&gt;(Expression&lt;Func&lt;TComponent, RenderFragment&lt;TValue&gt;&gt;&gt;, Func&lt;TValue, String&gt;)</h4>
+  <div class="markdown level1 summary"><p>Adds a component parameter for a <span class="xref">Microsoft.AspNetCore.Components.RenderFragment&lt;TValue&gt;</span> template parameter selected with <code data-dev-comment-type="paramref" class="paramref">parameterSelector</code>,
+where the <span class="xref">Microsoft.AspNetCore.Components.RenderFragment&lt;TValue&gt;</span> template is based on the <code data-dev-comment-type="paramref" class="paramref">markupFactory</code> argument.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ComponentParameterCollectionBuilder&lt;TComponent&gt; Add&lt;TValue&gt;(Expression&lt;Func&lt;TComponent, RenderFragment&lt;TValue&gt;&gt;&gt; parameterSelector, Func&lt;TValue, string&gt; markupFactory)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Linq.Expressions.Expression</span>&lt;<span class="xref">System.Func</span>&lt;TComponent, <span class="xref">Microsoft.AspNetCore.Components.RenderFragment</span>&lt;TValue&gt;&gt;&gt;</td>
+        <td><span class="parametername">parameterSelector</span></td>
+        <td><p>A lambda function that selects the parameter.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Func</span>&lt;TValue, <span class="xref">System.String</span>&gt;</td>
+        <td><span class="parametername">markupFactory</span></td>
+        <td><p>A markup factory used to create the <span class="xref">Microsoft.AspNetCore.Components.RenderFragment&lt;TValue&gt;</span> template with.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Bunit.ComponentParameterCollectionBuilder-1.html">ComponentParameterCollectionBuilder</a>&lt;TComponent&gt;</td>
+        <td><p>This <a class="xref" href="Bunit.ComponentParameterCollectionBuilder-1.html">ComponentParameterCollectionBuilder&lt;TComponent&gt;</a>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">TValue</span></td>
+        <td><p>The context type of the <span class="xref">Microsoft.AspNetCore.Components.RenderFragment&lt;TValue&gt;</span>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/egil/bUnit/new/main/apiSpec/new?filename=Bunit_ComponentParameterCollectionBuilder_1_Add__1_System_Linq_Expressions_Expression_System_Func__0_Microsoft_AspNetCore_Components_RenderFragment___System_Action_Bunit_ComponentParameterCollectionBuilder___0___.md&amp;value=---%0Auid%3A%20Bunit.ComponentParameterCollectionBuilder%601.Add%60%601(System.Linq.Expressions.Expression%7BSystem.Func%7B%600%2CMicrosoft.AspNetCore.Components.RenderFragment%7D%7D%2CSystem.Action%7BBunit.ComponentParameterCollectionBuilder%7B%60%600%7D%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/egil/bUnit/blob/main/src/bunit.core/ComponentParameterCollectionBuilder.cs/#L69">View Source</a>
+  </span>
+  <a id="Bunit_ComponentParameterCollectionBuilder_1_Add_" data-uid="Bunit.ComponentParameterCollectionBuilder`1.Add*"></a>
+  <h4 id="Bunit_ComponentParameterCollectionBuilder_1_Add__1_System_Linq_Expressions_Expression_System_Func__0_Microsoft_AspNetCore_Components_RenderFragment___System_Action_Bunit_ComponentParameterCollectionBuilder___0___" data-uid="Bunit.ComponentParameterCollectionBuilder`1.Add``1(System.Linq.Expressions.Expression{System.Func{`0,Microsoft.AspNetCore.Components.RenderFragment}},System.Action{Bunit.ComponentParameterCollectionBuilder{``0}})">Add&lt;TChildComponent&gt;(Expression&lt;Func&lt;TComponent, RenderFragment&gt;&gt;, Action&lt;ComponentParameterCollectionBuilder&lt;TChildComponent&gt;&gt;)</h4>
+  <div class="markdown level1 summary"><p>Adds a component parameter for a <span class="xref">Microsoft.AspNetCore.Components.RenderFragment</span> parameter selected with <code data-dev-comment-type="paramref" class="paramref">parameterSelector</code>,
+where the <span class="xref">Microsoft.AspNetCore.Components.RenderFragment</span> value is created through the <code data-dev-comment-type="paramref" class="paramref">childParameterBuilder</code> argument.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ComponentParameterCollectionBuilder&lt;TComponent&gt; Add&lt;TChildComponent&gt;(Expression&lt;Func&lt;TComponent, RenderFragment&gt;&gt; parameterSelector, Action&lt;ComponentParameterCollectionBuilder&lt;TChildComponent&gt;&gt; childParameterBuilder = null)
+
+    where TChildComponent : IComponent</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Linq.Expressions.Expression</span>&lt;<span class="xref">System.Func</span>&lt;TComponent, <span class="xref">Microsoft.AspNetCore.Components.RenderFragment</span>&gt;&gt;</td>
+        <td><span class="parametername">parameterSelector</span></td>
+        <td><p>A lambda function that selects the parameter.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Action</span>&lt;<a class="xref" href="Bunit.ComponentParameterCollectionBuilder-1.html">ComponentParameterCollectionBuilder</a>&lt;TChildComponent&gt;&gt;</td>
+        <td><span class="parametername">childParameterBuilder</span></td>
+        <td><p>A parameter builder for the <code data-dev-comment-type="typeparamref" class="typeparamref">TChildComponent</code>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Bunit.ComponentParameterCollectionBuilder-1.html">ComponentParameterCollectionBuilder</a>&lt;TComponent&gt;</td>
+        <td><p>This <a class="xref" href="Bunit.ComponentParameterCollectionBuilder-1.html">ComponentParameterCollectionBuilder&lt;TComponent&gt;</a>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">TChildComponent</span></td>
+        <td><p>The type of component to create a <span class="xref">Microsoft.AspNetCore.Components.RenderFragment</span> for.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/egil/bUnit/new/main/apiSpec/new?filename=Bunit_ComponentParameterCollectionBuilder_1_Add__1_System_Linq_Expressions_Expression_System_Func__0_System_Nullable_Microsoft_AspNetCore_Components_EventCallback___0_____System_Action_.md&amp;value=---%0Auid%3A%20Bunit.ComponentParameterCollectionBuilder%601.Add%60%601(System.Linq.Expressions.Expression%7BSystem.Func%7B%600%2CSystem.Nullable%7BMicrosoft.AspNetCore.Components.EventCallback%7B%60%600%7D%7D%7D%7D%2CSystem.Action)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/egil/bUnit/blob/main/src/bunit.core/ComponentParameterCollectionBuilder.cs/#L190">View Source</a>
+  </span>
+  <a id="Bunit_ComponentParameterCollectionBuilder_1_Add_" data-uid="Bunit.ComponentParameterCollectionBuilder`1.Add*"></a>
+  <h4 id="Bunit_ComponentParameterCollectionBuilder_1_Add__1_System_Linq_Expressions_Expression_System_Func__0_System_Nullable_Microsoft_AspNetCore_Components_EventCallback___0_____System_Action_" data-uid="Bunit.ComponentParameterCollectionBuilder`1.Add``1(System.Linq.Expressions.Expression{System.Func{`0,System.Nullable{Microsoft.AspNetCore.Components.EventCallback{``0}}}},System.Action)">Add&lt;TValue&gt;(Expression&lt;Func&lt;TComponent, Nullable&lt;EventCallback&lt;TValue&gt;&gt;&gt;&gt;, Action)</h4>
+  <div class="markdown level1 summary"><p>Adds a component parameter for a nullable <span class="xref">Microsoft.AspNetCore.Components.EventCallback`1</span> parameter selected with <code data-dev-comment-type="paramref" class="paramref">parameterSelector</code>,
+where the <code data-dev-comment-type="paramref" class="paramref">callback</code> is used as value.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ComponentParameterCollectionBuilder&lt;TComponent&gt; Add&lt;TValue&gt;(Expression&lt;Func&lt;TComponent, EventCallback&lt;TValue&gt;?&gt;&gt; parameterSelector, Action callback)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Linq.Expressions.Expression</span>&lt;<span class="xref">System.Func</span>&lt;TComponent, <span class="xref">System.Nullable</span>&lt;<span class="xref">Microsoft.AspNetCore.Components.EventCallback</span>&lt;TValue&gt;&gt;&gt;&gt;</td>
+        <td><span class="parametername">parameterSelector</span></td>
+        <td><p>A lambda function that selects the parameter.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Action</span></td>
+        <td><span class="parametername">callback</span></td>
+        <td><p>The callback to pass to the <span class="xref">Microsoft.AspNetCore.Components.EventCallback</span>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Bunit.ComponentParameterCollectionBuilder-1.html">ComponentParameterCollectionBuilder</a>&lt;TComponent&gt;</td>
+        <td><p>This <a class="xref" href="Bunit.ComponentParameterCollectionBuilder-1.html">ComponentParameterCollectionBuilder&lt;TComponent&gt;</a>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">TValue</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/egil/bUnit/new/main/apiSpec/new?filename=Bunit_ComponentParameterCollectionBuilder_1_Add__1_System_Linq_Expressions_Expression_System_Func__0_System_Nullable_Microsoft_AspNetCore_Components_EventCallback___0_____System_Action___0__.md&amp;value=---%0Auid%3A%20Bunit.ComponentParameterCollectionBuilder%601.Add%60%601(System.Linq.Expressions.Expression%7BSystem.Func%7B%600%2CSystem.Nullable%7BMicrosoft.AspNetCore.Components.EventCallback%7B%60%600%7D%7D%7D%7D%2CSystem.Action%7B%60%600%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/egil/bUnit/blob/main/src/bunit.core/ComponentParameterCollectionBuilder.cs/#L210">View Source</a>
+  </span>
+  <a id="Bunit_ComponentParameterCollectionBuilder_1_Add_" data-uid="Bunit.ComponentParameterCollectionBuilder`1.Add*"></a>
+  <h4 id="Bunit_ComponentParameterCollectionBuilder_1_Add__1_System_Linq_Expressions_Expression_System_Func__0_System_Nullable_Microsoft_AspNetCore_Components_EventCallback___0_____System_Action___0__" data-uid="Bunit.ComponentParameterCollectionBuilder`1.Add``1(System.Linq.Expressions.Expression{System.Func{`0,System.Nullable{Microsoft.AspNetCore.Components.EventCallback{``0}}}},System.Action{``0})">Add&lt;TValue&gt;(Expression&lt;Func&lt;TComponent, Nullable&lt;EventCallback&lt;TValue&gt;&gt;&gt;&gt;, Action&lt;TValue&gt;)</h4>
+  <div class="markdown level1 summary"><p>Adds a component parameter for a nullable <span class="xref">Microsoft.AspNetCore.Components.EventCallback`1</span> parameter selected with <code data-dev-comment-type="paramref" class="paramref">parameterSelector</code>,
+where the <code data-dev-comment-type="paramref" class="paramref">callback</code> is used as value.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ComponentParameterCollectionBuilder&lt;TComponent&gt; Add&lt;TValue&gt;(Expression&lt;Func&lt;TComponent, EventCallback&lt;TValue&gt;?&gt;&gt; parameterSelector, Action&lt;TValue&gt; callback)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Linq.Expressions.Expression</span>&lt;<span class="xref">System.Func</span>&lt;TComponent, <span class="xref">System.Nullable</span>&lt;<span class="xref">Microsoft.AspNetCore.Components.EventCallback</span>&lt;TValue&gt;&gt;&gt;&gt;</td>
+        <td><span class="parametername">parameterSelector</span></td>
+        <td><p>A lambda function that selects the parameter.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Action</span>&lt;TValue&gt;</td>
+        <td><span class="parametername">callback</span></td>
+        <td><p>The callback to pass to the <span class="xref">Microsoft.AspNetCore.Components.EventCallback</span>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Bunit.ComponentParameterCollectionBuilder-1.html">ComponentParameterCollectionBuilder</a>&lt;TComponent&gt;</td>
+        <td><p>This <a class="xref" href="Bunit.ComponentParameterCollectionBuilder-1.html">ComponentParameterCollectionBuilder&lt;TComponent&gt;</a>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">TValue</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/egil/bUnit/new/main/apiSpec/new?filename=Bunit_ComponentParameterCollectionBuilder_1_Add__1_System_Linq_Expressions_Expression_System_Func__0_System_Nullable_Microsoft_AspNetCore_Components_EventCallback___0_____System_Func_System_Threading_Tasks_Task__.md&amp;value=---%0Auid%3A%20Bunit.ComponentParameterCollectionBuilder%601.Add%60%601(System.Linq.Expressions.Expression%7BSystem.Func%7B%600%2CSystem.Nullable%7BMicrosoft.AspNetCore.Components.EventCallback%7B%60%600%7D%7D%7D%7D%2CSystem.Func%7BSystem.Threading.Tasks.Task%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/egil/bUnit/blob/main/src/bunit.core/ComponentParameterCollectionBuilder.cs/#L230">View Source</a>
+  </span>
+  <a id="Bunit_ComponentParameterCollectionBuilder_1_Add_" data-uid="Bunit.ComponentParameterCollectionBuilder`1.Add*"></a>
+  <h4 id="Bunit_ComponentParameterCollectionBuilder_1_Add__1_System_Linq_Expressions_Expression_System_Func__0_System_Nullable_Microsoft_AspNetCore_Components_EventCallback___0_____System_Func_System_Threading_Tasks_Task__" data-uid="Bunit.ComponentParameterCollectionBuilder`1.Add``1(System.Linq.Expressions.Expression{System.Func{`0,System.Nullable{Microsoft.AspNetCore.Components.EventCallback{``0}}}},System.Func{System.Threading.Tasks.Task})">Add&lt;TValue&gt;(Expression&lt;Func&lt;TComponent, Nullable&lt;EventCallback&lt;TValue&gt;&gt;&gt;&gt;, Func&lt;Task&gt;)</h4>
+  <div class="markdown level1 summary"><p>Adds a component parameter for a nullable <span class="xref">Microsoft.AspNetCore.Components.EventCallback`1</span> parameter selected with <code data-dev-comment-type="paramref" class="paramref">parameterSelector</code>,
+where the <code data-dev-comment-type="paramref" class="paramref">callback</code> is used as value.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ComponentParameterCollectionBuilder&lt;TComponent&gt; Add&lt;TValue&gt;(Expression&lt;Func&lt;TComponent, EventCallback&lt;TValue&gt;?&gt;&gt; parameterSelector, Func&lt;Task&gt; callback)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Linq.Expressions.Expression</span>&lt;<span class="xref">System.Func</span>&lt;TComponent, <span class="xref">System.Nullable</span>&lt;<span class="xref">Microsoft.AspNetCore.Components.EventCallback</span>&lt;TValue&gt;&gt;&gt;&gt;</td>
+        <td><span class="parametername">parameterSelector</span></td>
+        <td><p>A lambda function that selects the parameter.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Func</span>&lt;<span class="xref">System.Threading.Tasks.Task</span>&gt;</td>
+        <td><span class="parametername">callback</span></td>
+        <td><p>The callback to pass to the <span class="xref">Microsoft.AspNetCore.Components.EventCallback</span>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Bunit.ComponentParameterCollectionBuilder-1.html">ComponentParameterCollectionBuilder</a>&lt;TComponent&gt;</td>
+        <td><p>This <a class="xref" href="Bunit.ComponentParameterCollectionBuilder-1.html">ComponentParameterCollectionBuilder&lt;TComponent&gt;</a>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">TValue</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/egil/bUnit/new/main/apiSpec/new?filename=Bunit_ComponentParameterCollectionBuilder_1_Add__2_System_Linq_Expressions_Expression_System_Func__0_Microsoft_AspNetCore_Components_RenderFragment___1____System_Func___1_System_Action_Bunit_ComponentParameterCollectionBuilder___0____.md&amp;value=---%0Auid%3A%20Bunit.ComponentParameterCollectionBuilder%601.Add%60%602(System.Linq.Expressions.Expression%7BSystem.Func%7B%600%2CMicrosoft.AspNetCore.Components.RenderFragment%7B%60%601%7D%7D%7D%2CSystem.Func%7B%60%601%2CSystem.Action%7BBunit.ComponentParameterCollectionBuilder%7B%60%600%7D%7D%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/egil/bUnit/blob/main/src/bunit.core/ComponentParameterCollectionBuilder.cs/#L106">View Source</a>
+  </span>
+  <a id="Bunit_ComponentParameterCollectionBuilder_1_Add_" data-uid="Bunit.ComponentParameterCollectionBuilder`1.Add*"></a>
+  <h4 id="Bunit_ComponentParameterCollectionBuilder_1_Add__2_System_Linq_Expressions_Expression_System_Func__0_Microsoft_AspNetCore_Components_RenderFragment___1____System_Func___1_System_Action_Bunit_ComponentParameterCollectionBuilder___0____" data-uid="Bunit.ComponentParameterCollectionBuilder`1.Add``2(System.Linq.Expressions.Expression{System.Func{`0,Microsoft.AspNetCore.Components.RenderFragment{``1}}},System.Func{``1,System.Action{Bunit.ComponentParameterCollectionBuilder{``0}}})">Add&lt;TChildComponent, TValue&gt;(Expression&lt;Func&lt;TComponent, RenderFragment&lt;TValue&gt;&gt;&gt;, Func&lt;TValue, Action&lt;ComponentParameterCollectionBuilder&lt;TChildComponent&gt;&gt;&gt;)</h4>
+  <div class="markdown level1 summary"><p>Adds a component parameter for a <span class="xref">Microsoft.AspNetCore.Components.RenderFragment&lt;TValue&gt;</span> template parameter selected with <code data-dev-comment-type="paramref" class="paramref">parameterSelector</code>,
+where the <span class="xref">Microsoft.AspNetCore.Components.RenderFragment&lt;TValue&gt;</span> template is based on the <code data-dev-comment-type="paramref" class="paramref">templateFactory</code>, which is used
+to create a <span class="xref">Microsoft.AspNetCore.Components.RenderFragment&lt;TValue&gt;</span> that renders a <code data-dev-comment-type="typeparamref" class="typeparamref">TChildComponent</code> inside the template.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ComponentParameterCollectionBuilder&lt;TComponent&gt; Add&lt;TChildComponent, TValue&gt;(Expression&lt;Func&lt;TComponent, RenderFragment&lt;TValue&gt;&gt;&gt; parameterSelector, Func&lt;TValue, Action&lt;ComponentParameterCollectionBuilder&lt;TChildComponent&gt;&gt;&gt; templateFactory)
+
+    where TChildComponent : IComponent</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Linq.Expressions.Expression</span>&lt;<span class="xref">System.Func</span>&lt;TComponent, <span class="xref">Microsoft.AspNetCore.Components.RenderFragment</span>&lt;TValue&gt;&gt;&gt;</td>
+        <td><span class="parametername">parameterSelector</span></td>
+        <td><p>A lambda function that selects the parameter.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Func</span>&lt;TValue, <span class="xref">System.Action</span>&lt;<a class="xref" href="Bunit.ComponentParameterCollectionBuilder-1.html">ComponentParameterCollectionBuilder</a>&lt;TChildComponent&gt;&gt;&gt;</td>
+        <td><span class="parametername">templateFactory</span></td>
+        <td><p>A template factory used to create the parameters being passed to the <code data-dev-comment-type="typeparamref" class="typeparamref">TChildComponent</code>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Bunit.ComponentParameterCollectionBuilder-1.html">ComponentParameterCollectionBuilder</a>&lt;TComponent&gt;</td>
+        <td><p>This <a class="xref" href="Bunit.ComponentParameterCollectionBuilder-1.html">ComponentParameterCollectionBuilder&lt;TComponent&gt;</a>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">TChildComponent</span></td>
+        <td><p>The type of component to create a <span class="xref">Microsoft.AspNetCore.Components.RenderFragment&lt;TValue&gt;</span> for.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="parametername">TValue</span></td>
+        <td><p>The context type of the <span class="xref">Microsoft.AspNetCore.Components.RenderFragment&lt;TValue&gt;</span>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/egil/bUnit/new/main/apiSpec/new?filename=Bunit_ComponentParameterCollectionBuilder_1_AddCascadingValue__1___0_.md&amp;value=---%0Auid%3A%20Bunit.ComponentParameterCollectionBuilder%601.AddCascadingValue%60%601(%60%600)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/egil/bUnit/blob/main/src/bunit.core/ComponentParameterCollectionBuilder.cs/#L276">View Source</a>
+  </span>
+  <a id="Bunit_ComponentParameterCollectionBuilder_1_AddCascadingValue_" data-uid="Bunit.ComponentParameterCollectionBuilder`1.AddCascadingValue*"></a>
+  <h4 id="Bunit_ComponentParameterCollectionBuilder_1_AddCascadingValue__1___0_" data-uid="Bunit.ComponentParameterCollectionBuilder`1.AddCascadingValue``1(``0)">AddCascadingValue&lt;TValue&gt;(TValue)</h4>
+  <div class="markdown level1 summary"><p>Adds an UNNAMED cascading value around the <code data-dev-comment-type="typeparamref" class="typeparamref">TComponent</code> when it is rendered. Used to
+pass cascading values to child components of <code data-dev-comment-type="typeparamref" class="typeparamref">TComponent</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ComponentParameterCollectionBuilder&lt;TComponent&gt; AddCascadingValue&lt;TValue&gt;(TValue cascadingValue)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TValue</span></td>
+        <td><span class="parametername">cascadingValue</span></td>
+        <td><p>The cascading value.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Bunit.ComponentParameterCollectionBuilder-1.html">ComponentParameterCollectionBuilder</a>&lt;TComponent&gt;</td>
+        <td><p>This <a class="xref" href="Bunit.ComponentParameterCollectionBuilder-1.html">ComponentParameterCollectionBuilder&lt;TComponent&gt;</a>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">TValue</span></td>
+        <td><p>The type of cascading value.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/egil/bUnit/new/main/apiSpec/new?filename=Bunit_ComponentParameterCollectionBuilder_1_AddCascadingValue__1_System_String___0_.md&amp;value=---%0Auid%3A%20Bunit.ComponentParameterCollectionBuilder%601.AddCascadingValue%60%601(System.String%2C%60%600)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/egil/bUnit/blob/main/src/bunit.core/ComponentParameterCollectionBuilder.cs/#L287">View Source</a>
+  </span>
+  <a id="Bunit_ComponentParameterCollectionBuilder_1_AddCascadingValue_" data-uid="Bunit.ComponentParameterCollectionBuilder`1.AddCascadingValue*"></a>
+  <h4 id="Bunit_ComponentParameterCollectionBuilder_1_AddCascadingValue__1_System_String___0_" data-uid="Bunit.ComponentParameterCollectionBuilder`1.AddCascadingValue``1(System.String,``0)">AddCascadingValue&lt;TValue&gt;(String, TValue)</h4>
+  <div class="markdown level1 summary"><p>Adds an NAMED cascading value around the <code data-dev-comment-type="typeparamref" class="typeparamref">TComponent</code> when it is rendered. Used to
+pass cascading values to child components of <code data-dev-comment-type="typeparamref" class="typeparamref">TComponent</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ComponentParameterCollectionBuilder&lt;TComponent&gt; AddCascadingValue&lt;TValue&gt;(string name, TValue cascadingValue)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">name</span></td>
+        <td><p>The name of the cascading value.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">TValue</span></td>
+        <td><span class="parametername">cascadingValue</span></td>
+        <td><p>The cascading value.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Bunit.ComponentParameterCollectionBuilder-1.html">ComponentParameterCollectionBuilder</a>&lt;TComponent&gt;</td>
+        <td><p>This <a class="xref" href="Bunit.ComponentParameterCollectionBuilder-1.html">ComponentParameterCollectionBuilder&lt;TComponent&gt;</a>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">TValue</span></td>
+        <td><p>The type of cascading value.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/egil/bUnit/new/main/apiSpec/new?filename=Bunit_ComponentParameterCollectionBuilder_1_AddChildContent_Microsoft_AspNetCore_Components_RenderFragment_.md&amp;value=---%0Auid%3A%20Bunit.ComponentParameterCollectionBuilder%601.AddChildContent(Microsoft.AspNetCore.Components.RenderFragment)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/egil/bUnit/blob/main/src/bunit.core/ComponentParameterCollectionBuilder.cs/#L240">View Source</a>
+  </span>
+  <a id="Bunit_ComponentParameterCollectionBuilder_1_AddChildContent_" data-uid="Bunit.ComponentParameterCollectionBuilder`1.AddChildContent*"></a>
+  <h4 id="Bunit_ComponentParameterCollectionBuilder_1_AddChildContent_Microsoft_AspNetCore_Components_RenderFragment_" data-uid="Bunit.ComponentParameterCollectionBuilder`1.AddChildContent(Microsoft.AspNetCore.Components.RenderFragment)">AddChildContent(RenderFragment)</h4>
+  <div class="markdown level1 summary"><p>Adds a ChildContent <span class="xref">Microsoft.AspNetCore.Components.RenderFragment</span> type parameter with the <code data-dev-comment-type="paramref" class="paramref">childContent</code> as value.</p>
+<p>Note, this is equivalent to <code>Add(p =&gt; p.ChildContent, childContent)</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ComponentParameterCollectionBuilder&lt;TComponent&gt; AddChildContent(RenderFragment childContent)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Microsoft.AspNetCore.Components.RenderFragment</span></td>
+        <td><span class="parametername">childContent</span></td>
+        <td><p>The <span class="xref">Microsoft.AspNetCore.Components.RenderFragment</span> to pass the ChildContent parameter.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Bunit.ComponentParameterCollectionBuilder-1.html">ComponentParameterCollectionBuilder</a>&lt;TComponent&gt;</td>
+        <td><p>This <a class="xref" href="Bunit.ComponentParameterCollectionBuilder-1.html">ComponentParameterCollectionBuilder&lt;TComponent&gt;</a>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/egil/bUnit/new/main/apiSpec/new?filename=Bunit_ComponentParameterCollectionBuilder_1_AddChildContent_System_String_.md&amp;value=---%0Auid%3A%20Bunit.ComponentParameterCollectionBuilder%601.AddChildContent(System.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/egil/bUnit/blob/main/src/bunit.core/ComponentParameterCollectionBuilder.cs/#L256">View Source</a>
+  </span>
+  <a id="Bunit_ComponentParameterCollectionBuilder_1_AddChildContent_" data-uid="Bunit.ComponentParameterCollectionBuilder`1.AddChildContent*"></a>
+  <h4 id="Bunit_ComponentParameterCollectionBuilder_1_AddChildContent_System_String_" data-uid="Bunit.ComponentParameterCollectionBuilder`1.AddChildContent(System.String)">AddChildContent(String)</h4>
+  <div class="markdown level1 summary"><p>Adds a ChildContent <span class="xref">Microsoft.AspNetCore.Components.RenderFragment</span> type parameter with the <code data-dev-comment-type="paramref" class="paramref">markup</code> as value
+wrapped in a <span class="xref">Microsoft.AspNetCore.Components.RenderFragment</span>.</p>
+<p>Note, this is equivalent to <code>Add(p =&gt; p.ChildContent, &quot;...&quot;)</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ComponentParameterCollectionBuilder&lt;TComponent&gt; AddChildContent(string markup)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">markup</span></td>
+        <td><p>The markup string to pass the ChildContent parameter wrapped in a <span class="xref">Microsoft.AspNetCore.Components.RenderFragment</span>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Bunit.ComponentParameterCollectionBuilder-1.html">ComponentParameterCollectionBuilder</a>&lt;TComponent&gt;</td>
+        <td><p>This <a class="xref" href="Bunit.ComponentParameterCollectionBuilder-1.html">ComponentParameterCollectionBuilder&lt;TComponent&gt;</a>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/egil/bUnit/new/main/apiSpec/new?filename=Bunit_ComponentParameterCollectionBuilder_1_AddChildContent__1_System_Action_Bunit_ComponentParameterCollectionBuilder___0___.md&amp;value=---%0Auid%3A%20Bunit.ComponentParameterCollectionBuilder%601.AddChildContent%60%601(System.Action%7BBunit.ComponentParameterCollectionBuilder%7B%60%600%7D%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/egil/bUnit/blob/main/src/bunit.core/ComponentParameterCollectionBuilder.cs/#L266">View Source</a>
+  </span>
+  <a id="Bunit_ComponentParameterCollectionBuilder_1_AddChildContent_" data-uid="Bunit.ComponentParameterCollectionBuilder`1.AddChildContent*"></a>
+  <h4 id="Bunit_ComponentParameterCollectionBuilder_1_AddChildContent__1_System_Action_Bunit_ComponentParameterCollectionBuilder___0___" data-uid="Bunit.ComponentParameterCollectionBuilder`1.AddChildContent``1(System.Action{Bunit.ComponentParameterCollectionBuilder{``0}})">AddChildContent&lt;TChildComponent&gt;(Action&lt;ComponentParameterCollectionBuilder&lt;TChildComponent&gt;&gt;)</h4>
+  <div class="markdown level1 summary"><p>Adds a ChildContent <span class="xref">Microsoft.AspNetCore.Components.RenderFragment</span> type parameter, that is passed a <span class="xref">Microsoft.AspNetCore.Components.RenderFragment</span>,
+which will render the <code data-dev-comment-type="typeparamref" class="typeparamref">TChildComponent</code> with the parameters passed to <code data-dev-comment-type="paramref" class="paramref">childParameterBuilder</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ComponentParameterCollectionBuilder&lt;TComponent&gt; AddChildContent&lt;TChildComponent&gt;(Action&lt;ComponentParameterCollectionBuilder&lt;TChildComponent&gt;&gt; childParameterBuilder = null)
+
+    where TChildComponent : IComponent</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Action</span>&lt;<a class="xref" href="Bunit.ComponentParameterCollectionBuilder-1.html">ComponentParameterCollectionBuilder</a>&lt;TChildComponent&gt;&gt;</td>
+        <td><span class="parametername">childParameterBuilder</span></td>
+        <td><p>A parameter builder for the <code data-dev-comment-type="typeparamref" class="typeparamref">TChildComponent</code>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Bunit.ComponentParameterCollectionBuilder-1.html">ComponentParameterCollectionBuilder</a>&lt;TComponent&gt;</td>
+        <td><p>This <a class="xref" href="Bunit.ComponentParameterCollectionBuilder-1.html">ComponentParameterCollectionBuilder&lt;TComponent&gt;</a>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">TChildComponent</span></td>
+        <td><p>Type of child component to pass to the ChildContent parameter.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/egil/bUnit/new/main/apiSpec/new?filename=Bunit_ComponentParameterCollectionBuilder_1_AddUnmatched_System_String_System_Object_.md&amp;value=---%0Auid%3A%20Bunit.ComponentParameterCollectionBuilder%601.AddUnmatched(System.String%2CSystem.Object)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/egil/bUnit/blob/main/src/bunit.core/ComponentParameterCollectionBuilder.cs/#L296">View Source</a>
+  </span>
+  <a id="Bunit_ComponentParameterCollectionBuilder_1_AddUnmatched_" data-uid="Bunit.ComponentParameterCollectionBuilder`1.AddUnmatched*"></a>
+  <h4 id="Bunit_ComponentParameterCollectionBuilder_1_AddUnmatched_System_String_System_Object_" data-uid="Bunit.ComponentParameterCollectionBuilder`1.AddUnmatched(System.String,System.Object)">AddUnmatched(String, Object)</h4>
+  <div class="markdown level1 summary"><p>Adds an unmatched attribute value to <code data-dev-comment-type="typeparamref" class="typeparamref">TComponent</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ComponentParameterCollectionBuilder&lt;TComponent&gt; AddUnmatched(string name, object value = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">name</span></td>
+        <td><p>The name of the unmatched attribute.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Object</span></td>
+        <td><span class="parametername">value</span></td>
+        <td><p>The value of the unmatched attribute.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Bunit.ComponentParameterCollectionBuilder-1.html">ComponentParameterCollectionBuilder</a>&lt;TComponent&gt;</td>
+        <td><p>This <a class="xref" href="Bunit.ComponentParameterCollectionBuilder-1.html">ComponentParameterCollectionBuilder&lt;TComponent&gt;</a>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/egil/bUnit/new/main/apiSpec/new?filename=Bunit_ComponentParameterCollectionBuilder_1_Build.md&amp;value=---%0Auid%3A%20Bunit.ComponentParameterCollectionBuilder%601.Build%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/egil/bUnit/blob/main/src/bunit.core/ComponentParameterCollectionBuilder.cs/#L342">View Source</a>
+  </span>
+  <a id="Bunit_ComponentParameterCollectionBuilder_1_Build_" data-uid="Bunit.ComponentParameterCollectionBuilder`1.Build*"></a>
+  <h4 id="Bunit_ComponentParameterCollectionBuilder_1_Build" data-uid="Bunit.ComponentParameterCollectionBuilder`1.Build">Build()</h4>
+  <div class="markdown level1 summary"><p>Builds the <a class="xref" href="Bunit.ComponentParameterCollection.html">ComponentParameterCollection</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ComponentParameterCollection Build()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Bunit.ComponentParameterCollection.html">ComponentParameterCollection</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/egil/bUnit/new/main/apiSpec/new?filename=Bunit_ComponentParameterCollectionBuilder_1_TryAdd__1_System_String___0_.md&amp;value=---%0Auid%3A%20Bunit.ComponentParameterCollectionBuilder%601.TryAdd%60%601(System.String%2C%60%600)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/egil/bUnit/blob/main/src/bunit.core/ComponentParameterCollectionBuilder.cs/#L320">View Source</a>
+  </span>
+  <a id="Bunit_ComponentParameterCollectionBuilder_1_TryAdd_" data-uid="Bunit.ComponentParameterCollectionBuilder`1.TryAdd*"></a>
+  <h4 id="Bunit_ComponentParameterCollectionBuilder_1_TryAdd__1_System_String___0_" data-uid="Bunit.ComponentParameterCollectionBuilder`1.TryAdd``1(System.String,``0)">TryAdd&lt;TValue&gt;(String, TValue)</h4>
+  <div class="markdown level1 summary"><p>Try to add a <code data-dev-comment-type="paramref" class="paramref">value</code> for a parameter with the <code data-dev-comment-type="paramref" class="paramref">name</code>, if
+<code data-dev-comment-type="typeparamref" class="typeparamref">TComponent</code> has a property with that name, AND that property has a <span class="xref">Microsoft.AspNetCore.Components.ParameterAttribute</span>
+or a <span class="xref">Microsoft.AspNetCore.Components.CascadingParameterAttribute</span>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool TryAdd&lt;TValue&gt;(string name, TValue value)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">name</span></td>
+        <td><p>Name of the property for the parameter.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">TValue</span></td>
+        <td><span class="parametername">value</span></td>
+        <td><p>Value to assign to the parameter</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><p>True if parameter with the name exists and value was set, false otherwise.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">TValue</span></td>
+        <td><p>Value type.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Bunit_ComponentParameterCollectionBuilder_1_TryAdd__1_System_String___0__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>This is an untyped version of the <a class="xref" href="Bunit.ComponentParameterCollectionBuilder-1.html#Bunit_ComponentParameterCollectionBuilder_1_Add__1_System_Linq_Expressions_Expression_System_Func__0___0_____0_">Add&lt;TValue&gt;(Expression&lt;Func&lt;TComponent, TValue&gt;&gt;, TValue)</a> method. Always
+prefer the strongly typed <code>Add</code> methods whenever possible.</p>
+</div>
+  <h3 id="extensionmethods">Extension Methods</h3>
+  <div>
+      <a class="xref" href="Bunit.JSRuntimeAssertExtensions.html#Bunit_JSRuntimeAssertExtensions_ShouldBeElementReferenceTo_System_Object_AngleSharp_Dom_IElement_">JSRuntimeAssertExtensions.ShouldBeElementReferenceTo(Object, IElement)</a>
+  </div>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="sponsor-highlight">
+                <a href="https://www.telerik.com/campaigns/blazor/free-trial-1?utm_source=egilhansen&utm_medium=cpm&utm_campaign=blazor-trial-bunit-sponsored-message">
+                  <img width="200" src="/sponsors/telerik-ad-site.svg">
+                </a>      
+              </div>
+              <div class="supported">
+                <a href="https://www.packtpub.com/" title="Packt">
+                  <img width="150" src="/sponsors/packt-retina-logo.png">
+                </a>
+                <p>Editorial support provided by <a href="https://www.packtpub.com/" title="Packt">Packt</a>.</p>
+              </div>
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/egil/bUnit/new/main/apiSpec/new?filename=Bunit_ComponentParameterCollectionBuilder_1.md&amp;value=---%0Auid%3A%20Bunit.ComponentParameterCollectionBuilder%601%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                  </li>
+                  <li>
+                    <a href="https://github.com/egil/bUnit/blob/main/src/bunit.core/ComponentParameterCollectionBuilder.cs/#L15" class="contribution-link">View Source</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            <small>Documentation updated on 3/16/2021 9:33:36 AM +00:00 in commit 74fd44bf54</small>.
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/cshtml-razor.js"></script>
+    <script>
+      hljs.registerLanguage('cshtml-razor', window.hljsDefineCshtmlRazor);
+    </script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

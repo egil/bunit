@@ -1,0 +1,303 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Class WebTestRenderer
+   | bUnit </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Class WebTestRenderer
+   | bUnit ">
+    <meta name="generator" content="docfx 2.56.6.0">
+    <meta name="description" content="bUnit is a unit testing library for Blazor Components. You can easily define components under test in C# or Razor syntax and verify outcome using semantic HTML diffing/comparison logic. You can interact with and inspect components, trigger event handlers, provide cascading values, inject services, mock IJsRuntime, and perform snapshot testing.">
+  
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+  
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    <meta property="docfx:rel" content="../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img height="60%" id="logo" class="img" src="..//images/blazor-logo.png" alt="bUnit">
+                <span>bUnit</span>
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <div id="sponsor-button">
+                <iframe src="https://github.com/sponsors/egil/button" title="Sponsor egil" height="35" width="116" style="border: 0;"></iframe>
+              </div>
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="Bunit.Rendering.WebTestRenderer">
+  
+  
+  <h1 id="Bunit_Rendering_WebTestRenderer" data-uid="Bunit.Rendering.WebTestRenderer" class="text-break">Class WebTestRenderer
+  </h1>
+  <div class="markdown level0 summary"><p>Represents a <a class="xref" href="Bunit.Rendering.ITestRenderer.html">ITestRenderer</a> that is used when rendering
+Blazor components for the web.</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><span class="xref">System.Object</span></div>
+    <div class="level1"><span class="xref">Microsoft.AspNetCore.Components.RenderTree.Renderer</span></div>
+    <div class="level2"><a class="xref" href="Bunit.Rendering.TestRenderer.html">TestRenderer</a></div>
+    <div class="level3"><span class="xref">WebTestRenderer</span></div>
+  </div>
+  <div classs="implements">
+    <h5>Implements</h5>
+    <div><span class="xref">System.IDisposable</span></div>
+    <div><a class="xref" href="Bunit.Rendering.ITestRenderer.html">ITestRenderer</a></div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <a class="xref" href="Bunit.Rendering.TestRenderer.html#Bunit_Rendering_TestRenderer_Dispatcher">TestRenderer.Dispatcher</a>
+    </div>
+    <div>
+      <a class="xref" href="Bunit.Rendering.TestRenderer.html#Bunit_Rendering_TestRenderer_RenderFragment_Microsoft_AspNetCore_Components_RenderFragment_">TestRenderer.RenderFragment(RenderFragment)</a>
+    </div>
+    <div>
+      <a class="xref" href="Bunit.Rendering.TestRenderer.html#Bunit_Rendering_TestRenderer_RenderComponent__1_Bunit_ComponentParameterCollection_">TestRenderer.RenderComponent&lt;TComponent&gt;(ComponentParameterCollection)</a>
+    </div>
+    <div>
+      <a class="xref" href="Bunit.Rendering.TestRenderer.html#Bunit_Rendering_TestRenderer_DispatchEventAsync_System_UInt64_Microsoft_AspNetCore_Components_RenderTree_EventFieldInfo_System_EventArgs_">TestRenderer.DispatchEventAsync(UInt64, EventFieldInfo, EventArgs)</a>
+    </div>
+    <div>
+      <a class="xref" href="Bunit.Rendering.TestRenderer.html#Bunit_Rendering_TestRenderer_FindComponent__1_Bunit_IRenderedFragmentBase_">TestRenderer.FindComponent&lt;TComponent&gt;(IRenderedFragmentBase)</a>
+    </div>
+    <div>
+      <a class="xref" href="Bunit.Rendering.TestRenderer.html#Bunit_Rendering_TestRenderer_FindComponents__1_Bunit_IRenderedFragmentBase_">TestRenderer.FindComponents&lt;TComponent&gt;(IRenderedFragmentBase)</a>
+    </div>
+    <div>
+      <a class="xref" href="Bunit.Rendering.TestRenderer.html#Bunit_Rendering_TestRenderer_ProcessPendingRender">TestRenderer.ProcessPendingRender()</a>
+    </div>
+    <div>
+      <a class="xref" href="Bunit.Rendering.TestRenderer.html#Bunit_Rendering_TestRenderer_HandleException_System_Exception_">TestRenderer.HandleException(Exception)</a>
+    </div>
+    <div>
+      <a class="xref" href="Bunit.Rendering.TestRenderer.html#Bunit_Rendering_TestRenderer_UpdateDisplayAsync_Microsoft_AspNetCore_Components_RenderTree_RenderBatch__">TestRenderer.UpdateDisplayAsync(RenderBatch)</a>
+    </div>
+    <div>
+      <a class="xref" href="Bunit.Rendering.TestRenderer.html#Bunit_Rendering_TestRenderer_Dispose_System_Boolean_">TestRenderer.Dispose(Boolean)</a>
+    </div>
+    <div>
+      <span class="xref">Microsoft.AspNetCore.Components.RenderTree.Renderer.InstantiateComponent(System.Type)</span>
+    </div>
+    <div>
+      <span class="xref">Microsoft.AspNetCore.Components.RenderTree.Renderer.AssignRootComponentId(Microsoft.AspNetCore.Components.IComponent)</span>
+    </div>
+    <div>
+      <span class="xref">Microsoft.AspNetCore.Components.RenderTree.Renderer.GetCurrentRenderTreeFrames(System.Int32)</span>
+    </div>
+    <div>
+      <span class="xref">Microsoft.AspNetCore.Components.RenderTree.Renderer.RenderRootComponentAsync(System.Int32)</span>
+    </div>
+    <div>
+      <span class="xref">Microsoft.AspNetCore.Components.RenderTree.Renderer.RenderRootComponentAsync(System.Int32, Microsoft.AspNetCore.Components.ParameterView)</span>
+    </div>
+    <div>
+      <span class="xref">Microsoft.AspNetCore.Components.RenderTree.Renderer.Dispose()</span>
+    </div>
+    <div>
+      <span class="xref">Microsoft.AspNetCore.Components.RenderTree.Renderer.UnhandledSynchronizationException</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.Equals(System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.Equals(System.Object, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.GetHashCode()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.GetType()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.MemberwiseClone()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.ReferenceEquals(System.Object, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.ToString()</span>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="Bunit.Rendering.html">Bunit.Rendering</a></h6>
+  <h6><strong>Assembly</strong>: Bunit.Web.dll</h6>
+  <h5 id="Bunit_Rendering_WebTestRenderer_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class WebTestRenderer : TestRenderer, IDisposable, ITestRenderer</code></pre>
+  </div>
+  <h3 id="constructors">Constructors
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/egil/bUnit/new/main/apiSpec/new?filename=Bunit_Rendering_WebTestRenderer__ctor_Bunit_Rendering_IRenderedComponentActivator_System_IServiceProvider_Microsoft_Extensions_Logging_ILoggerFactory_.md&amp;value=---%0Auid%3A%20Bunit.Rendering.WebTestRenderer.%23ctor(Bunit.Rendering.IRenderedComponentActivator%2CSystem.IServiceProvider%2CMicrosoft.Extensions.Logging.ILoggerFactory)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/egil/bUnit/blob/main/src/bunit.web/Rendering/WebTestRenderer.cs/#L22">View Source</a>
+  </span>
+  <a id="Bunit_Rendering_WebTestRenderer__ctor_" data-uid="Bunit.Rendering.WebTestRenderer.#ctor*"></a>
+  <h4 id="Bunit_Rendering_WebTestRenderer__ctor_Bunit_Rendering_IRenderedComponentActivator_System_IServiceProvider_Microsoft_Extensions_Logging_ILoggerFactory_" data-uid="Bunit.Rendering.WebTestRenderer.#ctor(Bunit.Rendering.IRenderedComponentActivator,System.IServiceProvider,Microsoft.Extensions.Logging.ILoggerFactory)">WebTestRenderer(IRenderedComponentActivator, IServiceProvider, ILoggerFactory)</h4>
+  <div class="markdown level1 summary"><p>Creates an instance of the <a class="xref" href="Bunit.Rendering.WebTestRenderer.html">WebTestRenderer</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public WebTestRenderer(IRenderedComponentActivator activator, IServiceProvider services, ILoggerFactory loggerFactory)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Bunit.Rendering.IRenderedComponentActivator.html">IRenderedComponentActivator</a></td>
+        <td><span class="parametername">activator</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.IServiceProvider</span></td>
+        <td><span class="parametername">services</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">Microsoft.Extensions.Logging.ILoggerFactory</span></td>
+        <td><span class="parametername">loggerFactory</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="implements">Implements</h3>
+  <div>
+      <span class="xref">System.IDisposable</span>
+  </div>
+  <div>
+      <a class="xref" href="Bunit.Rendering.ITestRenderer.html">ITestRenderer</a>
+  </div>
+  <h3 id="extensionmethods">Extension Methods</h3>
+  <div>
+      <a class="xref" href="Bunit.JSRuntimeAssertExtensions.html#Bunit_JSRuntimeAssertExtensions_ShouldBeElementReferenceTo_System_Object_AngleSharp_Dom_IElement_">JSRuntimeAssertExtensions.ShouldBeElementReferenceTo(Object, IElement)</a>
+  </div>
+  <div>
+      <a class="xref" href="Bunit.Extensions.TestRendererExtensions.html#Bunit_Extensions_TestRendererExtensions_RenderComponent__1_Bunit_Rendering_ITestRenderer_Bunit_ComponentParameter___">TestRendererExtensions.RenderComponent&lt;TComponent&gt;(ITestRenderer, ComponentParameter[])</a>
+  </div>
+  <div>
+      <a class="xref" href="Bunit.Extensions.TestRendererExtensions.html#Bunit_Extensions_TestRendererExtensions_RenderComponent__1_Bunit_Rendering_ITestRenderer_System_Action_Bunit_ComponentParameterCollectionBuilder___0___">TestRendererExtensions.RenderComponent&lt;TComponent&gt;(ITestRenderer, Action&lt;ComponentParameterCollectionBuilder&lt;TComponent&gt;&gt;)</a>
+  </div>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="sponsor-highlight">
+                <a href="https://www.telerik.com/campaigns/blazor/free-trial-1?utm_source=egilhansen&utm_medium=cpm&utm_campaign=blazor-trial-bunit-sponsored-message">
+                  <img width="200" src="/sponsors/telerik-ad-site.svg">
+                </a>      
+              </div>
+              <div class="supported">
+                <a href="https://www.packtpub.com/" title="Packt">
+                  <img width="150" src="/sponsors/packt-retina-logo.png">
+                </a>
+                <p>Editorial support provided by <a href="https://www.packtpub.com/" title="Packt">Packt</a>.</p>
+              </div>
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/egil/bUnit/new/main/apiSpec/new?filename=Bunit_Rendering_WebTestRenderer.md&amp;value=---%0Auid%3A%20Bunit.Rendering.WebTestRenderer%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                  </li>
+                  <li>
+                    <a href="https://github.com/egil/bUnit/blob/main/src/bunit.web/Rendering/WebTestRenderer.cs/#L17" class="contribution-link">View Source</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            <small>Documentation updated on 3/16/2021 9:33:36 AM +00:00 in commit 74fd44bf54</small>.
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/cshtml-razor.js"></script>
+    <script>
+      hljs.registerLanguage('cshtml-razor', window.hljsDefineCshtmlRazor);
+    </script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

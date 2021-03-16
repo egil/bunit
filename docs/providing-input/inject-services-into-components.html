@@ -1,0 +1,241 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Injecting Services into Components Under Test | bUnit </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Injecting Services into Components Under Test | bUnit ">
+    <meta name="generator" content="docfx 2.56.6.0">
+    <meta name="description" content="bUnit is a unit testing library for Blazor Components. You can easily define components under test in C# or Razor syntax and verify outcome using semantic HTML diffing/comparison logic. You can interact with and inspect components, trigger event handlers, provide cascading values, inject services, mock IJsRuntime, and perform snapshot testing.">
+  
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+  
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../styles/docfx.css">
+    <link rel="stylesheet" href="../../styles/main.css">
+    <meta property="docfx:navrel" content="../../toc.html">
+    <meta property="docfx:tocrel" content="../toc.html">
+    
+    <meta property="docfx:rel" content="../../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../../index.html">
+                <img height="60%" id="logo" class="img" src="../..//images/blazor-logo.png" alt="bUnit">
+                <span>bUnit</span>
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <div id="sponsor-button">
+                <iframe src="https://github.com/sponsors/egil/button" title="Sponsor egil" height="35" width="116" style="border: 0;"></iframe>
+              </div>
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="inject-services">
+<h1 id="injecting-services-into-components-under-test">Injecting Services into Components Under Test</h1>
+
+<p>It is common for components under test to have a dependency on services, injected into them through the <code>@inject IMyService MyService</code> syntax in .razor files, or the <code>[Inject] private IMyService MyService { get; set; }</code> syntax in .cs files.</p>
+<p>This is supported in bUnit through the <code>Services</code> collection available through the test contexts used in both C#- and Razor-based tests. The <code>Services</code> collection is just an <code>IServiceCollection</code>, which means services can be registered in the same manner as done for production code in <code>Startup.cs</code> in Blazor Server projects and in <code>Program.cs</code> in Blazor Wasm projects.</p>
+<p>In bUnit, you register the services in the <code>Services</code> collection <em>before</em> you render a component under test.</p>
+<p>The following sections demonstrate how to do this in C#- and Razor-based tests. The examples we will cover will test the <code>&lt;WeatherForecasts&gt;</code> component listed below, which depends on the <code>IWeatherForecastService</code> service, injected in line 1:</p>
+<pre><code class="lang-cshtml" name="WeatherForecasts.razor" highlight-lines="1">@inject IWeatherForecastService ForecastService
+
+&lt;h1&gt;Weather forecast&lt;/h1&gt;
+
+&lt;p&gt;This component demonstrates fetching data from a service.&lt;/p&gt;
+
+@if (Forecasts is null)
+{
+  &lt;p&gt;&lt;em&gt;Loading...&lt;/em&gt;&lt;/p&gt;
+}
+else
+{
+  &lt;WeatherForecastTabel Forecasts=@Forecasts /&gt;
+}
+
+@code 
+{
+  public WeatherForecast[] Forecasts { get; private set; }
+
+  protected override async Task OnInitializedAsync()
+  {
+    Forecasts = await ForecastService.GetForecastAsync(DateTime.Now);
+  }
+}
+</code></pre><h2 id="injecting-services-in-c-based-tests">Injecting Services in C#-Based Tests</h2>
+<p>Here is a C#-based test that registers the <code>IWeatherForecastService</code> in the <code>Services</code> collection, which is a requirement of the <code>&lt;WeatherForecasts&gt;</code> component listed above.</p>
+<pre><code class="lang-csharp" name="WeatherForecastsTest.cs" highlight-lines="4">using var ctx = new TestContext();
+
+// Register services
+ctx.Services.AddSingleton&lt;IWeatherForecastService&gt;(new WeatherForecastService());
+
+// RenderComponent will inject the service in the WeatherForecasts component
+// when it is instantiated and rendered.
+var cut = ctx.RenderComponent&lt;WeatherForecasts&gt;();
+
+// Assert that service is injected
+Assert.NotNull(cut.Instance.Forecasts);
+</code></pre>
+<p>The highlighted line shows how the <code>IWeatherForecastService</code> is registered in the test context's <code>Services</code> collection, which is just a standard <a href="https://docs.microsoft.com/en-us/dotnet/api/microsoft.extensions.dependencyinjection.iservicecollection"><code>IServiceCollection</code></a>, using the standard .NET Core dependency injection (DI) services method, <a href="https://docs.microsoft.com/en-us/dotnet/api/microsoft.extensions.dependencyinjection.servicecollectionserviceextensions.addsingleton?view=dotnet-plat-ext-3.1#Microsoft_Extensions_DependencyInjection_ServiceCollectionServiceExtensions_AddSingleton__1_Microsoft_Extensions_DependencyInjection_IServiceCollection___0_"><code>AddSingleton</code></a>.</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>The <code>AddSingleton()</code> method is only available on the <code>Services</code> collection if you import the <code>Microsoft.Extensions.DependencyInjection</code> type.</p>
+</div>
+<h2 id="injecting-services-in-razor-based-tests">Injecting Services in Razor Based Tests</h2>
+<p>Here is a Razor-based test that registers the <code>IWeatherForecastService</code> in the <code>Services</code> collection during the <code>Setup</code> methods, which is a requirement of the <code>&lt;WeatherForecasts&gt;</code> component mentioned above:</p>
+<pre><code class="lang-cshtml" name="WeatherForecastsTest.razor" highlight-lines="10-13">@inherits TestComponentBase
+
+&lt;Fixture Setup=&quot;RegisterWeatherForecastServices&quot; 
+         Test=&quot;VerifyServiceInjectedCorrectly&quot;&gt;
+  &lt;ComponentUnderTest&gt;
+    &lt;WeatherForecasts /&gt;
+  &lt;/ComponentUnderTest&gt;
+  @code
+  {
+    void RegisterWeatherForecastServices(Fixture fixture)
+    {
+      fixture.Services.AddSingleton&lt;IWeatherForecastService&gt;(new WeatherForecastService());
+    }
+
+    void VerifyServiceInjectedCorrectly(Fixture fixture)
+    {
+      // Act - get component under test
+      var cut = fixture.GetComponentUnderTest&lt;WeatherForecasts&gt;();
+
+      // Assert 
+      Assert.NotNull(cut.Instance.Forecasts);
+    }
+  }
+&lt;/Fixture&gt;
+</code></pre>
+<p>The highlighted line shows how the <code>IWeatherForecastService</code> is registered using the standard .NET Core DI services method, <a href="https://docs.microsoft.com/en-us/dotnet/api/microsoft.extensions.dependencyinjection.servicecollectionserviceextensions.addsingleton?view=dotnet-plat-ext-3.1#Microsoft_Extensions_DependencyInjection_ServiceCollectionServiceExtensions_AddSingleton__1_Microsoft_Extensions_DependencyInjection_IServiceCollection___0_"><code>AddSingleton</code></a>.</p>
+<p>This can either be done via the <code>Fixture</code>'s <code>Setup</code> method as in this example, if you want to separate the service registration from the test method, or it can be done in the test method <em>before</em> calling <code>GetComponentUnderTest()</code>.</p>
+<p>The following example shows how to do this with <code>&lt;SnapshotTest&gt;</code> tests:</p>
+<pre><code class="lang-cshtml" name="WeatherForecastsTest.razor" highlight-lines="5-8">@inherits TestComponentBase
+
+@code
+{
+  void RegisterWeatherForecastServices(SnapshotTest test)
+  {
+    test.Services.AddSingleton&lt;IWeatherForecastService&gt;(new WeatherForecastService());
+  }
+}
+
+&lt;SnapshotTest Setup=&quot;RegisterWeatherForecastServices&quot;&gt;
+  &lt;TestInput&gt;
+    &lt;WeatherForecasts /&gt;
+  &lt;/TestInput&gt;
+  &lt;ExpectedOutput&gt;...&lt;/ExpectedOutput&gt;
+&lt;/Fixture&gt;
+</code></pre>
+<div class="TIP">
+<h5>Tip</h5>
+<p>If multiple Razor tests share the same setup logic, they can share the same dedicated setup method as well.</p>
+</div>
+<div class="NOTE">
+<h5>Note</h5>
+<p>The <code>AddSingleton()</code> method is only available on the <code>Services</code> collection if you import the <code>Microsoft.Extensions.DependencyInjection</code> type.</p>
+</div>
+<h2 id="further-reading">Further Reading</h2>
+<p>A closely related topic is mocking. To learn more about mocking in bUnit, go to the <a class="xref" href="../test-doubles/index.html">Mocking and Faking Component Dependencies</a> page.</p>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="sponsor-highlight">
+                <a href="https://www.telerik.com/campaigns/blazor/free-trial-1?utm_source=egilhansen&utm_medium=cpm&utm_campaign=blazor-trial-bunit-sponsored-message">
+                  <img width="200" src="/sponsors/telerik-ad-site.svg">
+                </a>      
+              </div>
+              <div class="supported">
+                <a href="https://www.packtpub.com/" title="Packt">
+                  <img width="150" src="/sponsors/packt-retina-logo.png">
+                </a>
+                <p>Editorial support provided by <a href="https://www.packtpub.com/" title="Packt">Packt</a>.</p>
+              </div>
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/egil/bUnit/blob/main/docs/site/docs/providing-input/inject-services-into-components.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            <small>Documentation updated on 3/16/2021 9:33:36 AM +00:00 in commit 74fd44bf54</small>.
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/cshtml-razor.js"></script>
+    <script>
+      hljs.registerLanguage('cshtml-razor', window.hljsDefineCshtmlRazor);
+    </script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+  </body>
+</html>

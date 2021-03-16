@@ -1,0 +1,274 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Writing Tests in Razor Syntax for Blazor Components | bUnit </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Writing Tests in Razor Syntax for Blazor Components | bUnit ">
+    <meta name="generator" content="docfx 2.56.6.0">
+    <meta name="description" content="bUnit is a unit testing library for Blazor Components. You can easily define components under test in C# or Razor syntax and verify outcome using semantic HTML diffing/comparison logic. You can interact with and inspect components, trigger event handlers, provide cascading values, inject services, mock IJsRuntime, and perform snapshot testing.">
+  
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+  
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../styles/docfx.css">
+    <link rel="stylesheet" href="../../styles/main.css">
+    <meta property="docfx:navrel" content="../../toc.html">
+    <meta property="docfx:tocrel" content="../toc.html">
+    
+    <meta property="docfx:rel" content="../../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../../index.html">
+                <img height="60%" id="logo" class="img" src="../..//images/blazor-logo.png" alt="bUnit">
+                <span>bUnit</span>
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <div id="sponsor-button">
+                <iframe src="https://github.com/sponsors/egil/button" title="Sponsor egil" height="35" width="116" style="border: 0;"></iframe>
+              </div>
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="writing-razor-tests">
+<h1 id="writing-tests-in-razor-syntax-for-blazor-components">Writing Tests in Razor Syntax for Blazor Components</h1>
+
+<p>A test for a Blazor component can be written in a Blazor <em>test</em> component using a mix of Razor and C# syntax. The advantage of this is the familiarity in declaring the component under test, and other HTML or Razor fragments that will be used in the test, <em>in Razor and HTML markup</em>. This is especially useful when testing components that take a lot of parameters and child content as input.</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>Tests written in Blazor test components can be discovered and invoked individually, and will show up in Visual Studio's Test Explorer, for example, just like regular unit tests.</p>
+<p>However, they will <em>not</em> show up before the Blazor test component has been compiled into C# by the Blazor compiler, and if there are compile-errors from the Blazor compiler, they might appear to come and go in the Test Explorer.</p>
+</div>
+<div class="WARNING">
+<h5>Warning</h5>
+<p>Razor tests are currently only compatible with using xUnit as the general-purpose testing framework.</p>
+</div>
+<div class="IMPORTANT">
+<h5>Important</h5>
+<p>Make sure the project SDK type is set to <code>&lt;Project Sdk=&quot;Microsoft.NET.Sdk.Razor&quot;&gt;</code>, instead of the default <code>&lt;Project Sdk=&quot;Microsoft.NET.Sdk&quot;&gt;</code> that is used with standard testing projects. See <a class="xref" href="create-test-project.html">Creating a new bUnit Test Project</a> for a guide to setting up bUnit test projects.</p>
+</div>
+<h2 id="creating-a-test-specific-_importsrazor-file">Creating a Test-Specific <code>_Imports.razor</code> File</h2>
+<p>Razor tests are written in Blazor test components. To make life a little easier, let’s first set up an <code>_Imports.razor</code> file with the &quot;using directives&quot; we are going to be using throughout our tests. Simply add the following <code>_Imports.razor</code> to the root folder where you will be placing your Blazor test components:</p>
+<pre><code class="lang-cshtml" name="_Imports.razor">@using Microsoft.AspNetCore.Components.Forms
+@using Microsoft.AspNetCore.Components.Routing
+@using Microsoft.AspNetCore.Components.Web
+@using Microsoft.JSInterop
+@using Microsoft.Extensions.DependencyInjection
+@using AngleSharp.Dom
+@using Bunit
+@using Bunit.TestDoubles
+@using Xunit
+</code></pre>
+<p>With that created, we are ready to create our first Razor test.</p>
+<h2 id="creating-a-blazor-test-component">Creating a Blazor Test Component</h2>
+<p>A Blazor test component is conceptually very similar to a regular test class in xUnit or NUnit, for example. You can define multiple tests inside a single test component as long as they are based on the special bUnit test components, currently either <a class="xref" href="../../api/Bunit.Fixture.html">Fixture</a> or <a class="xref" href="../../api/Bunit.SnapshotTest.html">SnapshotTest</a>.</p>
+<p>In addition to that, Blazor test components have to inherit from <a class="xref" href="../../api/Bunit.TestComponentBase.html">TestComponentBase</a>, e.g.:</p>
+<pre><code class="lang-cshtml">@inherits TestComponentBase
+</code></pre>
+<p>The following two sections will show you how to create tests using bUnit's <a class="xref" href="../../api/Bunit.Fixture.html">Fixture</a> and <a class="xref" href="../../api/Bunit.SnapshotTest.html">SnapshotTest</a> components.</p>
+<h3 id="creating-a-test-using-the-fixture-component">Creating a Test using the <code>&lt;Fixture&gt;</code> Component</h3>
+<p>Let's see a simple example where we test the following <code>&lt;HelloWorld&gt;</code> component using the bUnit <a class="xref" href="../../api/Bunit.Fixture.html">Fixture</a> component:</p>
+<pre><code class="lang-cshtml" name="HelloWorld.razor">&lt;h1&gt;Hello world from Blazor&lt;/h1&gt;
+</code></pre>
+<p>Here's the Razor code that tests the <code>&lt;HelloWorld&gt;</code> component:</p>
+<pre><code class="lang-cshtml" name="HelloWorldTest.razor">@inherits TestComponentBase
+
+&lt;Fixture Test=&quot;HelloWorldComponentRendersCorrectly&quot;&gt;
+  &lt;ComponentUnderTest&gt;
+    &lt;HelloWorld /&gt;
+  &lt;/ComponentUnderTest&gt;
+
+  @code
+  {
+    void HelloWorldComponentRendersCorrectly(Fixture fixture)
+    {
+      // Act
+      var cut = fixture.GetComponentUnderTest&lt;HelloWorld&gt;();
+
+      // Assert
+      cut.MarkupMatches(&quot;&lt;h1&gt;Hello world from Blazor&lt;/h1&gt;&quot;);
+    }
+  }
+&lt;/Fixture&gt;
+</code></pre>
+<p>Let's break down what is going on in this test:</p>
+<ul>
+<li>The test component inherits from <a class="xref" href="../../api/Bunit.TestComponentBase.html">TestComponentBase</a>. This is done in line 1 with <code>@inherits Bunit.TestComponentBase</code>.</li>
+<li>The test is defined using the <a class="xref" href="../../api/Bunit.Fixture.html">Fixture</a> component. It orchestrates the test.</li>
+<li>Inside the <a class="xref" href="../../api/Bunit.Fixture.html">Fixture</a> component, we add a <a class="xref" href="../../api/Bunit.ComponentUnderTest.html">ComponentUnderTest</a> component where the component under test is declared using regular Razor syntax. In this case, it's a very simple <code>&lt;HelloWorld /&gt;</code> declaration.</li>
+<li>The <a class="xref" href="../../api/Bunit.Fixture.html">Fixture</a> component's <code>Test</code> parameter takes a method which is called when the test runs, and is passed  to the <a class="xref" href="../../api/Bunit.Fixture.html">Fixture</a> component.</li>
+<li>In the test method, we use the <a class="xref" href="../../api/Bunit.Fixture.html#Bunit_Fixture_GetComponentUnderTest__1">GetComponentUnderTest&lt;TComponent&gt;()</a> to get the <code>HelloWorld</code> declared in the <a class="xref" href="../../api/Bunit.Fixture.html">Fixture</a>. In addition, we verify the rendered markup from the <code>HelloWorld</code> component using the <code>MarkupMatches</code> method. This performs a semantic comparison of the expected markup with the rendered markup.</li>
+</ul>
+<div class="TIP">
+<h5>Tip</h5>
+<p>To learn more about how the semantic HTML/markup comparison works in bUnit, as well as how to customize it, visit the <a class="xref" href="../verification/semantic-html-comparison.html">Customizing the Semantic HTML Comparison</a> page.</p>
+</div>
+<div class="TIP">
+<h5>Tip</h5>
+<p>In bUnit tests, we like to use the abbreviation <code>CUT</code>, short for &quot;component under test&quot;, to indicate the component that is being tested. This is inspired by the common testing abbreviation <code>SUT</code>, short for &quot;system under test&quot;.</p>
+</div>
+<h3 id="creating-a-test-using-the-snapshottest-component">Creating a Test using the <code>&lt;SnapshotTest&gt;</code> Component</h3>
+<p>In snapshot testing, you declare your input (e.g. one or more components under test) and the expected output, and the library will automatically tell you if they do not match. With bUnit, this comparison is done using smart built-in semantic HTML comparison logic.</p>
+<p>Let's see a simple example where we test the following <code>&lt;HelloWorld&gt;</code> component using the bUnit <a class="xref" href="../../api/Bunit.SnapshotTest.html">SnapshotTest</a> component:</p>
+<pre><code class="lang-cshtml" name="HelloWorld.razor">&lt;h1&gt;Hello world from Blazor&lt;/h1&gt;
+</code></pre>
+<p>Here is the Razor code that tests the <code>&lt;HelloWorld&gt;</code> component:</p>
+<pre><code class="lang-cshtml" name="HelloWorldTest.razor">@inherits TestComponentBase
+
+&lt;SnapshotTest Description=&quot;HelloWorld component renders correctly&quot;&gt;
+  &lt;TestInput&gt;
+    &lt;HelloWorld /&gt;
+  &lt;/TestInput&gt;
+  &lt;ExpectedOutput&gt;
+    &lt;h1&gt;Hello world from Blazor&lt;/h1&gt;
+  &lt;/ExpectedOutput&gt;
+&lt;/SnapshotTest&gt;
+</code></pre>
+<p>Let's break down what is going on in this test with the <a class="xref" href="../../api/Bunit.SnapshotTest.html">SnapshotTest</a> component:</p>
+<ul>
+<li>We specify the <code>Description</code> parameter. The text it contains will be shown when the test runs and in the Test Explorer in Visual Studio, just like regular unit tests names.</li>
+<li>Inside the <code>&lt;TestInput&gt;</code> child component of <a class="xref" href="../../api/Bunit.SnapshotTest.html">SnapshotTest</a> we declare the component under test. In this case, it is the <code>&lt;HelloWorld&gt;</code> component.</li>
+<li>Inside the <code>&lt;ExpectedOutput&gt;</code> child component of <a class="xref" href="../../api/Bunit.SnapshotTest.html">SnapshotTest</a> we declare the expected rendered output from whatever is declared in the <code>&lt;TestInput&gt;</code> child component.</li>
+</ul>
+<p>When the test runs, the <a class="xref" href="../../api/Bunit.SnapshotTest.html">SnapshotTest</a> component will automatically compare the rendered output of the <code>&lt;TestInput&gt;</code> component with that of the <code>&lt;ExpectedOutput&gt;</code> component using the semantic HTML comparison logic in bUnit.</p>
+<div class="TIP">
+<h5>Tip</h5>
+<p>Learn more about how the semantic HTML/markup comparison in bUnit works, and how to customize it, on the <a class="xref" href="../verification/semantic-html-comparison.html">Customizing the Semantic HTML Comparison</a> page.</p>
+</div>
+<h3 id="passing-parameters-to-components-under-test">Passing Parameters to Components Under Test</h3>
+<p>Since we are declaring our component under test in Razor syntax, passing parameters to the component under test is the same as passing parameters into normal Blazor components. This is the same for tests created with both the <a class="xref" href="../../api/Bunit.Fixture.html">Fixture</a> and <a class="xref" href="../../api/Bunit.SnapshotTest.html">SnapshotTest</a> components.</p>
+<p>In this example, we are passing both attribute parameters and child content to the component under test. In this case, it's a basic <code>&lt;Alert&gt;</code> component:</p>
+<pre><code class="lang-cshtml">@inherits TestComponentBase
+
+&lt;Fixture Test=&quot;fixture =&gt; { }&quot;&gt;
+  &lt;ComponentUnderTest&gt;
+    &lt;Alert Type=&quot;AlertType.Warning&quot; Heading=&quot;TDD takes practise&quot;&gt;
+      Before you really get the benefit of TDD, you need to practice...
+    &lt;/Alert&gt;
+  &lt;/ComponentUnderTest&gt;
+&lt;/Fixture&gt;
+
+&lt;SnapshotTest&gt;
+  &lt;TestInput&gt;
+    &lt;Alert Type=&quot;AlertType.Warning&quot; Heading=&quot;TDD takes practise&quot;&gt;
+      Before you really get the benefit of TDD, you need to practice...
+    &lt;/Alert&gt;
+  &lt;/TestInput&gt;
+  &lt;ExpectedOutput&gt;
+    &lt;div diff:ignore&gt;...&lt;/div&gt;  
+  &lt;/ExpectedOutput&gt; 
+&lt;/SnapshotTest&gt;
+</code></pre>
+<p>Injecting services into the components under test is covered on the <a class="xref" href="../providing-input/inject-services-into-components.html">Injecting Services into Components Under Test</a> page.</p>
+<h2 id="further-reading">Further Reading</h2>
+<p>Now that we have covered the basics of writing tests using Razor syntax, you can continue digging deeper. Here are some good places to start:</p>
+<ul>
+<li><a class="xref" href="fixture-details.html">Fixture Test Details</a></li>
+<li><a class="xref" href="snapshottest-details.html">SnapshotTest Details</a></li>
+<li><a class="xref" href="../providing-input/inject-services-into-components.html">Injecting Services into Components Under Test</a></li>
+<li><a class="xref" href="../verification/verify-markup.html">Verifying Markup from a Component</a></li>
+<li><a class="xref" href="../verification/verify-component-state.html">Verifying the State of a Component Under Test</a></li>
+<li><a class="xref" href="../interaction/trigger-event-handlers.html">Triggering Event Handlers in Components</a></li>
+</ul>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="sponsor-highlight">
+                <a href="https://www.telerik.com/campaigns/blazor/free-trial-1?utm_source=egilhansen&utm_medium=cpm&utm_campaign=blazor-trial-bunit-sponsored-message">
+                  <img width="200" src="/sponsors/telerik-ad-site.svg">
+                </a>      
+              </div>
+              <div class="supported">
+                <a href="https://www.packtpub.com/" title="Packt">
+                  <img width="150" src="/sponsors/packt-retina-logo.png">
+                </a>
+                <p>Editorial support provided by <a href="https://www.packtpub.com/" title="Packt">Packt</a>.</p>
+              </div>
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/egil/bUnit/blob/main/docs/site/docs/getting-started/writing-razor-tests.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            <small>Documentation updated on 3/16/2021 9:33:36 AM +00:00 in commit 74fd44bf54</small>.
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/cshtml-razor.js"></script>
+    <script>
+      hljs.registerLanguage('cshtml-razor', window.hljsDefineCshtmlRazor);
+    </script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+  </body>
+</html>

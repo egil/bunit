@@ -1,0 +1,385 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Faking Authentication and Authorization | bUnit </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Faking Authentication and Authorization | bUnit ">
+    <meta name="generator" content="docfx 2.56.6.0">
+    <meta name="description" content="bUnit is a unit testing library for Blazor Components. You can easily define components under test in C# or Razor syntax and verify outcome using semantic HTML diffing/comparison logic. You can interact with and inspect components, trigger event handlers, provide cascading values, inject services, mock IJsRuntime, and perform snapshot testing.">
+  
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+  
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../styles/docfx.css">
+    <link rel="stylesheet" href="../../styles/main.css">
+    <meta property="docfx:navrel" content="../../toc.html">
+    <meta property="docfx:tocrel" content="../toc.html">
+    
+    <meta property="docfx:rel" content="../../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../../index.html">
+                <img height="60%" id="logo" class="img" src="../..//images/blazor-logo.png" alt="bUnit">
+                <span>bUnit</span>
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <div id="sponsor-button">
+                <iframe src="https://github.com/sponsors/egil/button" title="Sponsor egil" height="35" width="116" style="border: 0;"></iframe>
+              </div>
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="faking-auth">
+<h1 id="faking-authentication-and-authorization">Faking Authentication and Authorization</h1>
+
+<p>bUnit comes with test-specific implementations of Blazor's authentication and authorization types, making it easy to test components that use Blazor's <code>&lt;AuthorizeView&gt;</code>, <code>&lt;CascadingAuthenticationState&gt;</code> and <code>&lt;AuthorizeRouteView&gt;</code> components, as well as the <code>AuthenticationStateProvider</code> type.</p>
+<p>The test implementation of Blazor's authentication and authorization can be put into the following states:</p>
+<ul>
+<li><strong>Authenticating</strong></li>
+<li><strong>Unauthenticated</strong> and <strong>unauthorized</strong></li>
+<li><strong>Authenticated</strong> and <strong>unauthorized</strong></li>
+<li><strong>Authenticated</strong> and <strong>authorized</strong></li>
+<li><strong>Authenticated</strong> and <strong>authorized</strong> with one or more <strong>roles</strong>, <strong>claims</strong>, and/or <strong>policies</strong></li>
+</ul>
+<p>bUnit's authentication and authorization implementation is easily available by calling <a class="xref" href="../../api/Bunit.TestDoubles.FakeAuthorizationExtensions.html#Bunit_TestDoubles_FakeAuthorizationExtensions_AddTestAuthorization_Bunit_TestContextBase_"><code>AddTestAuthorization()</code></a> on a test context. This adds the necessary services to the <code>Services</code> collection and the <code>CascadingAuthenticationState</code> component to the <a class="xref" href="../providing-input/root-render-tree.html">root render tree</a>. The method returns an instance of the <a class="xref" href="../../api/Bunit.TestDoubles.TestAuthorizationContext.html">TestAuthorizationContext</a> type that allows you to control the authentication and authorization state for a test.</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>If your test class inherits directly from bUnit's <a class="xref" href="../../api/Bunit.TestContext.html">TestContext</a>, as described in <a class="xref" href="../getting-started/writing-csharp-tests.html#remove-boilerplate-code-from-tests">Writing Tests in C# for Blazor Components</a>, then you need to call the <a class="xref" href="../../api/Bunit.TestDoubles.FakeAuthorizationExtensions.html#Bunit_TestDoubles_FakeAuthorizationExtensions_AddTestAuthorization_Bunit_TestContextBase_"><code>AddTestAuthorization()</code></a> method on <code>this</code>, since <code>AddTestAuthorization()</code> is an extension method, otherwise it wont be available. E.g.: <code>this.AddTestAuthorization()</code>.</p>
+</div>
+<p>The following sections show how to set each of these states in a test.</p>
+<h2 id="setting-authenticating-authenticated-and-authorized-states">Setting Authenticating, Authenticated and Authorized States</h2>
+<p>The examples in the following sections will use the <code>&lt;UserInfo&gt;</code> component listed below. This uses an injected <code>AuthenticationStateProvider</code> service  and <code>&lt;CascadingAuthenticationState&gt;</code> and <code>&lt;AuthorizeView&gt;</code> components to show the user name when a user is authenticated. It also shows the authorization state when the authenticated user is authorized.</p>
+<pre><code class="lang-razor" name="UserInfo.razor">@using Microsoft.AspNetCore.Components.Authorization
+@inject AuthenticationStateProvider AuthenticationStateProvider
+
+@if (isAuthenticated)
+{
+  &lt;h1&gt;Welcome @userName&lt;/h1&gt;
+}
+@if (!isAuthenticated)
+{
+  &lt;h1&gt;Please log in!&lt;/h1&gt;
+}
+&lt;AuthorizeView&gt;
+  &lt;Authorized&gt;
+    &lt;p&gt;State: Authorized&lt;/p&gt;
+  &lt;/Authorized&gt;
+  &lt;Authorizing&gt;
+    &lt;p&gt;State: Authorizing&lt;/p&gt;
+  &lt;/Authorizing&gt;
+  &lt;NotAuthorized&gt;
+    &lt;p&gt;State: Not authorized&lt;/p&gt;
+  &lt;/NotAuthorized&gt;
+&lt;/AuthorizeView&gt;
+@code
+{
+  bool isAuthenticated = false;
+  string userName;
+
+  protected override async Task OnParametersSetAsync()
+  {
+    var state = await AuthenticationStateProvider.GetAuthenticationStateAsync();
+    isAuthenticated = state.User.Identity.IsAuthenticated;
+    userName = state.User.Identity.Name;    
+  }
+}
+</code></pre>
+<p>The following subsections demonstrate how to set the <code>&lt;UserInfo&gt;</code> into all three authentication and authorization states.</p>
+<h3 id="unauthenticated-and-unauthorized-state">Unauthenticated and Unauthorized State</h3>
+<p>To set the state to unauthenticated and unauthorized, do the following:</p>
+<pre><code class="lang-csharp" name="UserInfoTest.cs" highlight-lines="3">// Arrange
+using var ctx = new TestContext();
+ctx.AddTestAuthorization();
+
+// Act
+var cut = ctx.RenderComponent&lt;UserInfo&gt;();
+
+// Assert
+cut.MarkupMatches(@&quot;&lt;h1&gt;Please log in!&lt;/h1&gt;
+                    &lt;p&gt;State: Not authorized&lt;/p&gt;&quot;);
+</code></pre>
+<p>The highlighted line shows how <code>AddTestAuthorization()</code> is used to add the test-specific implementation of Blazor's authentication and authorization types to the <code>Services</code> collection, which makes the authentication state available to other services as well as components used throughout the test that require it.</p>
+<p>After calling <code>AddTestAuthorization()</code>, the default authentication state is unauthenticated and unauthorized.</p>
+<h3 id="authenticating-and-authorizing-state">Authenticating and Authorizing State</h3>
+<p>To set the state to authenticating and authorizing, do the following:</p>
+<pre><code class="lang-csharp" name="UserInfoTest.cs" highlight-lines="4">// Arrange
+using var ctx = new TestContext();
+var authContext = ctx.AddTestAuthorization();
+authContext.SetAuthorizing();
+
+// Act
+var cut = ctx.RenderComponent&lt;UserInfo&gt;();
+
+// Assert
+cut.MarkupMatches(@&quot;&lt;h1&gt;Please log in!&lt;/h1&gt;
+                    &lt;p&gt;State: Authorizing&lt;/p&gt;&quot;);
+</code></pre>
+<p>After calling <code>AddTestAuthorization()</code>, the returned <a class="xref" href="../../api/Bunit.TestDoubles.TestAuthorizationContext.html">TestAuthorizationContext</a> is used to set the authenticating and authorizing state through the <a class="xref" href="../../api/Bunit.TestDoubles.TestAuthorizationContext.html#Bunit_TestDoubles_TestAuthorizationContext_SetAuthorizing">SetAuthorizing()</a> method.</p>
+<h3 id="authenticated-and-unauthorized-state">Authenticated and Unauthorized State</h3>
+<p>To set the state to authenticated and unauthorized, do the following:</p>
+<pre><code class="lang-csharp" name="UserInfoTest.cs" highlight-lines="4">// Arrange
+using var ctx = new TestContext();
+var authContext = ctx.AddTestAuthorization();
+authContext.SetAuthorized(&quot;TEST USER&quot;, AuthorizationState.Unauthorized);
+
+// Act
+var cut = ctx.RenderComponent&lt;UserInfo&gt;();
+
+// Assert
+cut.MarkupMatches(@&quot;&lt;h1&gt;Welcome TEST USER&lt;/h1&gt;
+                    &lt;p&gt;State: Not authorized&lt;/p&gt;&quot;);
+</code></pre>
+<p>After calling <code>AddTestAuthorization()</code>, the returned <a class="xref" href="../../api/Bunit.TestDoubles.TestAuthorizationContext.html">TestAuthorizationContext</a> is used to set the authenticated and unauthorized state through the <a class="xref" href="../../api/Bunit.TestDoubles.TestAuthorizationContext.html#Bunit_TestDoubles_TestAuthorizationContext_SetAuthorized_System_String_Bunit_TestDoubles_AuthorizationState_">SetAuthorized(String, AuthorizationState)</a> method.</p>
+<h3 id="authenticated-and-authorized-state">Authenticated and Authorized state</h3>
+<p>To set the state to authenticated and authorized, do the following:</p>
+<pre><code class="lang-csharp" name="UserInfoTest.cs" highlight-lines="4">// Arrange
+using var ctx = new TestContext();
+var authContext = ctx.AddTestAuthorization();
+authContext.SetAuthorized(&quot;TEST USER&quot;);
+
+// Act
+var cut = ctx.RenderComponent&lt;UserInfo&gt;();
+
+// Assert
+cut.MarkupMatches(@&quot;&lt;h1&gt;Welcome TEST USER&lt;/h1&gt;
+                    &lt;p&gt;State: Authorized&lt;/p&gt;&quot;);
+</code></pre>
+<p>After calling <code>AddTestAuthorization()</code>, the returned <a class="xref" href="../../api/Bunit.TestDoubles.TestAuthorizationContext.html">TestAuthorizationContext</a> is used to set the authenticated and authorized state through the <a class="xref" href="../../api/Bunit.TestDoubles.TestAuthorizationContext.html#Bunit_TestDoubles_TestAuthorizationContext_SetAuthorized_System_String_Bunit_TestDoubles_AuthorizationState_">SetAuthorized(String, AuthorizationState)</a> method.</p>
+<p>Note that the second parameter, <code>AuthorizationState</code>, is optional, and defaults to <code>AuthorizationState.Authorized</code> if not specified.</p>
+<h2 id="setting-authorization-details">Setting Authorization Details</h2>
+<p>The following section will show how to specify <strong>roles</strong> and/or <strong>policies</strong> in a test.</p>
+<p>The examples will use the <code>&lt;UserRights&gt;</code> component listed below. It uses the <code>&lt;AuthorizeView&gt;</code> component to include different content based on the <strong>roles</strong>, <strong>claims</strong>, or <strong>policies</strong> specified in each test.</p>
+<pre><code class="lang-razor" name="UserRights.razor">@using Microsoft.AspNetCore.Components.Authorization
+@using System.Security.Claims
+@using System.Globalization
+
+&lt;AuthorizeView&gt;
+  &lt;h1&gt;Hi @context.User.Identity.Name, you have these claims and rights:&lt;/h1&gt;
+&lt;/AuthorizeView&gt;
+&lt;ul&gt;
+  &lt;AuthorizeView&gt;
+    @foreach (var claim in @context.User.FindAll(x =&gt; x.Type != ClaimTypes.Name &amp;&amp; x.Type != ClaimTypes.Role))
+    {
+      &lt;li&gt;@GetClaimName(claim): @claim.Value&lt;/li&gt;
+    }
+  &lt;/AuthorizeView&gt;
+  &lt;AuthorizeView Roles=&quot;superuser&quot;&gt;
+    &lt;li&gt;You have the role SUPER USER&lt;/li&gt;
+  &lt;/AuthorizeView&gt;  
+  &lt;AuthorizeView Roles=&quot;admin&quot;&gt;
+    &lt;li&gt;You have the role ADMIN&lt;/li&gt;
+  &lt;/AuthorizeView&gt;
+  &lt;AuthorizeView Policy=&quot;content-editor&quot;&gt;
+    &lt;li&gt;You are a CONTENT EDITOR&lt;/li&gt;
+  &lt;/AuthorizeView&gt;
+&lt;/ul&gt;
+
+@code 
+{
+  private static string GetClaimName(Claim claim)
+  {
+    var claimType = new Uri(claim.Type);
+    var name = claimType.Segments.Last();
+    return CultureInfo.InvariantCulture.TextInfo.ToTitleCase(name);
+  }
+}
+</code></pre><h3 id="roles">Roles</h3>
+<p>To specify one or more roles for the authenticated and authorized user, do the following:</p>
+<pre><code class="lang-csharp" name="UserRightsTest.cs" highlight-lines="5">// Arrange
+using var ctx = new TestContext();
+var authContext = ctx.AddTestAuthorization();
+authContext.SetAuthorized(&quot;TEST USER&quot;);
+authContext.SetRoles(&quot;superuser&quot;);
+
+// Act
+var cut = ctx.RenderComponent&lt;UserRights&gt;();
+
+// Assert
+cut.MarkupMatches(@&quot;&lt;h1&gt;Hi TEST USER, you have these claims and rights:&lt;/h1&gt;
+                    &lt;ul&gt;
+                      &lt;li&gt;You have the role SUPER USER&lt;/li&gt;
+                    &lt;/ul&gt;&quot;);
+</code></pre>
+<p>The highlighted line shows how the <a class="xref" href="../../api/Bunit.TestDoubles.TestAuthorizationContext.html#Bunit_TestDoubles_TestAuthorizationContext_SetRoles_System_String___">SetRoles(String[])</a> method is used to specify a single role. To specify multiple roles, do the following:</p>
+<pre><code class="lang-csharp" name="UserRightsTest.cs" highlight-lines="5">// Arrange
+using var ctx = new TestContext();
+var authContext = ctx.AddTestAuthorization();
+authContext.SetAuthorized(&quot;TEST USER&quot;);
+authContext.SetRoles(&quot;admin&quot;, &quot;superuser&quot;);
+
+// Act
+var cut = ctx.RenderComponent&lt;UserRights&gt;();
+
+// Assert
+cut.MarkupMatches(@&quot;&lt;h1&gt;Hi TEST USER, you have these claims and rights:&lt;/h1&gt;
+                    &lt;ul&gt;
+                      &lt;li&gt;You have the role SUPER USER&lt;/li&gt;
+                      &lt;li&gt;You have the role ADMIN&lt;/li&gt;
+                    &lt;/ul&gt;&quot;);
+</code></pre><h3 id="policies">Policies</h3>
+<p>To specify one or more policies for the authenticated and authorized user, do the following:</p>
+<pre><code class="lang-csharp" name="UserRightsTest.cs" highlight-lines="5">// Arrange
+using var ctx = new TestContext();
+var authContext = ctx.AddTestAuthorization();
+authContext.SetAuthorized(&quot;TEST USER&quot;);
+authContext.SetPolicies(&quot;content-editor&quot;);
+
+// Act
+var cut = ctx.RenderComponent&lt;UserRights&gt;();
+
+// Assert
+cut.MarkupMatches(@&quot;&lt;h1&gt;Hi TEST USER, you have these claims and rights:&lt;/h1&gt;
+                    &lt;ul&gt;
+                      &lt;li&gt;You are a CONTENT EDITOR&lt;/li&gt;
+                    &lt;/ul&gt;&quot;);
+</code></pre>
+<p>The highlighted line shows how the <a class="xref" href="../../api/Bunit.TestDoubles.TestAuthorizationContext.html#Bunit_TestDoubles_TestAuthorizationContext_SetPolicies_System_String___">SetPolicies(String[])</a> method is used to specify one policy. To specify multiple policies, do the following:</p>
+<pre><code class="lang-csharp">authContext.SetPolicies(&quot;content-editor&quot;, &quot;approver&quot;);
+</code></pre><h3 id="claims">Claims</h3>
+<p>To specify one or more claims for the authenticated and authorized user, do the following:</p>
+<pre><code class="lang-csharp" name="UserRightsTest.cs" highlight-lines="5-8">// Arrange
+using var ctx = new TestContext();
+var authContext = ctx.AddTestAuthorization();
+authContext.SetAuthorized(&quot;TEST USER&quot;);
+authContext.SetClaims(        
+  new Claim(ClaimTypes.Email, &quot;test@example.com&quot;),
+  new Claim(ClaimTypes.DateOfBirth, &quot;01-01-1970&quot;)
+);
+
+// Act
+var cut = ctx.RenderComponent&lt;UserRights&gt;();
+
+// Assert
+cut.MarkupMatches(@&quot;&lt;h1&gt;Hi TEST USER, you have these claims and rights:&lt;/h1&gt;
+                    &lt;ul&gt;
+                      &lt;li&gt;Emailaddress: test@example.com&lt;/li&gt;
+                      &lt;li&gt;Dateofbirth: 01-01-1970&lt;/li&gt;
+                    &lt;/ul&gt;&quot;);
+</code></pre>
+<p>The highlighted line shows how the <a class="xref" href="../../api/Bunit.TestDoubles.TestAuthorizationContext.html#Bunit_TestDoubles_TestAuthorizationContext_SetClaims_System_Security_Claims_Claim___">SetClaims(Claim[])</a> method is used to pass two instances of the <code>Claim</code> type.</p>
+<h3 id="example-of-passing-both-roles-claims-and-policies">Example of passing both roles, claims, and policies</h3>
+<p>Let’s try to combine all the possibilities shown in the previous examples into one. The following example specifies two roles, one claim, and one policy for the authenticated and authorized user:</p>
+<pre><code class="lang-csharp" name="UserRightsTest.cs" highlight-lines="4-8">// Arrange
+using var ctx = new TestContext();
+var authContext = ctx.AddTestAuthorization();
+authContext.SetAuthorized(&quot;TEST USER&quot;);
+authContext.SetRoles(&quot;admin&quot;, &quot;superuser&quot;);
+authContext.SetPolicies(&quot;content-editor&quot;);
+authContext.SetClaims(new Claim(ClaimTypes.Email, &quot;test@example.com&quot;));
+
+// Act
+var cut = ctx.RenderComponent&lt;UserRights&gt;();
+
+// Assert
+cut.MarkupMatches(@&quot;&lt;h1&gt;Hi TEST USER, you have these claims and rights:&lt;/h1&gt;
+                    &lt;ul&gt;
+                      &lt;li&gt;Emailaddress: test@example.com&lt;/li&gt;
+                      &lt;li&gt;You have the role SUPER USER&lt;/li&gt;
+                      &lt;li&gt;You have the role ADMIN&lt;/li&gt;
+                      &lt;li&gt;You are a CONTENT EDITOR&lt;/li&gt;
+                    &lt;/ul&gt;&quot;);
+</code></pre>
+<p>With this example done, all auth-related test scenarios should be covered. If you find that one is missing, please let us know in the <a href="https://github.com/egil/bUnit/discussions">bUnit discussion forum</a>.</p>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="sponsor-highlight">
+                <a href="https://www.telerik.com/campaigns/blazor/free-trial-1?utm_source=egilhansen&utm_medium=cpm&utm_campaign=blazor-trial-bunit-sponsored-message">
+                  <img width="200" src="/sponsors/telerik-ad-site.svg">
+                </a>      
+              </div>
+              <div class="supported">
+                <a href="https://www.packtpub.com/" title="Packt">
+                  <img width="150" src="/sponsors/packt-retina-logo.png">
+                </a>
+                <p>Editorial support provided by <a href="https://www.packtpub.com/" title="Packt">Packt</a>.</p>
+              </div>
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/egil/bUnit/blob/main/docs/site/docs/test-doubles/faking-auth.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            <small>Documentation updated on 3/16/2021 9:33:36 AM +00:00 in commit 74fd44bf54</small>.
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/cshtml-razor.js"></script>
+    <script>
+      hljs.registerLanguage('cshtml-razor', window.hljsDefineCshtmlRazor);
+    </script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+  </body>
+</html>

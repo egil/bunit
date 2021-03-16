@@ -1,0 +1,578 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Class FixtureBase&lt;TFixture&gt;
+   | bUnit </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Class FixtureBase&lt;TFixture&gt;
+   | bUnit ">
+    <meta name="generator" content="docfx 2.56.6.0">
+    <meta name="description" content="bUnit is a unit testing library for Blazor Components. You can easily define components under test in C# or Razor syntax and verify outcome using semantic HTML diffing/comparison logic. You can interact with and inspect components, trigger event handlers, provide cascading values, inject services, mock IJsRuntime, and perform snapshot testing.">
+  
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+  
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    <meta property="docfx:rel" content="../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img height="60%" id="logo" class="img" src="..//images/blazor-logo.png" alt="bUnit">
+                <span>bUnit</span>
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <div id="sponsor-button">
+                <iframe src="https://github.com/sponsors/egil/button" title="Sponsor egil" height="35" width="116" style="border: 0;"></iframe>
+              </div>
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="Bunit.RazorTesting.FixtureBase`1">
+  
+  
+  <h1 id="Bunit_RazorTesting_FixtureBase_1" data-uid="Bunit.RazorTesting.FixtureBase`1" class="text-break">Class FixtureBase&lt;TFixture&gt;
+  </h1>
+  <div class="markdown level0 summary"><p>Represents a single fixture in a Razor based test. Used to
+define the <a class="xref" href="Bunit.ComponentUnderTest.html">ComponentUnderTest</a> and any <a class="xref" href="Bunit.Fragment.html">Fragment</a>'s
+you might need during testing, and assert against them in the Test methods.</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><span class="xref">System.Object</span></div>
+    <div class="level1"><a class="xref" href="Bunit.TestContextBase.html">TestContextBase</a></div>
+    <div class="level2"><a class="xref" href="Bunit.RazorTesting.RazorTestBase.html">RazorTestBase</a></div>
+    <div class="level3"><span class="xref">FixtureBase&lt;TFixture&gt;</span></div>
+      <div class="level4"><a class="xref" href="Bunit.Fixture.html">Fixture</a></div>
+  </div>
+  <div classs="implements">
+    <h5>Implements</h5>
+    <div><span class="xref">System.IDisposable</span></div>
+    <div><span class="xref">Microsoft.AspNetCore.Components.IComponent</span></div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <a class="xref" href="Bunit.RazorTesting.RazorTestBase.html#Bunit_RazorTesting_RazorTestBase_IsRunning">RazorTestBase.IsRunning</a>
+    </div>
+    <div>
+      <a class="xref" href="Bunit.RazorTesting.RazorTestBase.html#Bunit_RazorTesting_RazorTestBase_Description">RazorTestBase.Description</a>
+    </div>
+    <div>
+      <a class="xref" href="Bunit.RazorTesting.RazorTestBase.html#Bunit_RazorTesting_RazorTestBase_Skip">RazorTestBase.Skip</a>
+    </div>
+    <div>
+      <a class="xref" href="Bunit.RazorTesting.RazorTestBase.html#Bunit_RazorTesting_RazorTestBase_Timeout">RazorTestBase.Timeout</a>
+    </div>
+    <div>
+      <a class="xref" href="Bunit.RazorTesting.RazorTestBase.html#Bunit_RazorTesting_RazorTestBase_RunTest">RazorTestBase.RunTest()</a>
+    </div>
+    <div>
+      <a class="xref" href="Bunit.RazorTesting.RazorTestBase.html#Bunit_RazorTesting_RazorTestBase_Microsoft_AspNetCore_Components_IComponent_Attach_Microsoft_AspNetCore_Components_RenderHandle_">RazorTestBase.IComponent.Attach(RenderHandle)</a>
+    </div>
+    <div>
+      <a class="xref" href="Bunit.RazorTesting.RazorTestBase.html#Bunit_RazorTesting_RazorTestBase_Run">RazorTestBase.Run()</a>
+    </div>
+    <div>
+      <a class="xref" href="Bunit.RazorTesting.RazorTestBase.html#Bunit_RazorTesting_RazorTestBase_TryRun__1_System_Action___0____0_">RazorTestBase.TryRun&lt;T&gt;(Action&lt;T&gt;, T)</a>
+    </div>
+    <div>
+      <a class="xref" href="Bunit.RazorTesting.RazorTestBase.html#Bunit_RazorTesting_RazorTestBase_TryRunAsync__1_System_Func___0_System_Threading_Tasks_Task____0_">RazorTestBase.TryRunAsync&lt;T&gt;(Func&lt;T, Task&gt;, T)</a>
+    </div>
+    <div>
+      <a class="xref" href="Bunit.TestContextBase.html#Bunit_TestContextBase_Renderer">TestContextBase.Renderer</a>
+    </div>
+    <div>
+      <a class="xref" href="Bunit.TestContextBase.html#Bunit_TestContextBase_Services">TestContextBase.Services</a>
+    </div>
+    <div>
+      <a class="xref" href="Bunit.TestContextBase.html#Bunit_TestContextBase_RenderTree">TestContextBase.RenderTree</a>
+    </div>
+    <div>
+      <a class="xref" href="Bunit.TestContextBase.html#Bunit_TestContextBase_Dispose">TestContextBase.Dispose()</a>
+    </div>
+    <div>
+      <a class="xref" href="Bunit.TestContextBase.html#Bunit_TestContextBase_Dispose_System_Boolean_">TestContextBase.Dispose(Boolean)</a>
+    </div>
+    <div>
+      <span class="xref">System.Object.Equals(System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.Equals(System.Object, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.GetHashCode()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.GetType()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.MemberwiseClone()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.ReferenceEquals(System.Object, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.ToString()</span>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="Bunit.RazorTesting.html">Bunit.RazorTesting</a></h6>
+  <h6><strong>Assembly</strong>: Bunit.Core.dll</h6>
+  <h5 id="Bunit_RazorTesting_FixtureBase_1_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract class FixtureBase&lt;TFixture&gt; : RazorTestBase, IDisposable, IComponent</code></pre>
+  </div>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">TFixture</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="properties">Properties
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/egil/bUnit/new/main/apiSpec/new?filename=Bunit_RazorTesting_FixtureBase_1_ChildContent.md&amp;value=---%0Auid%3A%20Bunit.RazorTesting.FixtureBase%601.ChildContent%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/egil/bUnit/blob/main/src/bunit.core/RazorTesting/FixtureBase.cs/#L20">View Source</a>
+  </span>
+  <a id="Bunit_RazorTesting_FixtureBase_1_ChildContent_" data-uid="Bunit.RazorTesting.FixtureBase`1.ChildContent*"></a>
+  <h4 id="Bunit_RazorTesting_FixtureBase_1_ChildContent" data-uid="Bunit.RazorTesting.FixtureBase`1.ChildContent">ChildContent</h4>
+  <div class="markdown level1 summary"><p>Gets or sets the child content of the fragment.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Parameter]
+public RenderFragment ChildContent { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Microsoft.AspNetCore.Components.RenderFragment</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/egil/bUnit/new/main/apiSpec/new?filename=Bunit_RazorTesting_FixtureBase_1_DisplayName.md&amp;value=---%0Auid%3A%20Bunit.RazorTesting.FixtureBase%601.DisplayName%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/egil/bUnit/blob/main/src/bunit.core/RazorTesting/FixtureBase.cs/#L15">View Source</a>
+  </span>
+  <a id="Bunit_RazorTesting_FixtureBase_1_DisplayName_" data-uid="Bunit.RazorTesting.FixtureBase`1.DisplayName*"></a>
+  <h4 id="Bunit_RazorTesting_FixtureBase_1_DisplayName" data-uid="Bunit.RazorTesting.FixtureBase`1.DisplayName">DisplayName</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override string DisplayName { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="Bunit.RazorTesting.RazorTestBase.html#Bunit_RazorTesting_RazorTestBase_DisplayName">RazorTestBase.DisplayName</a></div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/egil/bUnit/new/main/apiSpec/new?filename=Bunit_RazorTesting_FixtureBase_1_Setup.md&amp;value=---%0Auid%3A%20Bunit.RazorTesting.FixtureBase%601.Setup%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/egil/bUnit/blob/main/src/bunit.core/RazorTesting/FixtureBase.cs/#L26">View Source</a>
+  </span>
+  <a id="Bunit_RazorTesting_FixtureBase_1_Setup_" data-uid="Bunit.RazorTesting.FixtureBase`1.Setup*"></a>
+  <h4 id="Bunit_RazorTesting_FixtureBase_1_Setup" data-uid="Bunit.RazorTesting.FixtureBase`1.Setup">Setup</h4>
+  <div class="markdown level1 summary"><p>Gets or sets the setup action to perform before the <a class="xref" href="Bunit.RazorTesting.FixtureBase-1.html#Bunit_RazorTesting_FixtureBase_1_Test">Test</a> action or
+<a class="xref" href="Bunit.RazorTesting.FixtureBase-1.html#Bunit_RazorTesting_FixtureBase_1_TestAsync">TestAsync</a> action are invoked.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Parameter]
+public Action&lt;TFixture&gt; Setup { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Action</span>&lt;TFixture&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/egil/bUnit/new/main/apiSpec/new?filename=Bunit_RazorTesting_FixtureBase_1_SetupAsync.md&amp;value=---%0Auid%3A%20Bunit.RazorTesting.FixtureBase%601.SetupAsync%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/egil/bUnit/blob/main/src/bunit.core/RazorTesting/FixtureBase.cs/#L32">View Source</a>
+  </span>
+  <a id="Bunit_RazorTesting_FixtureBase_1_SetupAsync_" data-uid="Bunit.RazorTesting.FixtureBase`1.SetupAsync*"></a>
+  <h4 id="Bunit_RazorTesting_FixtureBase_1_SetupAsync" data-uid="Bunit.RazorTesting.FixtureBase`1.SetupAsync">SetupAsync</h4>
+  <div class="markdown level1 summary"><p>Gets or sets the asynchronous setup action to perform before the <a class="xref" href="Bunit.RazorTesting.FixtureBase-1.html#Bunit_RazorTesting_FixtureBase_1_Test">Test</a> action or
+<a class="xref" href="Bunit.RazorTesting.FixtureBase-1.html#Bunit_RazorTesting_FixtureBase_1_TestAsync">TestAsync</a> action are invoked.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Parameter]
+public Func&lt;TFixture, Task&gt; SetupAsync { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Func</span>&lt;TFixture, <span class="xref">System.Threading.Tasks.Task</span>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/egil/bUnit/new/main/apiSpec/new?filename=Bunit_RazorTesting_FixtureBase_1_Test.md&amp;value=---%0Auid%3A%20Bunit.RazorTesting.FixtureBase%601.Test%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/egil/bUnit/blob/main/src/bunit.core/RazorTesting/FixtureBase.cs/#L39">View Source</a>
+  </span>
+  <a id="Bunit_RazorTesting_FixtureBase_1_Test_" data-uid="Bunit.RazorTesting.FixtureBase`1.Test*"></a>
+  <h4 id="Bunit_RazorTesting_FixtureBase_1_Test" data-uid="Bunit.RazorTesting.FixtureBase`1.Test">Test</h4>
+  <div class="markdown level1 summary"><p>Gets or sets the test action to invoke, after the <a class="xref" href="Bunit.RazorTesting.FixtureBase-1.html#Bunit_RazorTesting_FixtureBase_1_Setup">Setup</a> and <a class="xref" href="Bunit.RazorTesting.FixtureBase-1.html#Bunit_RazorTesting_FixtureBase_1_SetupAsync">SetupAsync</a> actions has
+invoked (if provided).
+If this is set, then <a class="xref" href="Bunit.RazorTesting.FixtureBase-1.html#Bunit_RazorTesting_FixtureBase_1_TestAsync">TestAsync</a> cannot also be set.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Parameter]
+public Action&lt;TFixture&gt; Test { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Action</span>&lt;TFixture&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/egil/bUnit/new/main/apiSpec/new?filename=Bunit_RazorTesting_FixtureBase_1_TestAsync.md&amp;value=---%0Auid%3A%20Bunit.RazorTesting.FixtureBase%601.TestAsync%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/egil/bUnit/blob/main/src/bunit.core/RazorTesting/FixtureBase.cs/#L46">View Source</a>
+  </span>
+  <a id="Bunit_RazorTesting_FixtureBase_1_TestAsync_" data-uid="Bunit.RazorTesting.FixtureBase`1.TestAsync*"></a>
+  <h4 id="Bunit_RazorTesting_FixtureBase_1_TestAsync" data-uid="Bunit.RazorTesting.FixtureBase`1.TestAsync">TestAsync</h4>
+  <div class="markdown level1 summary"><p>Gets or sets the test action to invoke, after the <a class="xref" href="Bunit.RazorTesting.FixtureBase-1.html#Bunit_RazorTesting_FixtureBase_1_Setup">Setup</a> and <a class="xref" href="Bunit.RazorTesting.FixtureBase-1.html#Bunit_RazorTesting_FixtureBase_1_SetupAsync">SetupAsync</a> actions has
+invoked (if provided).
+If this is set, then <a class="xref" href="Bunit.RazorTesting.FixtureBase-1.html#Bunit_RazorTesting_FixtureBase_1_Test">Test</a> cannot also be set.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Parameter]
+public Func&lt;TFixture, Task&gt; TestAsync { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Func</span>&lt;TFixture, <span class="xref">System.Threading.Tasks.Task</span>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="methods">Methods
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/egil/bUnit/new/main/apiSpec/new?filename=Bunit_RazorTesting_FixtureBase_1_Run__0_.md&amp;value=---%0Auid%3A%20Bunit.RazorTesting.FixtureBase%601.Run(%600)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/egil/bUnit/blob/main/src/bunit.core/RazorTesting/FixtureBase.cs/#L73">View Source</a>
+  </span>
+  <a id="Bunit_RazorTesting_FixtureBase_1_Run_" data-uid="Bunit.RazorTesting.FixtureBase`1.Run*"></a>
+  <h4 id="Bunit_RazorTesting_FixtureBase_1_Run__0_" data-uid="Bunit.RazorTesting.FixtureBase`1.Run(`0)">Run(TFixture)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual Task Run(TFixture self)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TFixture</span></td>
+        <td><span class="parametername">self</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/egil/bUnit/new/main/apiSpec/new?filename=Bunit_RazorTesting_FixtureBase_1_SetParametersAsync_Microsoft_AspNetCore_Components_ParameterView_.md&amp;value=---%0Auid%3A%20Bunit.RazorTesting.FixtureBase%601.SetParametersAsync(Microsoft.AspNetCore.Components.ParameterView)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/egil/bUnit/blob/main/src/bunit.core/RazorTesting/FixtureBase.cs/#L49">View Source</a>
+  </span>
+  <a id="Bunit_RazorTesting_FixtureBase_1_SetParametersAsync_" data-uid="Bunit.RazorTesting.FixtureBase`1.SetParametersAsync*"></a>
+  <h4 id="Bunit_RazorTesting_FixtureBase_1_SetParametersAsync_Microsoft_AspNetCore_Components_ParameterView_" data-uid="Bunit.RazorTesting.FixtureBase`1.SetParametersAsync(Microsoft.AspNetCore.Components.ParameterView)">SetParametersAsync(ParameterView)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override Task SetParametersAsync(ParameterView parameters)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Microsoft.AspNetCore.Components.ParameterView</span></td>
+        <td><span class="parametername">parameters</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="Bunit.RazorTesting.RazorTestBase.html#Bunit_RazorTesting_RazorTestBase_SetParametersAsync_Microsoft_AspNetCore_Components_ParameterView_">RazorTestBase.SetParametersAsync(ParameterView)</a></div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/egil/bUnit/new/main/apiSpec/new?filename=Bunit_RazorTesting_FixtureBase_1_Validate.md&amp;value=---%0Auid%3A%20Bunit.RazorTesting.FixtureBase%601.Validate%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/egil/bUnit/blob/main/src/bunit.core/RazorTesting/FixtureBase.cs/#L61">View Source</a>
+  </span>
+  <a id="Bunit_RazorTesting_FixtureBase_1_Validate_" data-uid="Bunit.RazorTesting.FixtureBase`1.Validate*"></a>
+  <h4 id="Bunit_RazorTesting_FixtureBase_1_Validate" data-uid="Bunit.RazorTesting.FixtureBase`1.Validate">Validate()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override void Validate()</code></pre>
+  </div>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="Bunit.RazorTesting.RazorTestBase.html#Bunit_RazorTesting_RazorTestBase_Validate">RazorTestBase.Validate()</a></div>
+  <h3 id="implements">Implements</h3>
+  <div>
+      <span class="xref">System.IDisposable</span>
+  </div>
+  <div>
+      <span class="xref">Microsoft.AspNetCore.Components.IComponent</span>
+  </div>
+  <h3 id="extensionmethods">Extension Methods</h3>
+  <div>
+      <a class="xref" href="Bunit.JSRuntimeAssertExtensions.html#Bunit_JSRuntimeAssertExtensions_ShouldBeElementReferenceTo_System_Object_AngleSharp_Dom_IElement_">JSRuntimeAssertExtensions.ShouldBeElementReferenceTo(Object, IElement)</a>
+  </div>
+  <div>
+      <a class="xref" href="Bunit.TestDoubles.FakeAuthorizationExtensions.html#Bunit_TestDoubles_FakeAuthorizationExtensions_AddTestAuthorization_Bunit_TestContextBase_">FakeAuthorizationExtensions.AddTestAuthorization(TestContextBase)</a>
+  </div>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="sponsor-highlight">
+                <a href="https://www.telerik.com/campaigns/blazor/free-trial-1?utm_source=egilhansen&utm_medium=cpm&utm_campaign=blazor-trial-bunit-sponsored-message">
+                  <img width="200" src="/sponsors/telerik-ad-site.svg">
+                </a>      
+              </div>
+              <div class="supported">
+                <a href="https://www.packtpub.com/" title="Packt">
+                  <img width="150" src="/sponsors/packt-retina-logo.png">
+                </a>
+                <p>Editorial support provided by <a href="https://www.packtpub.com/" title="Packt">Packt</a>.</p>
+              </div>
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/egil/bUnit/new/main/apiSpec/new?filename=Bunit_RazorTesting_FixtureBase_1.md&amp;value=---%0Auid%3A%20Bunit.RazorTesting.FixtureBase%601%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                  </li>
+                  <li>
+                    <a href="https://github.com/egil/bUnit/blob/main/src/bunit.core/RazorTesting/FixtureBase.cs/#L12" class="contribution-link">View Source</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            <small>Documentation updated on 3/16/2021 9:33:36 AM +00:00 in commit 74fd44bf54</small>.
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/cshtml-razor.js"></script>
+    <script>
+      hljs.registerLanguage('cshtml-razor', window.hljsDefineCshtmlRazor);
+    </script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

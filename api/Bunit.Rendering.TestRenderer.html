@@ -1,0 +1,738 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Class TestRenderer
+   | bUnit </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Class TestRenderer
+   | bUnit ">
+    <meta name="generator" content="docfx 2.56.6.0">
+    <meta name="description" content="bUnit is a unit testing library for Blazor Components. You can easily define components under test in C# or Razor syntax and verify outcome using semantic HTML diffing/comparison logic. You can interact with and inspect components, trigger event handlers, provide cascading values, inject services, mock IJsRuntime, and perform snapshot testing.">
+  
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+  
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    <meta property="docfx:rel" content="../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img height="60%" id="logo" class="img" src="..//images/blazor-logo.png" alt="bUnit">
+                <span>bUnit</span>
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <div id="sponsor-button">
+                <iframe src="https://github.com/sponsors/egil/button" title="Sponsor egil" height="35" width="116" style="border: 0;"></iframe>
+              </div>
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="Bunit.Rendering.TestRenderer">
+  
+  
+  <h1 id="Bunit_Rendering_TestRenderer" data-uid="Bunit.Rendering.TestRenderer" class="text-break">Class TestRenderer
+  </h1>
+  <div class="markdown level0 summary"><p>Represents a bUnit <a class="xref" href="Bunit.Rendering.ITestRenderer.html">ITestRenderer</a> used to render Blazor components and fragments during bUnit tests.</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><span class="xref">System.Object</span></div>
+    <div class="level1"><span class="xref">Microsoft.AspNetCore.Components.RenderTree.Renderer</span></div>
+    <div class="level2"><span class="xref">TestRenderer</span></div>
+      <div class="level3"><a class="xref" href="Bunit.Rendering.WebTestRenderer.html">WebTestRenderer</a></div>
+  </div>
+  <div classs="implements">
+    <h5>Implements</h5>
+    <div><span class="xref">System.IDisposable</span></div>
+    <div><a class="xref" href="Bunit.Rendering.ITestRenderer.html">ITestRenderer</a></div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <span class="xref">Microsoft.AspNetCore.Components.RenderTree.Renderer.InstantiateComponent(System.Type)</span>
+    </div>
+    <div>
+      <span class="xref">Microsoft.AspNetCore.Components.RenderTree.Renderer.AssignRootComponentId(Microsoft.AspNetCore.Components.IComponent)</span>
+    </div>
+    <div>
+      <span class="xref">Microsoft.AspNetCore.Components.RenderTree.Renderer.GetCurrentRenderTreeFrames(System.Int32)</span>
+    </div>
+    <div>
+      <span class="xref">Microsoft.AspNetCore.Components.RenderTree.Renderer.RenderRootComponentAsync(System.Int32)</span>
+    </div>
+    <div>
+      <span class="xref">Microsoft.AspNetCore.Components.RenderTree.Renderer.RenderRootComponentAsync(System.Int32, Microsoft.AspNetCore.Components.ParameterView)</span>
+    </div>
+    <div>
+      <span class="xref">Microsoft.AspNetCore.Components.RenderTree.Renderer.Dispose()</span>
+    </div>
+    <div>
+      <span class="xref">Microsoft.AspNetCore.Components.RenderTree.Renderer.UnhandledSynchronizationException</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.Equals(System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.Equals(System.Object, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.GetHashCode()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.GetType()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.MemberwiseClone()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.ReferenceEquals(System.Object, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.ToString()</span>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="Bunit.Rendering.html">Bunit.Rendering</a></h6>
+  <h6><strong>Assembly</strong>: Bunit.Core.dll</h6>
+  <h5 id="Bunit_Rendering_TestRenderer_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class TestRenderer : Renderer, IDisposable, ITestRenderer</code></pre>
+  </div>
+  <h3 id="constructors">Constructors
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/egil/bUnit/new/main/apiSpec/new?filename=Bunit_Rendering_TestRenderer__ctor_Bunit_Rendering_IRenderedComponentActivator_System_IServiceProvider_Microsoft_Extensions_Logging_ILoggerFactory_.md&amp;value=---%0Auid%3A%20Bunit.Rendering.TestRenderer.%23ctor(Bunit.Rendering.IRenderedComponentActivator%2CSystem.IServiceProvider%2CMicrosoft.Extensions.Logging.ILoggerFactory)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/egil/bUnit/blob/main/src/bunit.core/Rendering/TestRenderer.cs/#L29">View Source</a>
+  </span>
+  <a id="Bunit_Rendering_TestRenderer__ctor_" data-uid="Bunit.Rendering.TestRenderer.#ctor*"></a>
+  <h4 id="Bunit_Rendering_TestRenderer__ctor_Bunit_Rendering_IRenderedComponentActivator_System_IServiceProvider_Microsoft_Extensions_Logging_ILoggerFactory_" data-uid="Bunit.Rendering.TestRenderer.#ctor(Bunit.Rendering.IRenderedComponentActivator,System.IServiceProvider,Microsoft.Extensions.Logging.ILoggerFactory)">TestRenderer(IRenderedComponentActivator, IServiceProvider, ILoggerFactory)</h4>
+  <div class="markdown level1 summary"><p>Creates an instance of the <a class="xref" href="Bunit.Rendering.TestRenderer.html">TestRenderer</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TestRenderer(IRenderedComponentActivator activator, IServiceProvider services, ILoggerFactory loggerFactory)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Bunit.Rendering.IRenderedComponentActivator.html">IRenderedComponentActivator</a></td>
+        <td><span class="parametername">activator</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.IServiceProvider</span></td>
+        <td><span class="parametername">services</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">Microsoft.Extensions.Logging.ILoggerFactory</span></td>
+        <td><span class="parametername">loggerFactory</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="properties">Properties
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/egil/bUnit/new/main/apiSpec/new?filename=Bunit_Rendering_TestRenderer_Dispatcher.md&amp;value=---%0Auid%3A%20Bunit.Rendering.TestRenderer.Dispatcher%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/egil/bUnit/blob/main/src/bunit.core/Rendering/TestRenderer.cs/#L24">View Source</a>
+  </span>
+  <a id="Bunit_Rendering_TestRenderer_Dispatcher_" data-uid="Bunit.Rendering.TestRenderer.Dispatcher*"></a>
+  <h4 id="Bunit_Rendering_TestRenderer_Dispatcher" data-uid="Bunit.Rendering.TestRenderer.Dispatcher">Dispatcher</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override Dispatcher Dispatcher { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Microsoft.AspNetCore.Components.Dispatcher</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><span class="xref">Microsoft.AspNetCore.Components.RenderTree.Renderer.Dispatcher</span></div>
+  <h3 id="methods">Methods
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/egil/bUnit/new/main/apiSpec/new?filename=Bunit_Rendering_TestRenderer_DispatchEventAsync_System_UInt64_Microsoft_AspNetCore_Components_RenderTree_EventFieldInfo_System_EventArgs_.md&amp;value=---%0Auid%3A%20Bunit.Rendering.TestRenderer.DispatchEventAsync(System.UInt64%2CMicrosoft.AspNetCore.Components.RenderTree.EventFieldInfo%2CSystem.EventArgs)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/egil/bUnit/blob/main/src/bunit.core/Rendering/TestRenderer.cs/#L52">View Source</a>
+  </span>
+  <a id="Bunit_Rendering_TestRenderer_DispatchEventAsync_" data-uid="Bunit.Rendering.TestRenderer.DispatchEventAsync*"></a>
+  <h4 id="Bunit_Rendering_TestRenderer_DispatchEventAsync_System_UInt64_Microsoft_AspNetCore_Components_RenderTree_EventFieldInfo_System_EventArgs_" data-uid="Bunit.Rendering.TestRenderer.DispatchEventAsync(System.UInt64,Microsoft.AspNetCore.Components.RenderTree.EventFieldInfo,System.EventArgs)">DispatchEventAsync(UInt64, EventFieldInfo, EventArgs)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task DispatchEventAsync(ulong eventHandlerId, EventFieldInfo fieldInfo, EventArgs eventArgs)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.UInt64</span></td>
+        <td><span class="parametername">eventHandlerId</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">Microsoft.AspNetCore.Components.RenderTree.EventFieldInfo</span></td>
+        <td><span class="parametername">fieldInfo</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.EventArgs</span></td>
+        <td><span class="parametername">eventArgs</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/egil/bUnit/new/main/apiSpec/new?filename=Bunit_Rendering_TestRenderer_Dispose_System_Boolean_.md&amp;value=---%0Auid%3A%20Bunit.Rendering.TestRenderer.Dispose(System.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/egil/bUnit/blob/main/src/bunit.core/Rendering/TestRenderer.cs/#L135">View Source</a>
+  </span>
+  <a id="Bunit_Rendering_TestRenderer_Dispose_" data-uid="Bunit.Rendering.TestRenderer.Dispose*"></a>
+  <h4 id="Bunit_Rendering_TestRenderer_Dispose_System_Boolean_" data-uid="Bunit.Rendering.TestRenderer.Dispose(System.Boolean)">Dispose(Boolean)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override void Dispose(bool disposing)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">disposing</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><span class="xref">Microsoft.AspNetCore.Components.RenderTree.Renderer.Dispose(System.Boolean)</span></div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/egil/bUnit/new/main/apiSpec/new?filename=Bunit_Rendering_TestRenderer_FindComponent__1_Bunit_IRenderedFragmentBase_.md&amp;value=---%0Auid%3A%20Bunit.Rendering.TestRenderer.FindComponent%60%601(Bunit.IRenderedFragmentBase)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/egil/bUnit/blob/main/src/bunit.core/Rendering/TestRenderer.cs/#L64">View Source</a>
+  </span>
+  <a id="Bunit_Rendering_TestRenderer_FindComponent_" data-uid="Bunit.Rendering.TestRenderer.FindComponent*"></a>
+  <h4 id="Bunit_Rendering_TestRenderer_FindComponent__1_Bunit_IRenderedFragmentBase_" data-uid="Bunit.Rendering.TestRenderer.FindComponent``1(Bunit.IRenderedFragmentBase)">FindComponent&lt;TComponent&gt;(IRenderedFragmentBase)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IRenderedComponentBase&lt;TComponent&gt; FindComponent&lt;TComponent&gt;(IRenderedFragmentBase parentComponent)
+
+    where TComponent : IComponent</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Bunit.IRenderedFragmentBase.html">IRenderedFragmentBase</a></td>
+        <td><span class="parametername">parentComponent</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Bunit.IRenderedComponentBase-1.html">IRenderedComponentBase</a>&lt;TComponent&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">TComponent</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/egil/bUnit/new/main/apiSpec/new?filename=Bunit_Rendering_TestRenderer_FindComponents__1_Bunit_IRenderedFragmentBase_.md&amp;value=---%0Auid%3A%20Bunit.Rendering.TestRenderer.FindComponents%60%601(Bunit.IRenderedFragmentBase)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/egil/bUnit/blob/main/src/bunit.core/Rendering/TestRenderer.cs/#L78">View Source</a>
+  </span>
+  <a id="Bunit_Rendering_TestRenderer_FindComponents_" data-uid="Bunit.Rendering.TestRenderer.FindComponents*"></a>
+  <h4 id="Bunit_Rendering_TestRenderer_FindComponents__1_Bunit_IRenderedFragmentBase_" data-uid="Bunit.Rendering.TestRenderer.FindComponents``1(Bunit.IRenderedFragmentBase)">FindComponents&lt;TComponent&gt;(IRenderedFragmentBase)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IReadOnlyList&lt;IRenderedComponentBase&lt;TComponent&gt;&gt; FindComponents&lt;TComponent&gt;(IRenderedFragmentBase parentComponent)
+
+    where TComponent : IComponent</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Bunit.IRenderedFragmentBase.html">IRenderedFragmentBase</a></td>
+        <td><span class="parametername">parentComponent</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Collections.Generic.IReadOnlyList</span>&lt;<a class="xref" href="Bunit.IRenderedComponentBase-1.html">IRenderedComponentBase</a>&lt;TComponent&gt;&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">TComponent</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/egil/bUnit/new/main/apiSpec/new?filename=Bunit_Rendering_TestRenderer_HandleException_System_Exception_.md&amp;value=---%0Auid%3A%20Bunit.Rendering.TestRenderer.HandleException(System.Exception)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/egil/bUnit/blob/main/src/bunit.core/Rendering/TestRenderer.cs/#L96">View Source</a>
+  </span>
+  <a id="Bunit_Rendering_TestRenderer_HandleException_" data-uid="Bunit.Rendering.TestRenderer.HandleException*"></a>
+  <h4 id="Bunit_Rendering_TestRenderer_HandleException_System_Exception_" data-uid="Bunit.Rendering.TestRenderer.HandleException(System.Exception)">HandleException(Exception)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override void HandleException(Exception exception)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Exception</span></td>
+        <td><span class="parametername">exception</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><span class="xref">Microsoft.AspNetCore.Components.RenderTree.Renderer.HandleException(System.Exception)</span></div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/egil/bUnit/new/main/apiSpec/new?filename=Bunit_Rendering_TestRenderer_ProcessPendingRender.md&amp;value=---%0Auid%3A%20Bunit.Rendering.TestRenderer.ProcessPendingRender%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/egil/bUnit/blob/main/src/bunit.core/Rendering/TestRenderer.cs/#L82">View Source</a>
+  </span>
+  <a id="Bunit_Rendering_TestRenderer_ProcessPendingRender_" data-uid="Bunit.Rendering.TestRenderer.ProcessPendingRender*"></a>
+  <h4 id="Bunit_Rendering_TestRenderer_ProcessPendingRender" data-uid="Bunit.Rendering.TestRenderer.ProcessPendingRender">ProcessPendingRender()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override void ProcessPendingRender()</code></pre>
+  </div>
+  <h5 class="overrides">Overrides</h5>
+  <div><span class="xref">Microsoft.AspNetCore.Components.RenderTree.Renderer.ProcessPendingRender()</span></div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/egil/bUnit/new/main/apiSpec/new?filename=Bunit_Rendering_TestRenderer_RenderComponent__1_Bunit_ComponentParameterCollection_.md&amp;value=---%0Auid%3A%20Bunit.Rendering.TestRenderer.RenderComponent%60%601(Bunit.ComponentParameterCollection)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/egil/bUnit/blob/main/src/bunit.core/Rendering/TestRenderer.cs/#L42">View Source</a>
+  </span>
+  <a id="Bunit_Rendering_TestRenderer_RenderComponent_" data-uid="Bunit.Rendering.TestRenderer.RenderComponent*"></a>
+  <h4 id="Bunit_Rendering_TestRenderer_RenderComponent__1_Bunit_ComponentParameterCollection_" data-uid="Bunit.Rendering.TestRenderer.RenderComponent``1(Bunit.ComponentParameterCollection)">RenderComponent&lt;TComponent&gt;(ComponentParameterCollection)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IRenderedComponentBase&lt;TComponent&gt; RenderComponent&lt;TComponent&gt;(ComponentParameterCollection parameters)
+
+    where TComponent : IComponent</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Bunit.ComponentParameterCollection.html">ComponentParameterCollection</a></td>
+        <td><span class="parametername">parameters</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Bunit.IRenderedComponentBase-1.html">IRenderedComponentBase</a>&lt;TComponent&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">TComponent</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/egil/bUnit/new/main/apiSpec/new?filename=Bunit_Rendering_TestRenderer_RenderFragment_Microsoft_AspNetCore_Components_RenderFragment_.md&amp;value=---%0Auid%3A%20Bunit.Rendering.TestRenderer.RenderFragment(Microsoft.AspNetCore.Components.RenderFragment)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/egil/bUnit/blob/main/src/bunit.core/Rendering/TestRenderer.cs/#L36">View Source</a>
+  </span>
+  <a id="Bunit_Rendering_TestRenderer_RenderFragment_" data-uid="Bunit.Rendering.TestRenderer.RenderFragment*"></a>
+  <h4 id="Bunit_Rendering_TestRenderer_RenderFragment_Microsoft_AspNetCore_Components_RenderFragment_" data-uid="Bunit.Rendering.TestRenderer.RenderFragment(Microsoft.AspNetCore.Components.RenderFragment)">RenderFragment(RenderFragment)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IRenderedFragmentBase RenderFragment(RenderFragment renderFragment)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Microsoft.AspNetCore.Components.RenderFragment</span></td>
+        <td><span class="parametername">renderFragment</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Bunit.IRenderedFragmentBase.html">IRenderedFragmentBase</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/egil/bUnit/new/main/apiSpec/new?filename=Bunit_Rendering_TestRenderer_UpdateDisplayAsync_Microsoft_AspNetCore_Components_RenderTree_RenderBatch__.md&amp;value=---%0Auid%3A%20Bunit.Rendering.TestRenderer.UpdateDisplayAsync(Microsoft.AspNetCore.Components.RenderTree.RenderBatch%40)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/egil/bUnit/blob/main/src/bunit.core/Rendering/TestRenderer.cs/#L100">View Source</a>
+  </span>
+  <a id="Bunit_Rendering_TestRenderer_UpdateDisplayAsync_" data-uid="Bunit.Rendering.TestRenderer.UpdateDisplayAsync*"></a>
+  <h4 id="Bunit_Rendering_TestRenderer_UpdateDisplayAsync_Microsoft_AspNetCore_Components_RenderTree_RenderBatch__" data-uid="Bunit.Rendering.TestRenderer.UpdateDisplayAsync(Microsoft.AspNetCore.Components.RenderTree.RenderBatch@)">UpdateDisplayAsync(RenderBatch)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override Task UpdateDisplayAsync(in RenderBatch renderBatch)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Microsoft.AspNetCore.Components.RenderTree.RenderBatch</span></td>
+        <td><span class="parametername">renderBatch</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><span class="xref">Microsoft.AspNetCore.Components.RenderTree.Renderer.UpdateDisplayAsync(Microsoft.AspNetCore.Components.RenderTree.RenderBatch)</span></div>
+  <h3 id="implements">Implements</h3>
+  <div>
+      <span class="xref">System.IDisposable</span>
+  </div>
+  <div>
+      <a class="xref" href="Bunit.Rendering.ITestRenderer.html">ITestRenderer</a>
+  </div>
+  <h3 id="extensionmethods">Extension Methods</h3>
+  <div>
+      <a class="xref" href="Bunit.JSRuntimeAssertExtensions.html#Bunit_JSRuntimeAssertExtensions_ShouldBeElementReferenceTo_System_Object_AngleSharp_Dom_IElement_">JSRuntimeAssertExtensions.ShouldBeElementReferenceTo(Object, IElement)</a>
+  </div>
+  <div>
+      <a class="xref" href="Bunit.Extensions.TestRendererExtensions.html#Bunit_Extensions_TestRendererExtensions_RenderComponent__1_Bunit_Rendering_ITestRenderer_Bunit_ComponentParameter___">TestRendererExtensions.RenderComponent&lt;TComponent&gt;(ITestRenderer, ComponentParameter[])</a>
+  </div>
+  <div>
+      <a class="xref" href="Bunit.Extensions.TestRendererExtensions.html#Bunit_Extensions_TestRendererExtensions_RenderComponent__1_Bunit_Rendering_ITestRenderer_System_Action_Bunit_ComponentParameterCollectionBuilder___0___">TestRendererExtensions.RenderComponent&lt;TComponent&gt;(ITestRenderer, Action&lt;ComponentParameterCollectionBuilder&lt;TComponent&gt;&gt;)</a>
+  </div>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="sponsor-highlight">
+                <a href="https://www.telerik.com/campaigns/blazor/free-trial-1?utm_source=egilhansen&utm_medium=cpm&utm_campaign=blazor-trial-bunit-sponsored-message">
+                  <img width="200" src="/sponsors/telerik-ad-site.svg">
+                </a>      
+              </div>
+              <div class="supported">
+                <a href="https://www.packtpub.com/" title="Packt">
+                  <img width="150" src="/sponsors/packt-retina-logo.png">
+                </a>
+                <p>Editorial support provided by <a href="https://www.packtpub.com/" title="Packt">Packt</a>.</p>
+              </div>
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/egil/bUnit/new/main/apiSpec/new?filename=Bunit_Rendering_TestRenderer.md&amp;value=---%0Auid%3A%20Bunit.Rendering.TestRenderer%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                  </li>
+                  <li>
+                    <a href="https://github.com/egil/bUnit/blob/main/src/bunit.core/Rendering/TestRenderer.cs/#L15" class="contribution-link">View Source</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            <small>Documentation updated on 3/16/2021 9:33:36 AM +00:00 in commit 74fd44bf54</small>.
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/cshtml-razor.js"></script>
+    <script>
+      hljs.registerLanguage('cshtml-razor', window.hljsDefineCshtmlRazor);
+    </script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

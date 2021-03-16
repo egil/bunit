@@ -1,0 +1,188 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Namespace Bunit.Rendering
+   | bUnit </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Namespace Bunit.Rendering
+   | bUnit ">
+    <meta name="generator" content="docfx 2.56.6.0">
+    <meta name="description" content="bUnit is a unit testing library for Blazor Components. You can easily define components under test in C# or Razor syntax and verify outcome using semantic HTML diffing/comparison logic. You can interact with and inspect components, trigger event handlers, provide cascading values, inject services, mock IJsRuntime, and perform snapshot testing.">
+  
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+  
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    <meta property="docfx:rel" content="../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img height="60%" id="logo" class="img" src="..//images/blazor-logo.png" alt="bUnit">
+                <span>bUnit</span>
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <div id="sponsor-button">
+                <iframe src="https://github.com/sponsors/egil/button" title="Sponsor egil" height="35" width="116" style="border: 0;"></iframe>
+              </div>
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="Bunit.Rendering">
+  
+  <h1 id="Bunit_Rendering" data-uid="Bunit.Rendering" class="text-break">Namespace Bunit.Rendering
+  </h1>
+  <div class="markdown level0 summary"></div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="markdown level0 remarks"></div>
+    <h3 id="classes">Classes
+  </h3>
+      <h4><a class="xref" href="Bunit.Rendering.BunitHtmlParser.html">BunitHtmlParser</a></h4>
+      <section><p>A AngleSharp based HTML Parse that can parse markup strings
+into a <span class="xref">AngleSharp.Dom.INodeList</span>.</p>
+</section>
+      <h4><a class="xref" href="Bunit.Rendering.ComponentDisposedException.html">ComponentDisposedException</a></h4>
+      <section><p>Represents an exception that is thrown when a <a class="xref" href="Bunit.IRenderedFragmentBase.html">IRenderedFragmentBase</a>'s
+properties is accessed after the underlying component has been dispsoed by the renderer.</p>
+</section>
+      <h4><a class="xref" href="Bunit.Rendering.ComponentNotFoundException.html">ComponentNotFoundException</a></h4>
+      <section><p>Represents an exception that is thrown when a search for a component did not succeed.</p>
+</section>
+      <h4><a class="xref" href="Bunit.Rendering.RenderedComponentActivator.html">RenderedComponentActivator</a></h4>
+      <section><p>Represents a rendered component activator for bUnit.web.</p>
+</section>
+      <h4><a class="xref" href="Bunit.Rendering.RenderEvent.html">RenderEvent</a></h4>
+      <section><p>Represents an render event from a <a class="xref" href="Bunit.Rendering.ITestRenderer.html">ITestRenderer</a>.</p>
+</section>
+      <h4><a class="xref" href="Bunit.Rendering.RenderTreeFrameCollection.html">RenderTreeFrameCollection</a></h4>
+      <section><p>Represents a collection of <span class="xref">Microsoft.AspNetCore.Components.RenderTree.ArrayRange&lt;T&gt;</span>.</p>
+</section>
+      <h4><a class="xref" href="Bunit.Rendering.RootRenderTree.html">RootRenderTree</a></h4>
+      <section><p>Represents a root render tree, wherein components under tests will be rendered.
+Components added to the render tree must have either a <code>ChildContent</code> or
+<code>Body</code> parameter.</p>
+</section>
+      <h4><a class="xref" href="Bunit.Rendering.RootRenderTreeRegistration.html">RootRenderTreeRegistration</a></h4>
+      <section><p>Represents an added component with parameters in an <a class="xref" href="Bunit.Rendering.RootRenderTree.html">RootRenderTree</a>.</p>
+</section>
+      <h4><a class="xref" href="Bunit.Rendering.TestComponentRenderer.html">TestComponentRenderer</a></h4>
+      <section><p>Represents a renderer specifically for rendering Razor-based test files (but not the actual tests inside).</p>
+</section>
+      <h4><a class="xref" href="Bunit.Rendering.TestRenderer.html">TestRenderer</a></h4>
+      <section><p>Represents a bUnit <a class="xref" href="Bunit.Rendering.ITestRenderer.html">ITestRenderer</a> used to render Blazor components and fragments during bUnit tests.</p>
+</section>
+      <h4><a class="xref" href="Bunit.Rendering.WebTestRenderer.html">WebTestRenderer</a></h4>
+      <section><p>Represents a <a class="xref" href="Bunit.Rendering.ITestRenderer.html">ITestRenderer</a> that is used when rendering
+Blazor components for the web.</p>
+</section>
+    <h3 id="interfaces">Interfaces
+  </h3>
+      <h4><a class="xref" href="Bunit.Rendering.IRenderedComponentActivator.html">IRenderedComponentActivator</a></h4>
+      <section><p>Represents an activator for <a class="xref" href="Bunit.IRenderedFragmentBase.html">IRenderedFragmentBase</a> and <a class="xref" href="Bunit.IRenderedComponentBase-1.html">IRenderedComponentBase&lt;TComponent&gt;</a> types.</p>
+</section>
+      <h4><a class="xref" href="Bunit.Rendering.ITestRenderer.html">ITestRenderer</a></h4>
+      <section><p>Represents a generalized Blazor renderer for testing purposes.</p>
+</section>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="sponsor-highlight">
+                <a href="https://www.telerik.com/campaigns/blazor/free-trial-1?utm_source=egilhansen&utm_medium=cpm&utm_campaign=blazor-trial-bunit-sponsored-message">
+                  <img width="200" src="/sponsors/telerik-ad-site.svg">
+                </a>      
+              </div>
+              <div class="supported">
+                <a href="https://www.packtpub.com/" title="Packt">
+                  <img width="150" src="/sponsors/packt-retina-logo.png">
+                </a>
+                <p>Editorial support provided by <a href="https://www.packtpub.com/" title="Packt">Packt</a>.</p>
+              </div>
+              <div class="contribution">
+                <ul class="nav">
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            <small>Documentation updated on 3/16/2021 9:33:36 AM +00:00 in commit 74fd44bf54</small>.
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/cshtml-razor.js"></script>
+    <script>
+      hljs.registerLanguage('cshtml-razor', window.hljsDefineCshtmlRazor);
+    </script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>
